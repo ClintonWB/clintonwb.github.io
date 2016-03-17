@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+<TITLE>How to use Maple as a technical
+word processor for the web</TITLE>
+</HEAD>
+<BODY>
+
+<P>
+<H1>
+How to use Maple as a technical
+word processor for the web
+</H1>
+
+<P>
+Here is an example of a
+
+<P>
+<A HREF="./example.pdf">MAPLE worksheet converted to PDF format</A>
+
+<P>
+for display on the web that you can easily create using maple and the
+<tt>distill</tt> command.
+
+<P>
+I shall now give step by step instructions on how I created such a thing.
+
+<P>
+First, start maple on a math dept SUN and <EM>unselect</EM>
+
+<P>
+<PRE>
+Show Section Ranges
+Show Group Ranges
+</PRE>
+
+<P>
+in case they have been selected by default.
+
+<P>
+Next, click on the INSERT menu and select TEXT INPUT.
+
+<P>
+Type in something like
+
+<P>
+<HR>
+
+<P>
+<PRE>
+MATH 262 Homework Set 1
+
+1. Show that
+</PRE>
+
+<P>
+<HR>
+
+<P>
+Push RETURN a couple of times and then click on the INSERT menu
+again and select MAPLE INPUT.  Type
+
+<P>
+<PRE>
+Int( x^2*sin(x) , x ) = int( x^2*sin(x) , x ) + C;
+</PRE>
+
+<P>
+at the maple prompt and push RETURN.
+
+<P>
+Next, left mouse click and drag over the MAPLE INPUT that you just
+typed, being careful not to highlight the output.  (Or you can
+triple left mouse click on the line to highlight it.)  Now select
+CUT from the EDIT menue and the maple input is gone, leaving just
+the output.
+
+<P>
+Next, left mouse click below the maple output and choose
+TEXT INPUT from the INSERT menu and type
+
+<P>
+<HR>
+
+<P>
+<PRE>
+in three different ways.
+
+2.  Find a second order linear ordinary differential equation
+     with integer coefficients whose solution most resembles
+</PRE>
+
+<P>
+<HR>
+
+<P>
+and push RETURN a couple of times and then click on the INSERT menu
+again and select MAPLE INPUT.  Type
+
+<P>
+<PRE>
+plot( exp(-x)*sin(3*x) , x=0..3 );
+</PRE>
+
+<P>
+and push RETURN.  Next, triple left mouse click on the maple input
+line to highlight it and select CUT from the EDIT menue and the maple
+input is gone, leaving just the graphical output.
+
+<P>
+When the worksheet looks just the way you want it, select PRINT from
+the FILE menu and select OUTPUT TO FILE in the dialogue box that pops
+up and type a name like
+
+<P>
+<tt>
+homework1.ps
+</tt>
+
+<P>
+in the OUTPUT TO FILE window.  Click on PRINT at the bottom of the
+dialogue window.
+
+<P>
+Now you can quit MAPLE and you will find a file called
+<tt>homework1.ps</tt> in the directory in which you started maple.
+
+<P>
+Next, type
+
+<P>
+<PRE>
+distill homework1.ps
+</PRE>
+
+<P>
+This will create a file called <tt>homework1.pdf</tt> suitable for
+putting on the web.  To create a link like the one I made at the top
+of this page to display my PDF file, just add lines like this
+
+<P>
+<HR>
+
+<P>
+<PRE>
+&lt;P&gt;
+The following homework is due today
+
+&lt;P&gt;
+&lt;A HREF="./homework1.pdf"&gt;Math 262 Homework 1&lt;/A&gt; in .pdf format
+</PRE>
+
+<P>
+<HR>
+
+<P>
+to your web page HTML file.
+
+<P>
+For more information about PDF files and the web, see
+
+<P>
+<A HREF="../nn/news2.html">How to put PDF files on the web</A>
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./maple.html">Maple tutorial</A>
+
+<P>
+Back to the
+<A HREF="../math2000.html">MATH 2000 HOME PAGE</A>
+
+</BODY>
+</HTML>

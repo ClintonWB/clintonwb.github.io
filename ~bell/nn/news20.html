@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 20</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot
+set]">
+MATH DEPT Computer News, Volume 20
+</H1>
+
+<P>
+<H1>
+You and your .forward file
+</H1>
+
+<P>
+Let's say your name is Steven Bellisandagorapahockey
+and your login id on math is <tt>sbellis</tt> and you want
+the e-mail you get on your math account to get forwarded
+to an account you like better, say
+
+<P>
+<tt>
+thebigkahuna@gmail.com
+</tt>
+
+<P>
+Just create a file called  <tt>.forward</tt>  in your home directory
+on math containing the single line
+
+<P>
+<tt>thebigkahuna@gmail.com</tt>
+
+<P>
+and the e-mail that comes to  <tt>sbellis@math.purdue.edu</tt>  will
+automatically get forwarded to <tt>thebigkahuna@gmail.com</tt>.
+You won't see a trace of it on your math account.  It will all end
+up at your gmail account.
+
+<P>
+If you want a copy of the e-mail that comes to math to stay
+at math AND get forwarded to <tt>thebigkahuna</tt>, you can put these
+lines in your math  <tt>.forward</tt>  file:
+
+<P>
+<PRE>
+\sbellis
+thebigkahuna@gmail.com
+</PRE>
+
+<P>
+(The "\" is important.  It prevents an infinite loop of e-mail
+forwarding.)
+
+<P>
+If you are going away and you want to respond to all your
+e-mail with an automated "I'll read your message when I get
+back" message, just type
+
+<P>
+<tt>vacation</tt>
+
+<P>
+at a UNIX prompt and follow the instrucitons.  The vacation
+program will create a <tt>.vacation.msg</tt> file and a <tt>.forward</tt> file
+in your home directory.  The <tt>.forward</tt> file will look like this:
+
+<P>
+<tt>\sbellis, "|/usr/bin/vacation sbellis"</tt>
+
+<P>
+If you want to give an automated vacation response, keep a
+copy of all your incoming e-mail at math, and forward another
+copy to your gmail account, just edit the <tt>.forward</tt> file to
+read
+
+<P>
+<PRE>
+\sbellis, "|/usr/bin/vacation sbellis"
+thebigkahuna@gmail.com
+</PRE>
+
+<P>
+Don't forget to move or delete your .forward file when you return.
+
+<P>
+If you don't like the sound of your e-mail address at math, you can set up
+an alias that you like better at the Purdue MAIL*HUB.  For example,
+<tt>sbellis@math.purdue.edu</tt>  could set up an address of
+
+<P>
+<tt>
+kahuna@purdue.edu</tt>
+
+<P>
+He could then arrange for mail that is sent to  <tt>kahuna@purdue.edu</tt>
+to get forwarded to  <tt>sbellis@math.purdue.edu</tt>.
+See <A HREF="./news14.html">Network News 14</A> for an
+explanation of how to set up this service at the Purdue Mail Hub.
+
+<P>
+By the way, the spam filter at the Purdue Mail Hub is better than
+alligate, and gmail's filter is better yet.  I once set up a triple
+filter for my math mail by forwarding my math mail to my Purdue Mail
+Hub account and then forwarding the mail from there to my gmail account.
+It was almost crystal clear when it got to gmail.  I gave this system
+up, however, because my spam reports would get tagged as spam and
+it became very difficult to retrieve messages that alligate snagged
+as spam that weren't really spam.
+
+<P>
+You can get free e-mail accounts at many places, including
+
+<P>
+<PRE>
+hotmail.com
+yahoo.com
+gmail.com
+</PRE>
+
+<P>
+That last one comes from the google people.  I have a copy of all
+my e-mail forwarded to gmail so I can easily search it.  They have
+a huge storage quota and I can save several years worth of e-mail
+there for searching.
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index
+Page</A>
+
+<P>
+Back to the
+<A HREF="../math2000.html">MATH 2000 HOME PAGE</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

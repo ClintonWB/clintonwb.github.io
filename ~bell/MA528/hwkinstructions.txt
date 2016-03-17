@@ -1,0 +1,31 @@
+Homework instructions
+---------------------
+
+MA 528 Advanced Mathematics for Engineers and Physicists II,
+Spring 2016
+
+Text: Advanced Engineering Mathematics by Erwin Kreyszig (10th edition)
+
+Homework requirements: Explain your answers clearly. No credit will be 
+given for correct answers without explanation.
+
+Homework will be collected weekly in BlackBoard, typically on
+Wednesdays. Papers should be time-stamped by 11:59pm Eastern time.
+
+Please, name your homework file in the form LastnameFirstname_#.pdf
+where # is the homework number. So for the HW3 set I would submit a file
+named
+
+BellSteven_3.pdf
+
+All homework problem numbers are from the text Advanced Engineering
+Mathematics 10th Edition by Erwin Kreyszig.
+
+If you have any other edition (including "International 10th Edition") 
+you need to be sure that the homework problems you do match the ones 
+from the US 10th edition. The US 10th edition is on reserve in both
+the Math Library and the Engineering Library.
+
+The schedule on the syllabus may be modified later.
+
+---

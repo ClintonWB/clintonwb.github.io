@@ -1,0 +1,30 @@
+NEW VERSION OF MATLAB    9/14/2001
+
+We recently updated our UNIX system so that Matlab 6
+is the default version.  In order to run this version
+of MATLAB, you must be on a machine operating on
+Solaris 2.8, which many of our machines are not.  You
+can run the latest version by taking the following steps:
+
+1) In an x-term window type
+
+xon banach
+
+This will open an x-window on banach with the display
+directed back to your machine.
+
+2)  type "matlab" in the new window.  This will open a
+separate matlab workspace window.  It will look essentially
+identical to the version on all PUCC machines on campus.
+
+If you wish to run the previous version of MATLAB, you
+can do so by typing "/pkgs/matlab-5.3.1/bin/matlab" in any
+x-term (you don't need to be on banach).  
+
+If there are any problems with matlab, or its compatibility
+with the version supported by PUCC, please bring them to my
+attention, and I will try to have the situation corrected.
+
+
+David Goldberg
+goldberg@math.purdue.edu

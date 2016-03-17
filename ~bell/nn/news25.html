@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 25</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot
+set]">
+MATH DEPT Computer News, Volume 25
+</H1>
+
+<P>
+<H1>
+TeX for Mac OS X
+</H1>
+
+<P>
+plus <tt>ssh</tt> and security issues for Macs.
+
+<P>
+<P>
+<I>by Rodrigo Ba&ntilde;uelos</I>
+
+<P>
+<HR>
+
+NOTE:  These instructions are now rather obsolete.  The whole business
+of TeX on Mac OS is even easier now for the X11 server and "fink" ("fink" 
+compiles and installs unix-linux applications).  Both, the X11 server 
+and the fink package manager are very easy to install and setup.
+Stay tuned for an update from Rodrigo later this year.
+
+<P>
+<HR>
+
+<P>
+Click <A HREF="./macosx.pdf">here</A> to get this page in a
+more printable PDF version.
+
+<P>
+Here are some instructions on how to get TeX working on an "out of the
+box" new Mac and pay no money for it.  I hope they help, but proceed at
+your own risk.  I am not responsible if after you try this your
+beautiful new Mac behaves badly, does not boot, or worst, it explodes
+after reboot.
+
+<P>
+As you probably know, OS-X is a UNIX-based operating system and, as such all
+UNIX programs should, in practice, run on the system.  Indeed, people
+have ported hundreds of UNIX-LINUX programs to OS-X, including teTeX.
+(teTeX is the same texing system used by the math department network
+machines.)  However, unlike some other UNIX-type systems around (such
+as linux), OS-X does not use the "xwindows" system.  Its front-end user
+interface is called "Aqua". For this reason, you need to install teTeX
+and a TeX previewer different from "xdvi".  OS-X does have a "command-
+line terminal," which leads some to think that it is an x-terminal,
+but it is not.  Fortunately, you do not need the "xwindow" system to
+run teTeX, but you do need something to see your math after you tex it.
+
+<H2>
+Installing teTeX
+</H2>
+
+<P>
+Go to
+<A HREF="http://www.rna.nl/tex.html">http://www.rna.nl/tex.html</A>
+and scroll down
+to "TeX Installation and Configuration Products".  Click on "TeX.dmg"
+to begin downloading it.  (Warning: You probably should not do this via
+modem.  It is about 65MB and it will take a very long time.)  Once
+downloaded, click on the icon to unpack it and to mount the disk
+image.  Open the disk image and click on the "TeXGSInstaller" icon.
+This opens a window with several buttons.
+
+<P>
+<OL>
+<LI> Select "Letter Paper
+Size" (top left) so your printing will be properly configured for US-
+type page printing.
+<LI> Click "Install and initialize TeX". At this
+point you will need to enter your "superuser/administrator"
+password. Do this and wait for the installation to complete.
+<LI>Click on "Install GhostScript".  When this is done, close all windows
+and exit the installer.  To use teTeX from the command line, add the
+line
+</OL>
+
+<PRE>
+/usr/local/teTeX/bin/powerpc-apple-darwin-current
+</PRE>
+
+to your PATH in your .schrc file.  If such a file does not exist in your home
+directory, create it and add the line:
+
+<PRE>
+setenv PATH"$PATH:/usr/local/teTeX/bin/powerpc-apple-darwin-current"
+</PRE>
+
+<P>
+Note: If your machine is runnig OS X version 10.2 (the very latest 
+version called Jaguar) you should install the TeX programs using Wierda's
+dedicated TeX i-Installer.app from the above mentioned site or else
+you may not be able to run all the TeX  packages from the
+Terminal.app command line.  If you will do all your texing using
+TeXShop, ignore this comment.
+
+<P>
+If all went well above (and it should have), teTeX should now
+be working.  Open a terminal and test it with a file by typing
+
+<PRE>
+tex file.tex
+</PRE>
+
+<P>
+or
+<tt>latex file.tex</tt> or <tt>pdflatex file.tex</tt>, etc.
+At this point you still need to be able to "see" your math formulas
+after the file has been texed.
+
+
+<H2>
+Installing a Tex Previewer
+</H2>
+
+<P>
+There are several solutions for this now. Perhaps the simplest
+(and a very nice one as well) is TexShop,
+written by Richard Koch, Professor of Mathematics at the University of
+Oregon, and given to the texing world for free.  This is an editor and
+previewer for teTeX.  It runs the "dflatex" or "pdftex" command to
+produce the "ps", "dvi" and "pdf" files all at once. It displays the
+"pdf" file. It is found at
+<A HREF="http://www.uoregon.edu/~koch/texshop/texshop.html">
+http://www.uoregon.edu/~koch/texshop/texshop.html</A>
+Once in your machine, click on it to unzip
+it, if it did not unzip automatically after the download.  Move the
+folder to your "Applications" folder/directory. Click on the TeXShop
+icon, open a file, and press the "tex" or "latex" button to tex it.
+For more information and instructions on how to use and configure
+TeXShop, see Professor Koch's webpage.
+
+<H2>
+Dvi and Postscript files
+</H2>
+
+<P>
+If you have a dvi or postscript file but
+no tex source file, open it with TeXShop.  This will convert it to a
+pdf file and will open the pdf file automatically.  If there are eps
+figures in the file, use "TeX and GhostScript" from the "typeset" menu
+in TeXShop so that the figures are properly displayed.  If you want a
+dvi viewer and a postscript viewer, download them from
+<A HREF="http://www.kiffe.com/textools.html">
+http://www.kiffe.com/textools.html</A>.  The installation instructions
+are there.
+
+<H2>
+Xwindows
+</H2>
+
+<P>
+The whole "xwindows" system (XFree86) has been ported to
+Mac OS-X. It is called "XDarwin". It is now packaged in such a way
+that it is remarkably easy to install.  It runs side by side with Aqua.
+With this you can run xdvi, gv, xfig, xemacs and many other unix/linux
+x-applications, as well as many of the unix-linux window managers such
+as icewm (popular in the math department) and even GNOME and KDE.  For
+information on XDarwin and related matters, see
+<A HREF="http://mrcla.com/XonX">http://mrcla.com/XonX</A>
+and
+<A HREF="http://fink.sourceforge.net/index.php">
+http://fink.sourceforge.net/index.php</A>. This approach is perhaps
+the best solution but it is a little (an epsilon) more difficult to
+install and configure than just installing teTex.
+
+<H2>
+Keeping your TeX up-to-date
+</H2>
+
+<P>
+The above tex distribution for OS-X
+(kindly prepared and maintained by Gerben Wierda) is based on the so
+called "TeXLive-teTeX" distribution which is very much up-to-date with
+many packages which you will probably never need or ever use. To keep
+your TeX installation current, download the "TeX-i-installer" from
+Wierda's site
+<A HREF="http://www.rna.nl/tex.html">
+http://www.rna.nl/tex.html</A> and periodically check for
+updates. This i-installer automatically downloads and installs
+Wierda's new releases of teTeXLive. The instructions on running the
+i-installer are fairly simple.  Click on "check for new package versions
+available" and follow the instructions. With a fast internet
+connection it takes just a few minutes to keep your system current.
+
+<H2>
+Mac Security
+</H2>
+
+<P>
+A Mac running OS-X is not an ordinary Mac: The
+default (factory) installation of Mac OS-X provides a fully
+functional, multiuser, Unix Server.  It is powerful and dangerous at
+the same time as it runs many services which can potentially present
+security problems if your Mac is connected to the internet 100% of the
+time on some local network or via DSL/cable modem at home. This is
+particularly critical if your Mac has a fixed IP address, as is the
+case if you use the Purdue resnet service and you don't have a router
+which automatically shuts off these services.  Services that OS-X runs
+(or can run) include "ssh server", "apache webserver", "telnet server",
+"rlogin server", "finger server", "ftp server", "Apple Talk server",
+and several others.  Most of these services can be turned on by going
+to "System Preferences" then to "sharing".  Some others need to be
+turned on in certain .config files in the "/etc" directory, but unless
+you know what you are doing, I do not recommend messing with those
+files. You can do yourself more harm than good!  To check which "ports"
+are open and to see some of the services running on your Mac, go to
+"Network Utility" then to "Port Scan", enter the name of your machine,
+and scan for open ports.  I recommend closing everything except
+possibly the ssh-server if you need to log into your machine while
+you are away from "home".  The ssh server also runs a secured ftp
+server and can forward x-applications.  To learn about ftp via ssh,
+type "man scp" and "man sftp" in a terminal window.  The files that
+configure the ssh-client and the ssh-server are in the "/etc"
+directory.  Again, I do not recommend messing with these files unless
+you know what you are doing.  Finally, it is extremely important, from
+what I read in security news groups, to maintain your ssh (client and
+server) up-to-date.  Using an outdated ssh for which all the bugs and
+security holes have been well advertised and documented is worse than
+not using ssh at all.  This applies to all ssh users on any system.  As
+of this writing, the latest "openssh" (OpenSSH-3.4p1) was released
+June 26, 2002.  I suggest running "software update", from "system
+preferences", periodically.  Thus far Apple has been fairly good with
+security updates (I think).  Also, check
+<A HREF="http://www.openssh.org">
+http://www.openssh.org</A> for new
+releases.
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index
+Page</A>
+
+<P>
+Back to the
+<A HREF="../math2000.html">MATH 2000 HOME PAGE</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

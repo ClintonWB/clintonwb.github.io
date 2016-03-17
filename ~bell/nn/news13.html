@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 13</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot set]">
+MATH DEPT Computer News, Volume 13
+</H1>
+
+<H1>
+How to dork your official classlist.
+</H1>
+
+<P>
+<HR>
+
+Click on <B>RELOAD</B> now.  This page is frequently updated and
+you might be looking at an old version saved by your netscape cache.
+
+<P>
+<HR>
+
+<P>
+I explain here how to use a simple command to transform the classlist
+that Peter Cook sends you via e-mail into a list of names to put in a
+file useful for keeping grades electronically.  For example, the lines
+
+<P>
+<PRE>
+262  02 01  MC LOUGHLIN, ERIN M          4   CHE  3.0    999-99-9998
+262  02 01  TSENG, PANG-TAT BILLY BOY    2   E    3.0    999-99-9999
+</PRE>
+
+<P>
+will be transformed into the more useful
+
+<P>
+<PRE>
+MC_LOUGHLIN,E.M.
+TSENG,P.-T.B.B.
+</PRE>
+
+<P>
+The command is called <tt>listdorker</tt> and I wrote it myself.  It
+is a <I>perl</I> script.  To get a copy of the command, simply
+shift-left mouse click on
+
+<P>
+<A HREF="./listdorker">listdorker</A>
+
+<P>
+and save the command in a file called "listdorker."  (Alternatively,
+left mouse click on it and select SAVE AS from the FILE menu and save
+the file as TEXT in a file called listdorker.)  Move the file
+to the same directory where you keep the file that holds the classlist that
+Peter Cook sent you.  (Be sure to strip the mail header and blank
+lines from Peter Cook's list.)   Make your listdorker file executable
+by typing
+
+<P>
+<PRE>
+chmod u+x listdorker
+</PRE>
+
+<P>
+Let's say that your copy of Peter Cook's list is called "classlist."
+To use listdorker, simply type
+
+<P>
+<PRE>
+listdorker classlist &gt; nameslist
+</PRE>
+
+<P>
+This command will create the file "nameslist."  (If you want to
+see what nameslist will look like without creating it, simply type
+
+<P>
+<PRE>
+listdorker classlist
+</PRE>
+
+<P>
+This will send the names list to the screen.)
+
+<P>
+Don't worry, your old classlist file will remain unchanged where you
+left it.
+
+<P>
+The listdorker command is easy to modify for other uses.  Instructions
+for how to do that are included in the listdorker file.
+
+<P>
+For information on how to import your new nameslist into a
+spreadsheet, see <A HREF="./news4.html">Network News, volume 4</A>.
+
+<P>
+For information on how to use <tt>awk</tt> to compute grades, see
+<A HREF="./awk_grades">The Joy of awk</A>.
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index Page</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

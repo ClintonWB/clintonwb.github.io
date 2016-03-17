@@ -1,0 +1,297 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 19</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot
+set]">
+MATH DEPT Computer News, Volume 19
+</H1>
+
+<P>
+<H1>
+Those damned attachments!
+</H1>
+
+<P>
+I explain here how to extract and decode e-mail attachments
+of various kinds.
+
+<P>
+<HR>
+
+Click on <B>RELOAD</B> now.  This page is frequently updated and
+you might be looking at an old version saved by your netscape cache.
+
+<P>
+<HR>
+
+<P>
+The longer you have been using the same old mail handler to do e-mail,
+the more likely you are to suffer from e-mail attachments that
+you either can't extract, or if you can extract, you can't decode.
+
+<P>
+If you still use Berkeley mail (i.e., if you type "mail" at a UNIX
+prompt) to do e-mail, you should really try to learn something better
+and newer to use.  The best and easiest system for most casual users is
+the e-mail program called <tt>pine</tt>.  It handles attachments
+better than <tt>elm</tt> and much better than <tt>mail</tt>.
+See <A HREF="../Course/pine.html">How to use pine</A> for a
+quick and simple pine tutorial for the basics.  For those who insist on
+continuing to use only Berkeley mail, I explain how to use the command
+<tt>metamail</tt> below to extract attachments.
+
+<P>
+Another good way to view attachments is via Netscape Mail.
+Network News <A HREF="./news23.html">Volume 23</A>
+explains how to move mail with attachments over to Netscape
+Mail where you can usually click on an attachment to view it.
+(The attachments appear at the bottom of the e-mail.  You can
+also click on the "paper clip" icon to toggle the showing of
+the attachment viewing box at the bottom of the screen.)
+
+<P>
+<HR>
+
+<H2>
+How to use pine to handle e-mail attachments
+</H2>
+
+<P>
+I assume here that you know the basics about pine as
+described at <A HREF="../Course/pine.html">How to use pine</A>.
+
+<P>
+The best way to learn how to do these things is to e-mail
+yourself an attachment.  I have a DVI file called <tt>exm.dvi</tt>
+in the <tt>Math530</tt> subdirectory of my home directory.  Here's
+what I do to e-mail it to myself as an attachment.  First I start
+pine by typing
+
+<P>
+<tt>pine</tt>
+
+<P>
+in an xterm window.  Next, I use the arrow keys to scroll to the
+
+<P>
+<PRE>
+C   COMPOSE MESSAGE -  Compose and send a message
+</PRE>
+
+<p>
+line and push RETURN (or just type the shorcut "c").  Next I
+fill in the <tt>To:</tt> line with my own login id at math and
+push RETURN or use the down arrow to move to the next line.  I
+skip the <tt>Cc:</tt> line (unless I want to impress someone
+else that I know how to do attachments).  Next I fill
+in the <tt>Attchmnt:</tt> line with the string
+
+<P>
+<tt>
+~/Math530/exm.dvi
+</tt>
+
+<P>
+NOTE: The tilde (~) in this line stands for my HOME directory.
+
+<P>
+It is good form to put something like <tt>exm.dvi</tt> in the
+<tt>Subject:</tt> line.
+
+<P>
+Next I use the down arrow to move into the Message Text area and
+jot myself a note.  Finally, I type CONTROL-x to send the mail in
+pine and type "y" to confirm that, yes, I really do want to send it.
+
+<p>
+In a few seconds I receive my e-mail.  I go back to the Folders
+List and get to my INBOX.  I scroll down to highlight the message
+from myself with the attachment and push RETURN.  After my little
+note to myself, I see
+
+<P>
+<PRE>
+[Part 2, ""  Application/OCTET-STREAM (Name: "exm.dvi")  4.6KB]
+[Cannot display this part. Press "V" then "S" to save in a file]
+</PRE>
+
+<P>
+Next, I type "v" and make sure the attachment I want to save is
+highlighted.  Then I press "s" to save the attachment in a file.
+I get prompted to save the file as <tt>exm.dvi</tt> in my HOME
+directory.  If that's ok, I just type RETURN.  If it's not ok,
+I backspace over the default filename and type something like
+
+<p>
+<tt>
+~/Math530/exm_copy2.dvi
+</tt>
+
+<p>
+and push RETURN.  Then I type "e" for exit and "q" for quit
+and pat myself on the back.
+
+<P>
+<HR>
+
+<H1>
+metamail
+</H1>
+
+<P>
+If you don't want to use pine instead of plain old Berkeley mail or elm,
+you'll need to use a command like <tt>metamail</tt> to handle attachments.
+I'll give a couple examples of how to use it here.  The first example
+handles an encoded text attachment.
+
+<P>
+Here is a typical attachment bummer that, if you haven't experienced
+yet, you will soon.  Someone sends you an e-mail with an important
+text message included as an attachment.  You might actually be able
+to read the text of the attachment in your mail program (like elm).
+Now you save the e-mail to a file because you want to use it somewhere
+else.  But when you open the file to edit, you find something like
+this:
+
+<P>
+<PRE>
+--16387385-3703-954786724=:97
+Content-Type: TEXT/PLAIN; charset=US-ASCII
+
+Dear Steve,
+The attachment contains my important report.
+Best,
+Sam
+
+--16387385-3703-954786724=:97
+Content-Type: TEXT/PLAIN; charset=US-ASCII; name="bell.tex"
+Content-Transfer-Encoding: BASE64
+Content-ID: <Pine.WNT.3.96.1000403143204.97J@math.umich.edu>
+Content-Description:
+
+XGRvY3VtZW50c3R5bGVbMTJwdF17YXJ0aWNsZX0NClx0aXRsZXtSZXBvcnQg
+b24gQ29udmV4IE1hcHBpbmdzIGluIHRoZSBCYWxsLn0NClxiZWdpbntkb2N1
+bWVudH0NClxtYWtldGl0bGUNCg0KVGhlIHJlc3VsdCBpcyBpbnRlcmVzdGlu
+Zy4gSG93ZXZlciB0aGVyZSBhcmUgc29tZSBzaG9ydGNvbWluZ3MgaW4NCnRo
+ZSB3cml0aW5nIHdoaWNoIG11c3QgYmUgYWRkcmVzc2VkIGJ5IHRoZSBhdXRo
+b3JzLlRoZXJlIGFyZSBhbHNvDQphIGZldyBtaW5vciBtYXRoZW1hdGljYWwg
+cG9pbnRzIHdoaWNoIEkgdGhpbmsgc2hvdWxkIGJlIGZpbGxlZCBpbg0KYnkg
+dGhlIGF1dGhvcnMgYmVmb3JlIHRoZSBhcnRpY2xlIGNhbiBiZSBhY2NlcHRl
+ZCBmb3IgcHVibGljYXRpb24uDQoNClx2c2tpcCAwLjVpbg0KDQpUaGUgbWF0
+aGVtYXRpY2FsIHBvaW50cyBhcmUgYXMgZm9sbG93cy4NCg0KXHZza2lwIDAu
+NWluDQoNCiBJbiB0aGUgcHJvb2Ygb2YgTGVtbWEgMi4xIHRoZSBhdXRob3Jz
+IG1pZ2h0IHBvaW50IG91dA0KdGhhdCB0aGUgbGluZSAkTF97cn0kIG1lZXRz
+IHRoZSBiYWxsICRCKHYsXHJobykkIGF0IGEgcG9pbnQgc2F5DQokUF57J30k
+....etc.
+....etc.
+....etc.
+DQogVGhlIGRlZmluaXRpb24gMi42IGlzIHVubmVjZXNzYXJ5IGFuZCBpdCB3
+b3VsZCBzdWZmaWNlIChhbmQgaW4gbXkNCiB0aGlua2luZyBiZSBtb3JlIGNs
+ZWFyKSBpZiB0aGV5IHdyb3RlICRccHNpXntudH0gPSBccHNpX3tudH0kDQog
+YXMgdGhleSBkbyBsYXRlciBpbiB0aGUgcGFwZXIuDQogXHZza2lwIDAuNWlu
+DQoNClxlbmR7ZG9jdW1lbnR9DQo=
+</PRE>
+
+<P>
+The problem here is that the text file attachment has been
+encoded using BASE64 conventions.  Elm decoded it for viewing,
+but not for saving.  To decode and save the file, you can
+do this:
+
+<P>
+Save the e-mail to a file called <tt>tempmail</tt> (for example).
+Next, type
+
+<P>
+<PRE>
+metamail tempmail > filename
+</PRE>
+
+<P>
+where <tt>filename</tt> is the name of the file where you want
+to put a decoded copy of the e-mail.  The lines of gibberish
+above should be converted to readable text in filename.
+
+<P>
+If the file tempmail above had been an encoded binary file, like
+a DVI or PDF file, then instead of sending the output of metamail to
+a file called <tt>filename</tt>, you should just type
+
+<P>
+<PRE>
+metamail tempmail
+</PRE>
+
+<P>
+and the .dvi or .pdf files would be created in the same directory
+where the file <tt>tempmail</tt> resides.  (If you have a lot of
+files in your home directory, you might consider creating a temporary
+directory called, say <tt>Temp</tt>, and moving the file <tt>tempmail</tt>
+there before running this command.  For example, if you do this:
+
+<P>
+<PRE>
+mkdir Temp
+mv tempmail Temp
+cd Temp
+metamail tempmail
+</PRE>
+
+<P>
+you will find all the new files easily in the <tt>Temp</tt>
+directory.)
+
+<P>
+What metamail does with a <tt>jpeg</tt> attachment is to ask whether you
+want to view it with <tt>xv</tt>.  If you answer "yes" and click on the
+resulting picture with the right mouse button, a menu will appear
+allowing you to rotate, crop, and save, etc.
+
+<P>
+If the file <tt>tempmail</tt> is an encoded MSWORD file, you can
+follow the same steps.  Assume that you have saved an msword document
+in a file called <tt>letter.doc</tt>.  You can view the file by
+typing
+
+<P>
+<tt>abiword letter.doc</tt>
+
+<P>
+I have found that the abiword program in
+
+<P>
+<tt>/opt/local/bin/abiword</tt>
+
+<P>
+does not always properly print what it shows on the screen.  To print
+your msword document, you might need to <tt>ftp</tt> the file to a Windows
+machine.  (Be sure to set the mode to BINARY by typing <tt>binary</tt> at
+the ftp prompt before making the transfer.)  A similar story applies to
+files identified as <tt>mac-bin-hex</tt>.  They need to be transfered to
+a mac and then uncompressed using <tt>stuff-it</tt>.
+
+<P>
+If your attachment originated from the web and is in
+the HTML language, see
+Network News <A HREF="./news23.html">Volume 23</A>
+for how to move it over to Netscape Mail for viewing.
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index Page</A>
+
+<P>
+Back to the
+<A HREF="../math2000.html">MATH 2000 HOME PAGE</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

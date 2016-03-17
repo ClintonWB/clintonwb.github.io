@@ -1,0 +1,212 @@
+<HTML>
+<HEAD>
+<TITLE>Beginners Guide to Emacs</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Beginners Guide to Emacs</H1>
+
+<P>
+by<br>
+Donu Arapura
+
+<P>
+<H2>Pros.</H2>
+
+<OL>
+<LI>
+Under the X-interface, you can select text or basic commands with the
+mouse (unlike vi).
+<LI>
+Until you save the file you're editing, all actions are reversible. And
+it saves a back up (ending with ~) just in case you really screw up.
+<LI>
+It's very powerful. Not only can it  be used to edit files, but also to
+read mail, read news, and run other programs (e.g. TeX, shells...) and parse
+the output or error messages in some useful way.
+<LI>
+It's customizable in the extreme. More about that later.
+</OL>
+
+<P>
+<HR>
+
+<P>
+<H2>Cons.</H2>
+
+</OL>
+<LI>
+It can be slow, especially on an old machine.  However, emacs can be
+run remotely on a faster machine. Also it's a good idea to have only one
+copy of emacs running for as long as you think you need it.
+<LI>
+It has a reputation of being hard to use. Part of this stems from the
+fact that emacs traditionally required users to memorize a long list of
+complicated key combinations. Under the X-interface however, this is not so
+critical.
+</OL>
+
+<P>
+<HR>
+
+<H2>
+Basics and Some Terminology.
+</H2>
+
+<P>
+Usually, emacs is invoked by typing "emacs", or "emacs &" (if you use
+solaris, you may need to fiddle with your path first). To edit a file select
+"open file" from the menu, to save it select "save buffer", type Control-g to
+cancel a previous command, and select "exit emacs"  to quit.
+
+<P>
+<B>Buffers:</B> A buffer is a copy of the file that you are editing. Until you
+actually save the buffer, you can undo commands many times. Emacs can
+handle several buffers simultaneously - which is why you won't need to run
+multiple emacs's.
+
+<P>
+<B>Minibuffer:</B> The strip along the bottom of emacs. For certain commands
+such as searches, you may be required to type information into it.
+
+<P>
+<B>Modes:</B> Emacs is modal in the sense that it "knows" about many different
+kinds of files (TeX files, shell scripts, C programs, html files...),
+and will change behaviour accordingly.
+
+<P>
+<HR>
+
+<P>
+<H2>Invoking Commands from Keyboard.</H2>
+
+<P>
+Some commands cannot be accessed through a menu, but ALL
+commands can be invoked from the keyboard. Unfortunately, this is
+where emacs gets its bad reputation. Emacs often uses multiple key
+combinations where some keys have to be "modified" by also pressing
+the control  or esc keys first. A complete list can be found under
+"List Keybindings" of the help menu ( "C-" and "M-" means control
+and esc). A brief list: quit (C-x C-c), save buffer (C-x C-s), open file
+(C-x C-f), search forward (C-s), search backward (C-r),
+cancel last command (C-g).
+
+<P>
+On Sun keyboards, keys labeled "page up", "undo", "cut"... should have
+the expected meanings.
+
+<P>
+It's possible to define your own key bindings in your .emacs file.
+See below.
+
+<P>
+<HR>
+
+<P>
+<H2>More Help.</H2>
+
+<P>
+There's considerable help from within emacs itself (obviously under
+the help menu). Beyond that,there are news groups, a number of
+resources on the web, and even a book or two. If all else fails and
+you need to curse, try M-x doctor
+
+<P>
+<HR>
+
+<P>
+<H2>TeX Modes.</H2>
+
+<P>
+Emacs comes prebuilt with a basic tex mode, but there is a more refined
+one called AUC-TeX that I've installed in my directory (but can used by
+anyone, as I'll explain below).  In these modes, you get visual clues
+about the correctness of your file: balancing of $'s, braces..., and
+(optional) colour coding. TeX or LaTeX can be run directly under
+these modes. In the case of AUC-TeX,  emacs can parse the error
+messages and  go directly to the offending lines of the appropriate
+source files.
+
+<P>
+<HR>
+
+<P>
+<H2>Customization.</H2>
+
+<P>
+<H2>1. X resources.</H2>
+
+<P>
+The external appearance of anything running under X can be set in an
+initialization file such as .Xdefaults. To increase the size of the fonts
+that emacs uses, you can append <A HREF="./arapura.txt">THESE LINES</A> to your
+.Xdefaults file, or another way to copy these lines to the end of your
+.Xdefaults file is to type:
+
+<P>
+<tt>
+cd<br>
+cat .Xdefaults ~dvb/pub/sample.Xdefaults > tempXdefaults<br>
+mv -f tempXdefaults .Xdefaults
+</tt>
+
+<P>
+<H2>2. .emacs</H2>
+
+<P>
+When emacs starts up, it reads a file in your directory called .emacs (if
+it exists). This file can make emacs do pretty much anything. It is in fact
+a lisp program, so it requires a little know-how to create from scratch.
+I've written a  <A HREF="./emacs.txt">sample .emacs file</A> that you can
+download here or you can copy it from my account via UNIX by typing
+
+<P>
+<tt>
+cp ~dvb/pub/sample.emacs .emacs
+</tt>
+
+<P>
+then modify it to suite your taste. It's set up to invoke AUC-TEX and
+colour coding. If you want to make changes, the main thing to keep
+in mind is that a sentence in lisp looks like  (...), and anything
+to the right of a semicolon is treated as a comment.
+
+<H2>
+ADDENDUM, 9/22/99
+</H2>
+
+<P>
+We have now installed AUC-tex system-wide for the new emacs
+(which is at /pkgs/gnu/bin/emacs for both older SunOS 
+and newer Solaris machines).  So if you use that and
+remove
+
+<P>
+<tt>
+(setq load-path (cons "~dvb/elisp" load-path))
+</tt>
+
+<P>
+and just leave
+
+<P>
+<tt>
+(require 'tex-site)
+</tt>
+
+<P>
+in your .emacs, you should be OK.
+
+<H2>
+
+<HR>
+ADDENDUM, 1/29/02
+</H2>
+
+<P>
+Check out this <A HREF="http://www.math.purdue.edu/~dvb/xdvi.html">New
+version of xdvi</A> that connects to the emacs editor for interactive
+TeX viewing and editting.
+
+</BODY>
+</HTML>

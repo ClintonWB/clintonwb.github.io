@@ -1,0 +1,399 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 11</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot set]">
+MATH DEPT Computer News, Volume 11
+</H1>
+
+<H1>
+How to submit an NSF proposal via the fastlane at
+</H1>
+
+<P>
+<A HREF="http://www.fastlane.nsf.gov"><tt>http://www.fastlane.nsf.gov</tt></A>
+
+<P>
+<I>It's fast, it's easy, it's fun, it won't improve your chances.</I>
+
+<P>
+<HR>
+
+Click on <B>RELOAD</B> now.  This page is frequently updated and
+you might be looking at an old version saved by your netscape cache.
+
+<P>
+<HR>
+
+<P>
+I just finished uploading my NSF proposal via the fastlane and I think
+it is the way to go.  I'll explain here what I did.  Don't be afraid
+to mess around in the fastlane.  You can delete and overwrite pieces
+of your proposal a million times and nobody will ever know about it.
+The fastlane is for creating a proposal bit by bit from scratch and
+what you are doing will not be released or visible to anybody but you
+until the whole thing is done and you click on the <tt>ALLOW SRO ACCESS</tt>
+box (explained below).  The more you play around there, the more
+comfortable you will be that the thing really works.  I believe it does.
+I trust it more than I trust Purdue DSP to make 10 copies of my
+proposal and mail them in a timely manner to the correct address.
+
+<P>
+If after reading this you decide that you want to upload your
+proposal, but you are nervous about doing it yourself, Betty or I
+can do it for you in 5 minutes.  We've done it for several people now.
+
+<P>
+<H2>Step 1</H2>
+
+<P>
+First, call Kim Dixon (4-4958) at Purdue DSP and tell her that you will
+be preparing an NSF proposal this season.  She will give you a PIN number
+that will allow you to submit and edit pieces of your NSF proposal at the
+fastlane.
+
+<P>
+<H2>Step 2</H2>
+
+<P>
+Prepare your proposal in TeX as usual, but cut it into four pieces
+like this:
+
+<PRE>
+sum.tex       A. PROJECT SUMMARY
+nsf.tex       C. PROJECT DESCRIPTION (including results from prior...)
+refs.tex      D. REFERENCES
+bio.tex       E. BIOGRAPHICAL SKETCH
+</PRE>
+
+<P>
+(Section B. is the TABLE OF CONTENTS which gets generated
+automatically at the fastlane.)
+
+<P>
+If you are using <tt>latex</tt> with automatic reference
+tags, see <A HREF="./latex.html">this little note.</A>
+
+<P>
+<HR>
+
+<P>
+About page numbering, computer wiz, Joe Lipman, found
+the answer below in the online documentation at the fastlane:
+
+<P>
+From NSF fastlane FAQ's:
+
+<P>
+<I>How should I paginate my FastLane proposal?</I>
+
+<P>
+You should number the first page of the Project Description as
+number 1. Each other section of the proposal that you can number
+(the forms that you upload as PDF files) you should number
+beginning with number 1.
+
+<P>
+<HR>
+
+<P>
+However, the published instructions for NSF proposals say the
+pages must be numbered consecutively through the end of the proposal
+and so that FAQ should be a never asked question.
+I wouldn't worry too much about your page numbering system.  I
+have an e-mail from one of the program directors that says that
+it doesn't really matter how you do it.
+
+<P>
+If you want to set your page numbers to something different than
+is natural, use an AMS-TeX command like
+
+<P>
+<tt>
+\pageno=7
+</tt>
+
+<P>
+or a LaTeX command like
+
+<P>
+<tt>
+\setcounter{page}{7}
+</tt>
+
+<P>
+<H2>Step 3</H2>
+
+<P>
+Next, create the following PDF files to be uploaded to the NSF main
+computer.
+
+<PRE>
+sum.pdf
+nsf.pdf
+refs.pdf
+bio.pdf
+</PRE>
+
+<P>
+For example, to create <tt>nsf.pdf</tt> just run the following
+sequence of commands:
+
+<P>
+<tt>
+amstex nsf.tex<br>
+dvips -Pweb nsf.dvi<br>
+distill nsf.ps<br>
+</tt>
+
+<P>
+The last command creates a file called <tt>nsf.pdf</tt> that
+you can view by typing
+
+<P>
+<tt>
+acroread nsf.pdf &
+</tt>
+
+<P>
+<HR>
+
+<P>
+NOTE:
+
+This page is rather outdated.  The new Linux servers support
+the commands <tt>pdflatex</tt> and <tt>pdftex</tt> that create
+a PDF file directly from the TeX source file.  If you run TeX 
+to create a DVI file, you can then run <tt>dvipdf</tt>, which 
+will create a PDF file from the DVI file.  There is also
+<tt>ps2pdf</tt> that will convert a PostScript file to PDF.
+
+<P>
+<HR>
+
+<P>
+<H2>Step 4</H2>
+
+<P>
+The Purdue DSP office initializes your proposal cover page for you.
+They botched mine up a bit and I had to go in and fix it myself.  This
+turned out to be easy.  First, cd to the directory in which you store
+your NSF proposal PDF files and type
+
+<P>
+<tt>
+netscape http://www.fastlane.nsf.gov &
+</tt>
+
+<P>
+and scroll down and click on
+
+<P>
+<tt>
+Proposal Preparation
+</tt>
+
+<P>
+You will get a window with three boxes.  Click in the first box and
+type your last name (lower case is ok).  Next, click in the second
+box and type in your social security number (without spaces or
+hyphens).  Next, click in the third box and type the four digit
+PIN that Kim Dixon gives you.  (Note, don't use the TAB key to move
+from one input box to another.  It chokes on it.)  Finally, click on
+the <B>Proposal Preparation</B> box.  You will get a screen with your
+personal data on it.
+
+<HR>
+
+<H2>IMPORTANT</H2>
+
+Do not use the <B>Back</B> and <B>Forward</B> buttons of Netscape to
+move around the fastlane.  You must use the <B>OK</B> and
+<B>CANCEL</B> buttons provided on the web pages at the NSF instead or
+the whole thing will get fouled up.
+
+<HR>
+
+<P>
+You will probably notice that your personal data is botched up.  Click
+on the
+
+<P>
+<tt>
+EDIT INFORMATION
+</tt>
+
+<P>
+box near the bottom of the information rectangle and edit the fields
+that are empty or wrong.  Input phone numbers without hyphens, spaces,
+or parentheses.  (If the thing demands that you fill in your address
+line that you left blank, fill in
+
+<P>
+<tt>
+1395 Mathematical Sciences
+</tt>
+
+<P>
+and click on OK.)  One element of mine that was particularly wrong was the
+check button that said I had never been a PI or CO/PI of an NSF
+grant before.  It's near the bottom.  Make sure it's right.
+
+<P>
+Your personal data should look ok now.  This first web page of your
+NSF proposal area is the front door to your proposal.  It is the one
+place you can (and must) use the Netscape buttons to exit from.  From
+anyplace else, click on CANCEL or OK until you are back to this front
+door to get out.
+
+<P>
+<H2>Step 5</H2>
+
+<P>
+Now that the front end of your proposal looks ok, go to the
+
+<P>
+<tt>
+PROPOSAL ACTIONS
+</tt>
+
+<P>
+box near the bottom and make sure the <tt>STANDARD PROPOSAL</tt> box is
+checked and click on OK.
+
+<P>
+A temporary NSF proposal number should be highlighted in the
+rectangle.  Click on the EDIT box under the rectangle.  The EDIT
+box takes you to a sceen that allows you to view or edit the
+various pieces of your proposal.
+
+<P>
+Click on the <tt>PROJECT SUMMARY</tt> button in the rectangle and then
+click on the
+
+<P>
+<tt>
+GO TO FORM
+</tt>
+
+<P>
+box at the bottom of the rectangle.  If you had submitted a Project
+Summary earlier, you could view it by clicking on <tt>DISPLAY CURRENT
+SUMMARY</tt>.  The first time you find yourself here, you will probably
+want to upload a PDF file containing your Project Summary.  Click on
+the BROWSE box near the bottom of the page.  A list of your files
+on the computer in front of you will appear.  If you started Netscape
+from the directory in which you store your NSF proposal files, you'll
+see something like this in the FILE box:
+
+<P>
+<tt>
+/u/u9/bell/Proposals/
+</tt>
+
+<P>
+Type the filename of your project summary PDF file at the end of this
+line so it looks something like
+
+<P>
+<tt>
+/u/u9/bell/Proposals/sum98.pdf
+</tt>
+
+<P>
+or better yet, scroll the files by until you see the one you
+want and then double click on it (or select OK).
+
+<P>
+(You can use the arrow keys to scroll this long string if it doesn't
+fit in the little box so you can verify that it is all there.)
+
+<P>
+Click on OK and then click on the TRANSFER PDF box.  Click on OK
+until you have confirmation that the NSF computer has received your file.
+
+<P>
+When you have finished uploading your project summary, you can click
+on the DISPLAY CURRENT SUMMARY box near the top to verify that the
+NSF has what you think it has.  When you click on this box, the PDF
+file will pop up in an ACROREAD reader (be patient, it could take a
+long time for the window to pop up after you click on the display
+button).  If you want to change your summary, click on the DELETE box
+and then start Step 5 over again.
+
+<P>
+When you are satisfied that everything is ok with your summary, click on
+
+<P>
+<tt>
+RETURN TO FORM SELECTOR
+</tt>
+
+<P>
+Repeat this process for each of the other three items:
+
+<PRE>
+nsf.pdf
+refs.pdf
+bio.pdf
+</PRE>
+
+<P>
+<H2>Step 6</H2>
+
+<P>
+Ask the business office to upload your COVER PAGE and BUDGET and
+CURRENT AND PENDING SUPPORT items.  After this is done, you will
+notice that the proposal title will appear next to the temporary
+number in the rectangle.  (Make sure you only have one proposal
+in preparation.  I once started a second one by mistake and had
+to delete it by highlighting it in the box and then clicking on
+DELETE.)
+
+<P>
+<H2>Step 7</H2>
+
+<P>
+When you think your proposal is totally done, go to the PROPOSAL
+PREPARATION KIT box and click on PRINT underneath the box.  Select
+PRINT THE WHOLE PROPOSAL in the box that pops up.  Your
+proposal will appear all shiny and finished looking in an acroread
+reader window (after a 20 or more seconds wait).  Select PRINT from
+the FILE menu of the acroread window and your proposal will print
+on your default printer.  Take it to the business office to be copied
+to Purdue DSP with signatures, etc.
+
+<P>
+<H2>Step 8</H2>
+
+<P>
+One last thing to do:  when the business office says you are done
+and you say you are done, click on the
+
+<P>
+<tt>
+ALLOW SRO ACCESS
+</tt>
+
+<P>
+button underneath the proposal preparation kit rectangle.  This
+clears the thing to be released by Purdue DSP so that the NSF
+can send it out for review.
+
+<P>
+I don't know what happens next, but I'm sure it will be disappointing.
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index Page</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,249 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 29</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot
+set]">
+MATH DEPT Computer News, Volume 29
+</H1>
+
+<P>
+<H1>
+How to update your login shell from <tt>csh</tt> to <tt>tcsh</tt>
+</H1>
+
+<P>
+If you, like me, have had an account on the Math network of SUNs
+since the days of Wyse 50 terminals, chances are your login shell
+is still set to be <tt>csh</tt> instead of the new and improved
+<tt>tcsh</tt> that new users get by default these days.
+
+<P>
+I recently changed my login shell to tcsh and have become so
+powerful and efficient at the UNIX prompt that it scares me.
+I explain below how you can do likewise.
+
+<p>
+First, let me assure you that you will cause yourself no stress
+by upgrading your shell to tcsh.  The commands of the old csh are
+a subset of the new tcsh and you can have the new shell, but continue
+your same old behavior at the the UNIX prompt, and not notice
+the change.  Also, your old <tt>.cshrc</tt> file will continue
+to work just fine, so any aliases you have created over the years
+will continue to work.  But, if you ever type a few commands in tcsh
+and decide you want to rerun a variant of a previous command,
+you can now push the UP arrow on your keyboard and see old commands
+scroll by in reverse order.  When you see the one you want to rerun,
+you can even use the LEFT arrow to go back into the command
+and edit it by using the BACKSPACE key and inputting new
+text by just typing it in.  When it is all fixed and ready to go,
+just push RETURN and it will run.  (That's the main reason I wanted
+the upgrade, after I saw more savy users doing things like this
+before my eyes that I had never dreamed possible.)
+
+<P>
+If you'd like to experiment with tcsh before switching to it,
+just type
+
+<P>
+<tt>
+tcsh
+</tt>
+
+<P>
+at a UNIX prompt.  You'll get a new prompt, but you won't notice
+a change until you type an UP arrow.  When you are done experimenting
+with tcsh, just type
+
+<P>
+<tt>
+exit
+</tt>
+
+<P>
+at the prompt and you'll be back in your old csh.
+
+<P>
+One minor difference between csh and tcsh that I got used to very
+quickly is that you push TAB instead of ESC to complete file names.
+For example, in the old csh, if I had a file called <tt>transcendental.tex</tt>,
+I could type only
+
+<P>
+<tt>
+amstex tra
+</tt>
+
+<P>
+and then push ESC and the rest of the filename would suddenly appear:
+
+<P>
+<tt>
+amstex transcendental.tex
+</tt>
+
+<P>
+and I would push RETURN and run the command.  In tcsh, I need to
+push TAB in place of ESC to do the same thing.
+
+<P>
+I learned lots of little tidbits about the new tcsh shell
+in very short order by consulting the web page
+
+<P>
+<A HREF="http://www.tcsh.org">http://www.tcsh.org</A>
+
+<P>
+But, to learn enough to become powerful and efficient beyond
+my wildest imaginings, I got my hands on the O'Reilly handbook
+<I>Using csh &amp; tcsh</I> by Paul DuBois.
+
+<P>
+If you want to see who is in the know and who isn't, type
+
+<P>
+<tt>
+finger bell
+</tt>
+
+<p>
+to see that user <tt>bell</tt> is using tcsh instead of csh:
+
+<P>
+<PRE>
+Login name: bell                        In real life: Steven R Bell
+Directory: /homes/bell                  Shell: /usr/bin/tcsh
+</PRE>
+
+<P>
+I bet <tt>lipshitz</tt> is a csh man.
+
+<P>
+You can also check to see what shell you are using by
+typing
+
+<P>
+<TT>
+set | grep -i shell
+</TT>
+
+<P>
+To take the simple steps needed to change your shell to tcsh,
+just type the following command while logged on to any math machine: 
+
+<P>
+<tt>
+passwd -r ldap -e
+</tt>
+
+<P>
+You will be prompted to enter your current password.  After you do
+that, you will be asked to enter the path to a "New Shell."  Type
+
+<P>
+<tt>
+/bin/tcsh
+</tt>
+
+<P>
+Then log off and log back in and you'll have a new shell.  Now,
+every time you log in, you will have the tcsh shell.  (If you
+want to change back to csh at some point, repeat this process and
+type /bin/csh for your new shell.)
+
+<P>
+If you update your <tt>.cshrc</tt> at the same time that you switch
+to <tt>tcsh</tt>, you might need to make some small changes to your
+new <tt>.cshrc</tt> file to make things work the way you are used to.
+For example, you might need to change the lines that make your default
+printer <tt>lpub9</tt> to some other printer, and you might need to
+change your <tt>umask</tt>.  See <A HREF="./unix.html">UNIX</A> for
+math related information about UNIX and <A HREF="./filemodes">filemodes</A>
+for an explanation of UNIX filemodes and your <tt>umask</tt> setting.
+
+<P>
+If you have an antique <tt>.login</tt> file, I've been told that you
+can just delete it after you update your <tt>.cshrc</tt> to the latest
+version.  That fixed a bug or two for me.
+
+<P>
+See <A HREF="http://www.math.purdue.edu/resources/computing/faq">
+http://www.math.purdue.edu/resources/computing/faq</A> for more information about
+other shells (like <tt>bash</tt>) that can be chosen.  (<tt>bash</tt> is very
+much like tcsh, with the only drawback that you will have to deal with conflicts
+between your <tt>.cshrc</tt> file and a <tt>.bash</tt> file that you will have
+to create.)
+
+<P>
+One last word about an advanced feature.  On our system, <tt>tcsh</tt> uses
+<tt>emacs</tt> style key bindings by default for editing the command line.  I
+wanted to use <tt>vi</tt> style key bindings instead because I am a vi master
+of the 6th level.  An easy way to get this feature is to add the line
+
+<P>
+<tt>
+bindkey -v
+</tt>
+
+<P>
+to your <tt>.login</tt> file, or better yet, to add the lines
+
+<P>
+<PRE>
+if ($?tcsh) then
+bindkey -v
+endif
+</PRE>
+
+<P>
+to your <tt>.cshrc</tt> file instead.
+
+<P>
+Imagine the feeling of typing
+
+<P>
+<tt>
+!?tex?:gs/paper1/paper2/
+</tt>
+
+<P>
+to rerun an old command
+
+<P>
+<tt>
+amstex paper1 ; dvips -Pweb paper1 ; distill paper1.ps ; rm paper1.ps
+</tt>
+
+<P>
+that you ran twenty lines ago, but with <tt>paper2</tt> in place of <tt>paper1</tt>.
+Ah... that's nice.
+
+<P>
+NOTE:
+
+This page is rather outdated.  The new Linux servers support
+the commands <tt>pdflatex</tt> and <tt>pdftex</tt> that create
+a PDF file directly from the TeX source file.  If you run TeX
+to create a DVI file, you can then run <tt>dvipdf</tt>, which
+will create a PDF file from the DVI file.  There is also
+<tt>ps2pdf</tt> that will convert a PostScript file to PDF.
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index
+Page</A>
+
+<P>
+Back to the
+<A HREF="../math2000.html">MATH 2000 HOME PAGE</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

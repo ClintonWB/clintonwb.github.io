@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 24</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot
+set]">
+MATH DEPT Computer News, Volume 24
+</H1>
+
+<P>
+<H1>
+How to make your home PC feel just like your office computer
+</H1>
+
+<P>
+If you've been running Windows 95 and using a 2400 baud modem
+to connect to the Math Dept SUN's since 1997, this volume of
+the Network News is for you.  I explain here how you can upgrade
+your system beyond your wildest imaginings so that it begins to
+function much like a SUN workstation on the <tt>math.purdue.edu</tt>
+network.  At the same time, this upgrade will greatly improve
+the security of your connection.
+
+<P>
+Mac users: see <A HREF="./news25.html">Volume 25</A>, by
+Rodrigo Ba&ntilde;uelos.
+
+<P>
+First, you can easily and cheaply upgrade your operating system to
+Windows XP.  Like me, you might be surprised how
+much better various things work after the upgrade.  Purdue faculty
+and students can buy the Windows XP upgrade packages from
+the Copy Center in the Purdue Union for a mere $5.  For an additional
+$5, faculty can also buy the Microsoft 2003 Office package that
+contains MS-Word and Excel.  Go to
+<A HREF="http://www.purdue.edu/msca">http://www.purdue.edu/msca</A>
+to see a list of what other software is available.
+
+<P>
+If you used to telnet to <tt>banach.math.purdue.edu</tt> from home
+to check your math e-mail and work on files, you will certainly want
+to set up software on your home machine to run a "secure shell."  You
+can download a nice version of <tt>ssh Secure CRT</tt> software, 
+free for Purdue people, at
+<A HREF="https://engineering.purdue.edu/PULS/">
+https://engineering.purdue.edu/PULS/</A>.  You'll need to give your
+Purdue Career accound login id and password to do the download.   (It
+is the same as the software you can buy from
+<A HREF="http://www.ssh.com">http://www.ssh.com</A>.)
+It is very simple to install and
+run and it works very nicely.  The ssh connection makes your password
+and everything else you send over the phone lines encrypted.  (A plain
+oldfashioned telnet connection does not and it is possible for someone
+to "sniff" the line and get your login and password.)
+
+<P>
+Next, get a DSL connection from Verizon or a cable modem connection
+from Insight Digital.  You will be able to browse the web and download
+files at home with nearly the same ease that you do in your office, and
+you won't tie up your home phone line.
+
+<P>
+If you have a fast connection and you want to use X-window applications
+from your home computer that are running on a math machine, you will
+need to set up X-server software.  Purdue faculty and graduate students
+may download and install <tt>PC X-ware</tt>  on personally
+owned PC-compatible computers from
+<A HREF="https://engineering.purdue.edu/PULS/">
+Purdue PC X-ware download site</A> for free.  (Don't bother with
+X-servers if you use a slow dial-up connection.  They will be so
+slow and drippy as to drive you insane.)  However, if you are like me
+and only use a few X-programs like <tt>xdvi</tt> from home, you won't
+need the full blown thing from PC X-ware.  Robert McGraw told me about a
+free, small, and very functional X-server called <tt>Xming</tt>.  It
+is based on the well designed Cygwin system.  See this
+<A HREF="http://gears.aset.psu.edu/hpc/guides/xming/">site at Penn
+State</A> for links to download Xming and a nice explanation of how to
+use it to tunnel X-connections through your secure shell program.
+
+<P>
+To get a <I>secure</I> X connection that works exactly as the one described
+for PUCC PC's at Louis Scott's
+<A HREF="http://www.math.purdue.edu/~bell/nn/PUCC">Special Issue</A>,
+of the Network News, you will need to log onto a math machine via the
+secure SSH program described above and click on the <tt>Settings</tt>
+icon (two little gears) and click on <tt>Tunneling</tt>
+under <tt>Profile Settings</tt>.  Put a check mark in the box that says
+"Tunnel X11 Connections" and click on OK.  (Select Save Settings from
+the FILE menu so that you will never have to do this again.)
+
+<P>
+You'll need to start your X-server (by clicking on the little Xming icon,
+for example) before or after you start SSH to get the X connection.
+After that, you can type a command like <tt>xdvi paper.dvi</tt> in the
+secure SSH window and an xdvi X-window should pop up on your home screen
+just like it would in your office.
+
+<P>
+You should be warned that DSL or cable modem connections 
+hook your home computer onto the internet with its own IP address.
+Although it is against the law for an unwelcome hacker to gain access
+to and alter your home computer files, it is quite possible.  I became
+paranoid about this after I ran a program called Black Ice
+Defender on my home computer and discovered that between 10 and 20
+different people a day seemed to be snooping around by my machine.
+Be sure to turn on the software firewall in Windows XP.
+
+<P>
+Finally, I should mention in closing that I accomplished all of the
+things above with a fair amount of cursing and gnashing of teeth.
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index
+Page</A>
+
+<P>
+Back to the
+<A HREF="../math2000.html">MATH 2000 HOME PAGE</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

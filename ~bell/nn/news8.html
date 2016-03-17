@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 8</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot set]">
+MATH DEPT Computer News, Volume 8
+</H1>
+
+<H1>
+A convenient way to do e-mail from home.
+</H1>
+
+<P>
+by guest columnist, <I>Donu Arapura</I>
+
+<P>
+<HR>
+
+Click on <B>RELOAD</B> now.  This page is frequently updated and
+you might be looking at an old version saved by your netscape cache.
+
+<P>
+<HR>
+
+
+I'm writing a  guest column for the network news.
+The topic is how to check or send email from
+a home computer or a laptop and a modem
+without actually telnetting to the
+math department and logging in. This is something that I had
+wondered about  because I wanted to avoid tying
+up the phone line, as well as the possibility of getting disconnected
+in midstream (which has happened more than once).
+Last year,  I stumbled on a solution which has worked well for me,
+and it should for you.
+
+<p>
+The first thing to do is to  set up a new email account at Purdue's Mail*Hub .
+If you do not know know your <tt>ph</tt> login ID and password, you will
+first need to fill out the information at the bottom of
+
+<P>
+<A href="http://directory.purdue.edu/MAIL-HUB/md/email.htm">
+http://directory.purdue.edu/MAIL-HUB/md/email.htm</a>,
+
+<P>
+and then wait to receive your ID and password by campus mail.
+
+Once you have your ID and password, you can logon to the ph service and
+set your mail  service to <B>store</B> by following these steps:
+
+<UL>
+<LI> Open the website,
+<A href="http://directory.purdue.edu/">http://directory.purdue.edu/</a>
+<LI>Click on <B>Change your entry</B> at the bottom of the page
+<LI>You will be prompted to logon to the ph system.
+<LI>Logon with your ph alias and password.
+<LI>Click on <B>Change service</B>.
+<LI>Change the default <B>reject</B> to <B>store</B> and click on
+"OK."
+</UL>
+
+<P>
+At this point you will be able to receive mail at an address which
+looks like
+
+<P>
+<TT>
+firstname.initial.lastname.number@purdue.edu
+</TT>
+
+<P>
+However, you have the option of setting up a shorter alias.
+More information can be found at
+<A href="http://directory.purdue.edu/">
+http://directory.purdue.edu/</a>.
+
+<p>
+The next step is to create a file called <tt>.forward</tt> in your directory
+at math with the following two lines:
+
+<P>
+<TT>
+\your-math-login@math.purdue.edu <br>
+your-mailhub-name@purdue.edu <br><br>
+</TT>
+
+<P>
+(Of course, "your-..." should be replaced by your actual login id's).
+
+<P>
+The effect of this is to forward a copy of all email
+sent to the math department to your new account, while keeping a copy
+on the math department system.  (The "\" in the first line is designed to
+prevent a disastrous infinite loop, so either OMIT THE FIRST LINE
+if you don't plan on checking email from math, or KEEP THE BACKSLASH.)
+
+<p>
+Finally you'll have to set up things on your home computer.
+I'll assume that you've successfully set up  PPP.  Then,
+if you haven't already done so, you'll need to install an email program,
+such as <I>Eudora</I> (see
+<A href="http://www.eudora.com">http://www.eudora.com</a>),
+that can handle the <B>POP</B> mail protocol.
+You'll need to configure this appropriately. Although
+the specific steps depend on your software, one way or another
+you will need to give it the following information:
+
+<P>
+<UL>
+<LI>
+the  pop server (<TT>postoffice.purdue.edu</TT>),
+<LI>
+your mail-hub login id or alias,
+<LI>
+your mail-hub password,
+<LI>
+the smtp server (e.g. <TT>gauss.math.purdue.edu</TT>
+if you're dialing up through math) <br>
+</UL>
+
+<p>
+That's it. To check your email from home
+just dial up and connect to the server and  get your mail, then
+disconnect. You can now read it at your leisure.  Similarly you
+can compose your email without being connected, and then dial up
+only when it's time to send it.  If you're at the math department,
+you'll have a duplicate copy of all email on the local
+mail spool, so you can use elm, pine, xmail or whatever you normally
+use to check it.
+
+<p>
+There are a couple of variations on the above instructions.  For
+example, if you use a commercial internet provider, you should
+be able to modify the above instructions to forward mail to that
+address.  Also you can use more than one computer to  check mail
+at your ...@purdue.edu address.  For example, in addition
+to a home computer, you can set up Netscape running on a workstation
+here to do this also.  If you do this but want to keep a copy
+of all received email on one particular machine, you can set up the other
+emailers  to leave the email on the server (or if you can't then
+try another emailer).
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index Page</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

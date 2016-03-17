@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 17</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot
+set]">
+MATH DEPT Computer News, Volume 17
+</H1>
+
+<P>
+<H1>
+How to improve visibility of fonts on older, smaller monitors
+</H1>
+
+<P>
+from the pen of Brad Lucier, Computer Committee Chair
+
+<P>
+<HR>
+
+Click on <B>RELOAD</B> now.  This page is frequently updated and
+you might be looking at an old version saved by your netscape cache.
+
+<P>
+<HR>
+
+<P>
+I would like to suggest the following changes that you can make to your
+account to make life easier using a 17" monitor with Sun computers.
+Basically, they get around the fact that letters will be small with a
+small monitor.  In the following "click" means "left click".
+
+<P>
+<OL>
+<LI>
+I suggest you make the fonts bigger in Netscape.  In Netscape, under
+the "Edit" menu at the top, open Preferences (the last item).  Click on
+the triangle next to Appearance in the left menu so it is pointing down,
+and click on Fonts.
+
+<P>
+On the right of the line "Variable Width Font" set the Size default to
+18.0 (I'm presuming the font is still set to "Times (Adobe)".)
+
+<P>
+On the right of the line "Fixed Width Font", set the size to 14.0.
+(I'm assuming the font is set to "Courier (Adobe)".)
+
+<P>
+I also suggest you change the default background color from grey to white.
+
+<P>
+To do this, with the Preferences window open, click on "Colors" on the
+left menu.  Click on the colored square next to the word "Background"
+You will get a rectangular array of colors.  Click on the white color
+and click "OK".
+
+<P>
+Then click "OK" on the Netscape preferences window.
+
+<P>
+<LI>
+I suggest you change the color of the Xterm windows to have black
+letters on a white background.  To do this, edit the file .Xdefaults in
+your home directory. (E.g., say "vi .Xdefaults".)  You may have lines like
+
+<P>
+<PRE>
+XTerm*foreground:      bisque
+XTerm*background:      dodgerblue4
+</PRE>
+
+<P>
+Put an exclamation point at the start of each line to comment them
+out, so it looks like
+
+<P>
+<PRE>
+!XTerm*foreground:      bisque
+!XTerm*background:      dodgerblue4
+</PRE>
+
+<P>
+and add the lines
+
+<P>
+<PRE>
+XTerm*foreground:      black
+XTerm*background:      white
+</PRE>
+
+<P>
+I also suggest you change the default font in xterms to be bigger.
+If you have a line
+
+<P>
+<PRE>
+XTerm*VT100*font: lucidasanstypewriter-bold-14
+</PRE>
+
+<P>
+I suggest you change it to
+
+<P>
+<PRE>
+XTerm*VT100*font: lucidasanstypewriter-bold-16
+</PRE>
+</OL>
+
+<P>
+Note: You can always make the font in an individual xterm larger
+or smaller by moving the mouse pointer into the window, holding
+down the CONTROL key, and then holding down the right mouse button.
+Slide the mouse pointer down to your font size choice and let go
+when you get there.  The choices are
+
+<P>
+<PRE>
+Default
+Unreadable
+Tiny
+Small
+Medium
+Large
+Huge
+</PRE>
+
+<P>
+<HR>
+
+<P>
+Thanks to Meike Niederhausen for helping me with a survey of the
+departmental computer labs and trying several things on her account.
+
+<P>
+Brad Lucier
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index Page</A>
+
+<P>
+Back to the
+<A HREF="../math2000.html">MATH 2000 HOME PAGE</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

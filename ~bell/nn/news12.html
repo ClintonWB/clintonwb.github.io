@@ -1,0 +1,201 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 12</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot set]">
+MATH DEPT Computer News, Volume 12
+</H1>
+
+<H1>
+Quick and dirty math on the internet
+</H1>
+
+<P>
+<HR>
+
+Click on <B>RELOAD</B> now.  This page is frequently updated and
+you might be looking at an old version saved by your netscape cache.
+
+<P>
+<HR>
+
+<P>
+I explain here how I use <tt>maple</tt> to respond to an e-mail
+query like the one below:
+
+<P>
+<HR>
+
+<P>
+<PRE>
+To: bell@math.purdue.edu
+From: goober@cartoon.ecn.purdue.edu
+Subject: HELP!!!!
+
+For the last 72 hours I have been trying to solve the equation
+x y' + y = 1.  I'm beginning to think that it doesn't have a
+solution.  Please help me!!!
+
+Jimmy Goober
+
+P.S.  My roomate wants me to ask you what the integral
+of x^2 sin(7x) is.
+</PRE>
+
+<P>
+<HR>
+
+<P>
+I shall now dispose of these questions in a few simple keystrokes.
+First, I start an e-mail message to Mr. Goober in an xterm using
+an editor like vi.  Then I fire up <tt>maple</tt> in another
+xterm by typing
+
+<P>
+<PRE>
+maple
+</PRE>
+
+<P>
+NOTE: That's <tt>maple</tt>, not xmaple.  I want the ASCII terminal version
+of maple for this task.
+
+<P>
+After I type maple, I see
+
+<P>
+<PRE>
+hua-231% maple
+
+    |\^/|     Maple V Release 4 (WMI Campus Wide License)
+._|\|   |/|_. Copyright (c) 1981-1996 by Waterloo Maple Inc. All rights
+ \  MAPLE  /  reserved. Maple and Maple V are registered trademarks of
+ &lt;____ ____&gt;  Waterloo Maple Inc.
+      |       Type ? for help.
+
+&gt; 
+</PRE>
+
+<P>
+Next I type the following commands at the &gt; prompt.
+
+<P>
+<PRE>
+&gt; Diff(y,x) + (1/x)*y= 1/x;
+
+                              dy 
+                              --  + y/x = 1/x
+                              dx 
+
+&gt; u(x)= exp( Int( 1/x , x ) );
+                                         /
+                                        |
+                            u(x) = exp( |  1/x dx)
+                                        |
+                                       /
+
+&gt; Int( x^2 * sin(7*x) , x) = int( x^2 * sin(7*x) , x ) + C;
+
+  /
+ |  2                      2
+ | x  sin(7x) dx = - 1/7 x  cos(7x) + 2/343 cos(7x) + 2/49 x sin(7x) + C
+ |
+/
+
+</PRE>
+
+<P>
+To answer Mr. Goober in a prompt and courteous fashion, I shall click
+with my left mouse button at the start of a portion of maple output
+that I want to copy to my e-mail and then I shall click with the right
+mouse button at the end of the text to select it.  Then I shall click
+with the middle mouse button while in input mode of vi in my e-mail to
+insert the selected text from maple in the e-mail.  (If you're a
+dexterous mouser, you can left mouse click and drag over the text to
+select it ---and then right mouse click to adjust the ending point.)
+
+<P>
+Note: If you use vi, you'll want to set your <I>wrapmargin</I> to zero
+before you glob text into your file with the middle mouse button.
+To do this, simply type
+
+<P>
+<tt>
+:set wm=0
+</tt>
+
+<P>
+in command mode of vi.
+
+<P>
+Here is the result of my efforts:
+
+<P>
+<HR>
+
+<P>
+<PRE>
+Dear Mr. Goober,
+
+Notice that you can divide your ODE by x to obtain
+
+                              dy
+                              --  + y/x = 1/x ,
+                              dx
+
+a first order linear ODE in standard form.  The integrating factor
+will be
+                                         /
+                                        |
+                            u(x) = exp( |  1/x dx ) = x .
+                                        |
+                                       /
+
+Use this as in Section 1.3 of B & D to get the solution in the
+back of the book.
+
+See you in class on Monday?
+
+P.S. Tell your roomate
+
+  /
+ |  2                      2
+ | x  sin(7x) dx = - 1/7 x  cos(7x) + 2/343 cos(7x) + 2/49 x sin(7x) + C
+ |
+/
+
+</PRE>
+
+<P>
+<HR>
+
+<P>
+As you can see, this is also a nice way to display mathematics
+on the web.  That last equation was set in HTML via
+
+<P>
+<PRE>
+&lt;P&gt;
+&lt;PRE&gt;
+ /
+ |  2                      2
+ | x  sin(7x) dx = - 1/7 x  cos(7x) + 2/343 cos(7x) + 2/49 x sin(7x) + C
+ |
+/
+&lt;/PRE&gt;
+</PRE>
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index Page</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

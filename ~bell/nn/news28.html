@@ -1,0 +1,260 @@
+<HTML>
+<HEAD>
+<TITLE>Computer News, Volume 28</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+<IMG SRC="../mandelbrot.gif" ALIGN=MIDDLE WIDTH=200 ALT="[mandelbrot
+set]">
+MATH DEPT Computer News, Volume 28
+</H1>
+
+<P>
+<H1>
+How to create an e-mail filter via a <tt>.procmailrc</tt> file
+</H1>
+
+<P>
+Do you get twenty to thirty e-mail messages per day about the NSF
+VIGRE program like I do?  I describe here various ways you can filter
+messages like these so that they can be dispensed with in a timely and
+efficient manner.
+
+<P>
+You will create a file named <tt>.procmailrc</tt> in your home
+directory.  Click <A HREF="./myprocmailrc.txt">HERE</A> to see
+what my hypothetical <tt>.procmailrc</tt> looks like.  I will
+explain what the lines do and how you can modify them to suit
+your needs.  (To see my actual .procmailrc, type
+<TT>more&nbsp;~bell/.procmailrc</TT>
+from any math.purdue.edu machine.)
+
+<P>
+To begin, let's consider what the lines at the top of the file
+do:
+
+<P>
+<PRE>
+PATH=/local/bin:/usr/bin
+SHELL=/bin/sh
+MAILDIR=$HOME/Mail
+# LOGFILE=$MAILDIR/from.procmail
+</PRE>
+
+<P>
+The first two lines are standard and you'll probably want to
+leave them alone.  (The cyber savy like Clarence Wilkerson might
+use the <tt>nmh</tt> program to process their mail.  They'll
+know what to add here for that.  Click
+<A HREF="./wilkerprocmailrc.txt">HERE</A> to see Clarence's
+.procmailrc file.)
+
+<P>
+The line
+
+<P>
+<tt>
+MAILDIR=$HOME/Mail
+</tt>
+
+<P>
+explains that I keep my e-mail folders in a directory called <tt>Mail</tt>
+in my home directory.  I use the e-mail program called <tt>elm</tt> and
+that's where elm puts mail folders.  If you use <tt>pine</tt>, you'll want
+to change this line to
+<P>
+
+<P>
+<tt>
+MAILDIR=$HOME/mail
+</tt>
+
+<P>
+because pine puts mail folders in a directory called <tt>mail</tt> with a
+small "m".
+
+<P>
+If you use Netscape mail, you'll need to figure out where
+Netscape stores your mail folders.  Older versions of Netscape used
+<TT>$HOME/nsmail</TT>, but newer versions might use something as odd as
+<TT>$HOME/.mozilla/bell/upz7ekg9.slt/Mail</TT>
+
+<P>
+If you use plain old Berkeley <tt>mail</tt>, you really ought to switch to pine
+today.  See my <A HREF="../Course/pine.html">pine tutorial</A> for a quick
+lesson on how to use pine.
+
+<P>
+The next line
+
+<P>
+<tt>
+# LOGFILE=$MAILDIR/from.procmail
+</tt>
+
+<p>
+is commented out.  If you delete the <tt>#</tt> and the blank space at
+the beginning of the line, a file named <tt>from.procmail</tt> will be
+created in the mail directory that you specified above telling you everything
+that your procmail filter has done lately.  You might do this for awhile
+until you gain confidence that the system really works.  (The from.procmail
+file can get rather large and you'll want to delete it from time to time.)
+
+<P>
+Ok, now for the fun part.  Let's start with the block of lines
+
+<P>
+<PRE>
+:0:
+* ^Subject:.*VIGRE
+vigrestuff
+</PRE>
+
+<P>
+This block causes the procmail program to scan the header of each of my
+incoming mail messages for the word <tt>vigre</tt> in the Subject line.
+The scan is not case sensitive, so vigre, VIGRE, and Vigre (and even a
+VIgrE from David Drasin) will cause a match.  If a match is found, the
+mail message will get sent to a mail folder called <tt>vigrestuff</tt>
+in my Mail directory.  (If the file does not exist, it will be created
+the first time a vigre subject is encountered.)  I will never see these
+messages in my mail inbox, but later, at my conveniece, I can start elm
+and open my <tt>Mail/vigrestuff</tt> mail folder and dispense with the
+messages all in one place.
+
+<P>
+The lines
+
+<P>
+<PRE>
+:0:
+* ^Subject:.*Wicked Screensaver
+/dev/null
+</PRE>
+
+<P>
+send any e-mail with a Subject line that matches "Wicked Screensaver"
+to oblivion (which is "/dev/null" in computer lingo).  You'll never
+see these messages and you'll never know you got them (unless you
+are keeping that logfile we mentioned above).  You can replace the
+<tt>:0:</tt> line in blocks that send to /dev/null by a mere <tt>:0</tt>
+but I don't want to explain that here.
+
+<P>
+The lines
+
+<P>
+<PRE>
+:0:
+* ^Subject:.*mortgage
+trash
+</PRE>
+
+<P>
+send any message with the word "mortgage" in the Subject line to a
+mail forlder named <TT>trash</TT>.  Every now and then I look through
+the trash folder and trash it.
+
+<P>
+I am particularly offended by messages that suggest that we might
+like to increase the size of our VIGRE program.  The next block
+will send these messages to /dev/null.
+
+<P>
+<PRE>
+:0 BH:
+* ^Subject:.*VIGRE
+* size
+/dev/null
+</PRE>
+
+<P>
+The <TT>:0&nbsp;BH:</TT> on the first line tells procmail to
+scan both the Header and the Body of the e-mail.  (Of course,
+it is important to put this block above the block that sends
+vigre messages to my vigrestuff folder.)
+
+<P>
+It is important to have those blank lines between blocks.  You'd
+be surprised to learn that the second colon in the <tt>:0:</tt>
+command causes a "lockfile" to be created.  I learned most of what
+I know about procmailrc's by pouring over this elegant and
+<A HREF="./bestprocmailrc.txt">well crafted .procmailrc</A> of one
+of our former system admininstrators.
+
+<P>
+It happens from time to time that a spam message with a distinctive
+subject line sneaks by alligate <I>en masse</I> (because the alligate
+settings need to be set at a rather low level so that important messages
+about, say, <I>degenerate pseudodifferential operators</I>, can get through
+to us).  For example, I got a whole bunch of messages with subject
+line <tt>{subj190107}</tt> the other day.  I could have added the lines
+
+<P>
+<PRE>
+:0:
+* ^Subject:.*subj190107
+trash
+</PRE>
+
+<P>
+to my .procmailrc that day and sent that stuff to my Mail/trash
+folder so I could delete it all in one sitting later.  When the
+flow of that particular spam stopped, I would delete those lines
+from my .procmailrc.
+
+<P>
+Fiddling with a procmailrc to post-filter spam is probably for
+advanced useres only.  A computer savy graduate student I know
+pointed out to me that a safer, and perhaps more useful way to
+post-filter spam, is to use an e-mail client with an adaptive spam
+filter such as Mozilla Thunderbird.  The satisfied user told me
+
+<P>
+<I>
+After "teaching" it what spam is for about a week, it filters out well 
+over 90% of my post-filter spam, and I have yet to have a real message 
+filtered out.  When new trends come up in spam that start to circumvent
+the filter, I just mark the intruders as spam, and Thunderbird "learns"
+to filter out the new ones as well.
+</I>
+
+<P>
+<HR>
+
+<P>
+To learn much more about the nitty gritty details of the procmailrc,
+and to see more examples, type
+
+<P>
+<PRE>
+man procmailrc
+man procmail
+</PRE>
+
+<P>
+to see our man pages about procmail, and go to
+
+<P>
+<A HREF="http://www.procmail.org">http://www.procmail.org</A>
+
+<P>
+to learn more than you could ever hope to want to know.
+
+<P>
+<HR>
+
+<P>
+Back to the <A HREF="./index.html">Network News Index
+Page</A>
+
+<P>
+Back to the
+<A HREF="../math2000.html">MATH 2000 HOME PAGE</A>
+
+<P>
+<HR>
+
+</BODY>
+</HTML>

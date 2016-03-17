@@ -1,0 +1,120 @@
+PORTABLE MAC FACTS
+------------------
+
+If the connection to the BARCO projector comes unplugged during a
+class demonstration, the only remedy seems to be to be to select
+SHUTDOWN from the SPECIAL menu on the Mac, replug the BARCO wires in,
+then turn on the Mac to reboot and start over.
+
+If the Mac is all set up and running and you haven't used it for
+several minutes, you might find that the screen has gone dim or
+even totally black.  The machine goes into sleep mode after it has
+been inactive for a while.  Just push RETURN and it will fire back
+up in a few seconds and leave you where you left off before it went
+to sleep.
+
+Neil Carlson discovered that even if you turn the volume totally off
+on the control panel before you start a game of Space Invaders while
+proctoring an exam, the game sound effects are not off.  And they won't
+stop if you push CONTROL-C or CONTROL-PERIOD or CONTROL-Z or ESCAPE
+or any combination of these keystrokes.  Your only recourse at this
+point is to to unplug the Mac and run into the hall with it and stay
+there until "The Ride of the Walkyries" is over.
+
+MAPLE on a mac
+--------------
+
+To change the font sizes of the input font, the text font, and the
+output font on a MAPLE worksheet:
+
+To change the font size, pull down the FORMATS menu.  Don't
+bother with the menu item that says SIZE under the FONT submenu.
+It merely changes the font size of selected text.  Select the
+FORMATS submenu of the FORMATS menu (below the FONTS submenu).
+A dialogue box pops up and you can change the fonts.  (So far I
+haven't checked the box at the bottom to make my changes the new
+defaults.  None of us should do that until we are sure what we
+want.)
+
+To download a MAPLE session (in  .ms form) from a SUN to a portable
+Mac:
+
+From MAPLE on the SUN, select SAVE AS from the FILE menu and save
+your worksheet as filename.ms.  Next, get a UNIX prompt and cd to the
+directory where  filename.ms  has been deposited (which will be the
+directory you were in when you fired up MAPLE, if you haven't changed
+the filter).  Insert a disk into the disk drive on the machine you
+are logged onto.  (You can't do this from an X-terminal.  You might
+have to go up to a named machine in the Keedy Lab.)  Type
+
+mwrite -t filename.ms FILENAME.MS
+
+at the UNIX prompt.  (To get your disk back, type  eject  at a
+UNIX prompt.)  This will copy filename.ms to the disk and give
+it the name, FILENAME.MS there.  (The name of the file on the disk
+can be the same or different from the name of the file on the SUNs
+and capital letters don't matter either.)
+
+Turn on your portable Mac.  After it boots up, shove your disk
+in the slot on the right hand side of the machine until it
+clicks and starts reading.  Open up the hard disk icon.  Double
+click on the MAPLE folder.  Click in the MAPLE folder window.
+Select "Make folder" from the FILE menu and make a folder with
+your name on it.  Open up the icon of the disk you read in and
+drag the icon for FINLENAME.MS (PC) to the folder with your name
+on it.  (You can now eject the transfer disk by dragging its icon
+to the stupid little trash can at the bottom right corner of the
+screen.)
+
+Fire up MAPLE on the Mac and select OPEN from the FILE menu.
+A dialogue box pops up.  (If you don't know your way around a
+Mac, you might have trouble finding your folder and your file at
+this point.  I sure did.)  Once you find your file, double click
+on it.  NOW HERE IS SOMETHING REALLY DUMB:  On a SUN, when
+you select OPEN, the MAPLE session comes up in a Worksheet
+and you can edit it and use it and execute it, no sweat.  On the
+Mac, the FILENAME.MS session comes up in a second window called a
+"Scratch pad."  If you edit it or push return on a command
+on this Scratch Pad, the results are copied to the main worksheet
+window and executed there.  This will kill any demo you have
+created that works on your SUN.  To make the Mac work like a
+SUN, you need to click on the Scratch Pad window, choose SELECT
+ALL from the FILE menu on the Scratch Pad window, then select COPY
+from the EDIT menu on the Scratch Pad window, then click on the
+Worksheet window, then select PASTE from the EDIT menu on the
+Worksheet.  Now you can close the Scratch Pad window and it will
+be as if you selected OPEN on a SUN.
+
+Things to watch out for:  The backslash in front of the newline
+character \n  that must appear in formatted print statements like
+
+printf(`answer = %-10.5f \n`, y);
+
+does not transfer from a DOS formatted disk to the Mac.  You
+have to manually go in and put the  \  back in front of the n.
+After that, you can select SAVE AS from the FILE menu and
+save your worksheet as a bona fide Mac .ms file (without the
+PC extension) and you won't have to worry about this again.
+
+Oh yeah.  Graphics that have been pasted into a worksheet don't
+transfer from SUN to Mac either.  (I can't imagine why.  They are
+standard simple raster files in the .ms file.)  That is a bummer.
+On a SUN, you can select EXECUTE WORKSHEET from the VIEW menu and
+the machine starts from the top line and automatically pushes return
+at the end of each line in succession all the way down to the end
+in no time flat.  On the Mac, this feature seems to be missing.  To
+get the graphic at line 50 to pop up on a Mac worksheet that you
+have read in, you can manually push ENTER 50 times or you can use
+the mouse to highlight (i.e., select) the first 50 commands and then
+push ENTER.
+
+Another odd feature of MAPLE on the Mac is the function of the NEW
+command on the FILE menu of a Worksheet.  On a SUN, if you want to
+clear all the variables you have defined without quitting and reloading
+MAPLE, you select NEW from the FILE menu and you get a fresh worksheet.
+On the Mac, if you select NEW, you get a fresh "Scratch Pad."  All the
+variables you defined in the session are still defined.  When you type
+in the scratch pad, the output goes to the worksheet.  If you want to
+clear all the variables you have defined, type "restart;" at a prompt.
+This has the same effect as the NEW menu item on the SUNs.
+
