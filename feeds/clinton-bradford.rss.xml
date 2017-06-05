@@ -1,37 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clinton's blog</title><link>http://clintonbradford.com/</link><description></description><atom:link href="http://clintonbradford.com/feeds/clinton-bradford.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 04 Jun 2017 02:00:00 -0400</lastBuildDate><item><title>Why I started lcais</title><link>http://clintonbradford.com/posts/2017/06/lcais-initial/</link><description>&lt;blockquote&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clinton's blog</title><link>http://clintonbradford.com/</link><description></description><atom:link href="http://clintonbradford.com/feeds/clinton-bradford.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 04 Jun 2017 02:00:00 -0400</lastBuildDate><item><title>Why I started lcais</title><link>http://clintonbradford.com/posts/2017/06/lcais-initial/</link><description>&lt;p&gt;One of the strengths of WebAssign over LonCapa is the mathpad/calcpad/chempad/equationpad WYSIWYG (what-you-see-is-what-you-get) input system. Many students do not know intuitively how to translate an equation in text back and forth between the symbols they may use on paper, and in this switch to LonCapa we are taking them out of that comfort zone.&lt;/p&gt;
+&lt;p&gt;I hope to make a free, open-source WYSIWYG system, placeholder name LCAIS (LonCapa Algebra Input System). I hope to build something that the students can more intutitvely use to answer questions and solve problems.&lt;/p&gt;
+&lt;p&gt;A quick MVP was up and running in a few days, displaying fractions, but doing something right the first time is harder and I hope to explain my thought process in a series of posts on this blog.&lt;/p&gt;
+&lt;p&gt;The system will be hosted in &lt;cite&gt;a project on Github&lt;/cite&gt; and development will be tracked &lt;cite&gt;in a trello board&lt;/cite&gt;.&lt;/p&gt;
 &lt;p&gt;While the MVP used simple joining and separating of text inputs, the true project will keep a tree of javascript objects to hold the values.&lt;/p&gt;
 &lt;p&gt;In the next post, I will explain the decisions behind that tree - and its three base classes - and hope to break down the basic structure for an exercise like this.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Sun, 04 Jun 2017 02:00:00 -0400</pubDate><guid>tag:clintonbradford.com,2017-06-04:posts/2017/06/lcais-initial/</guid><category>lcais</category><category>dev</category><category>js</category><category>purdue</category><category>loncapa</category></item><item><title>Initial LonCapa Thoughts</title><link>http://clintonbradford.com/posts/2017/06/loncapa-initial/</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Sun, 04 Jun 2017 02:00:00 -0400</pubDate><guid>tag:clintonbradford.com,2017-06-04:posts/2017/06/loncapa-initial/</guid><category>purdue</category><category>loncapa</category></item><item><title>Printing over SSH</title><link>http://clintonbradford.com/posts/2016/08/mpr-math-printing/</link><description>&lt;p&gt;A common frustration here in the Purdue math department is having to use a computer wired into the network to send print jobs. We would like to&lt;/p&gt;
-&lt;p&gt;Here is my solution: Sending the print via the server Banach.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat &lt;span class="o"&gt;[&lt;/span&gt;path to file&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; ssh &lt;span class="o"&gt;[&lt;/span&gt;username&lt;span class="o"&gt;]&lt;/span&gt;@banach.math.purdue.edu &lt;span class="s2"&gt;&amp;quot;lpr -P [printer]&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;For example, if I wanted to print a file paper.pdf in the Documents directory, I would open a command prompt and type&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat Documents/paper.pdf &lt;span class="p"&gt;|&lt;/span&gt; ssh bradford@banach.math.purdue.edu &lt;span class="s2"&gt;&amp;quot;lpr -P math737bw&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To simplify the process, I save the following as the file mpr.sh in my path&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$#&lt;/span&gt; -ne &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$0&lt;/span&gt;: usage: &lt;span class="nv"&gt;$0&lt;/span&gt; name
-    &lt;span class="nb"&gt;exit&lt;/span&gt; 1
-&lt;span class="k"&gt;fi&lt;/span&gt;
-cat &lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; ssh bradford@banach.math.purdue.edu &lt;span class="s2"&gt;&amp;quot;lpr -P math737bw&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Allowing me to simply invoke&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mpr file.pdf
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;If you wish to use that file, change the username to your math department username. Change the printer to a printer of your choice.&lt;/p&gt;
-&lt;p&gt;To list available printers, run on Banach:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-:::bash
-lpstat -p -d
-&lt;/pre&gt;
-&lt;p&gt;Some python:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Mon, 22 Aug 2016 02:00:00 -0400</pubDate><guid>tag:clintonbradford.com,2016-08-22:posts/2016/08/mpr-math-printing/</guid><category>sh</category><category>purduemathdept</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Sun, 04 Jun 2017 02:00:00 -0400</pubDate><guid>tag:clintonbradford.com,2017-06-04:posts/2017/06/lcais-initial/</guid><category>lcais</category><category>dev</category><category>js</category><category>purdue</category><category>loncapa</category></item><item><title>Initial LonCapa Thoughts</title><link>http://clintonbradford.com/posts/2017/06/loncapa-initial/</link><description>&lt;p&gt;A few years ago, Purdue University transitioned some math classes to a new instance of LonCapa. In the spring of 2017, I was assigned to adapt content for LonCapa as a half-time teaching position.&lt;/p&gt;
+&lt;p&gt;I have a complicated relationship with the LonCapa project. Philosophically, a free-as-in-free-speech alternative to commercial softwares such as WebAssign, which we still use for several classes, appeals to me. High student fees, corporate-owned and controlled content, and the frequent outages we experienced all made me hope there was a better way.&lt;/p&gt;
+&lt;p&gt;LonCapa, however, suffers from a number of issues that make it incredibly frustrating to work with. Poor documentation, coupled with a strange, locked-down old version of Perl, can make development cumbersome. (I just learned of the &amp;quot;allow&amp;quot; tag.) Frequent violations of best practice - or even on some occasions basic principles of web safety - make the dated interface seem like the least of our concerns.&lt;/p&gt;
+&lt;p&gt;The complete lack of any asynchronous functionality means that students and instructors have to frequently reload, which is especially notable on problems which use complicated javascript-based content.&lt;/p&gt;
+&lt;p&gt;However, I feel like the flexibility of a platform like this is worth the risks. Several other, similar softwares exist - I am particularly excited by edX, but haven't myself done much research - but even within the LonCapa framework, we can link together Geogebra Applets, external resources, and problem systems of our own design.&lt;/p&gt;
+&lt;p&gt;I am excited to see what I can make using the available technology, and in what ways we can use the new technology to teach students better or more efficiently.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Sun, 04 Jun 2017 02:00:00 -0400</pubDate><guid>tag:clintonbradford.com,2017-06-04:posts/2017/06/loncapa-initial/</guid><category>purdue</category><category>loncapa</category></item></channel></rss>
