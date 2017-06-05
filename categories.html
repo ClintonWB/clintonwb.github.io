@@ -1,136 +1,152 @@
 <!DOCTYPE html>
-<html lang="en"
->
-<head>
-    <title>Categories - Clinton Bradford</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en">
+  <head>
     <meta charset="utf-8">
+    <title>Clinton's blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Clinton Bradford">
 
+    <!-- Le styles -->
+    <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="./theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="./theme/css/font-awesome.css" rel="stylesheet">
 
+    <link href="./theme/css/pygments.css" rel="stylesheet">
 
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-        <meta name="author" content="Clinton Bradford" />
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="./theme/images/favicon.ico">
+    <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
 
-    <!-- Enable latex plugin -->
+    <link href="./" type="application/atom+xml" rel="alternate" title="Clinton's blog ATOM Feed" />
 
+  </head>
 
-    <!-- Open Graph tags -->
-        <meta property="og:site_name" content="Clinton Bradford" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Clinton Bradford"/>
-        <meta property="og:url" content="http://www.clintonbradford.com"/>
-        <meta property="og:description" content="Clinton Bradford"/>
+  <body>
 
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="./index.html">Clinton's blog </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="./category/loncapa.html">
+						<i class="icon-folder-open icon-large"></i>LonCapa
+					</a>
+                  </li>
+                  <li >
+                    <a href="./category/lcais.html">
+						<i class="icon-folder-open icon-large"></i>lcais
+					</a>
+                  </li>
+                  <li >
+                    <a href="./category/howto.html">
+						<i class="icon-folder-open icon-large"></i>howto
+					</a>
+                  </li>
 
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://www.clintonbradford.com/theme/css/bootstrap.simplex.min.css" type="text/css"/>
-    <link href="http://www.clintonbradford.com/theme/css/font-awesome.min.css" rel="stylesheet">
+                          <ul class="nav pull-right">
+                                <li><a href="./archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
 
-    <link href="http://www.clintonbradford.com/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://www.clintonbradford.com/theme/css/style.css" type="text/css"/>
-
-
-
-
-</head>
-<body>
-
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="http://www.clintonbradford.com/" class="navbar-brand">
-Clinton Bradford            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                    <li><a href="http://www.math.purdue.edu/~bradfor3/">Purdue</a></li>
-                        <li >
-                            <a href="http://www.clintonbradford.com/category/post.html">Post</a>
-                        </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://www.clintonbradford.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
-            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
         </div>
-        <!-- /.navbar-collapse -->
-    </div>
-</div> <!-- /.navbar -->
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-
-    <section id="categories">
-        <h1>All Categories for Clinton Bradford</h1>
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-post">Post <span class="badge pull-right">2</span></a>
-                    </h4>
-                </div>
-                <div id="collapse-post" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-10-02T12:00:00">Thu 02 October 2014</time></span> <a href="http://www.clintonbradford.com/hello-world-2.html">Hello World 2</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-09-30T12:00:00">Tue 30 September 2014</time></span> <a href="http://www.clintonbradford.com/hello-world.html">Hello World</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-        </div>
-        <div class="col-sm-3 well well-sm" id="sidebar">
-
-<aside>
-    <section>
-        <ul class="list-group list-group-flush">
-                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-                  <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="http://twitter.com/clintoncancount"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
-                  </ul>
-                </li>
-
-
-
-                <li class="list-group-item"><a href="http://www.clintonbradford.com/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                    <ul class="list-group " id="tags">
-                    </ul>
-                </li>    
-
-        </ul>
-    </section>
-
-</aside>        </div>
-    </div>
-</div>
-<footer>
-   <div class="container">
-      <hr>
-      <div class="row">
-         <div class="col-xs-10">&copy; 2014 Clinton Bradford
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
-            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
       </div>
-   </div>
-</footer>
-<script src="http://www.clintonbradford.com/theme/js/jquery.min.js"></script>
+    </div>
 
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://www.clintonbradford.com/theme/js/bootstrap.min.js"></script>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<ul>
+	<li><a href="category/loncapa.html">LonCapa</a></li>
+	<li><a href="category/lcais.html">lcais</a></li>
+	<li><a href="category/howto.html">howto</a></li>
+</ul>
+        </div><!--/span-->
 
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://www.clintonbradford.com/theme/js/respond.min.js"></script>
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
 
-</body>
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="./category/loncapa.html">
+    <i class="icon-folder-open icon-large"></i>LonCapa
+</a>
+</li>
+<li>
+<a href="./category/lcais.html">
+    <i class="icon-folder-open icon-large"></i>lcais
+</a>
+</li>
+<li>
+<a href="./category/howto.html">
+    <i class="icon-folder-open icon-large"></i>howto
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./theme/js/jquery-1.7.2.min.js"></script>
+    <script src="./theme/js/bootstrap.min.js"></script>
+  </body>
 </html>

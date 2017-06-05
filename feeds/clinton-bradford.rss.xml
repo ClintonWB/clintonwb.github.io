@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clinton Bradford</title><link>http://www.clintonbradford.com/</link><description></description><atom:link href="http://www.clintonbradford.com/feeds%5Cclinton-bradford.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 02 Oct 2014 12:00:00 -0400</lastBuildDate><item><title>Hello World 2</title><link>http://www.clintonbradford.com/hello-world-2.html</link><description>&lt;p&gt;Test post&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Thu, 02 Oct 2014 12:00:00 -0400</pubDate><guid>tag:www.clintonbradford.com,2014-10-02:hello-world-2.html</guid></item><item><title>Hello World</title><link>http://www.clintonbradford.com/hello-world.html</link><description>&lt;p&gt;Test post&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Tue, 30 Sep 2014 12:00:00 -0400</pubDate><guid>tag:www.clintonbradford.com,2014-09-30:hello-world.html</guid></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clinton's blog</title><link>http://clintonbradford.com/</link><description></description><atom:link href="http://clintonbradford.com/feeds/clinton-bradford.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 04 Jun 2017 02:00:00 -0400</lastBuildDate><item><title>Why I started lcais</title><link>http://clintonbradford.com/posts/2017/06/lcais-initial/</link><description>&lt;blockquote&gt;
+&lt;p&gt;While the MVP used simple joining and separating of text inputs, the true project will keep a tree of javascript objects to hold the values.&lt;/p&gt;
+&lt;p&gt;In the next post, I will explain the decisions behind that tree - and its three base classes - and hope to break down the basic structure for an exercise like this.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Sun, 04 Jun 2017 02:00:00 -0400</pubDate><guid>tag:clintonbradford.com,2017-06-04:posts/2017/06/lcais-initial/</guid><category>lcais</category><category>dev</category><category>js</category><category>purdue</category><category>loncapa</category></item><item><title>Initial LonCapa Thoughts</title><link>http://clintonbradford.com/posts/2017/06/loncapa-initial/</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Sun, 04 Jun 2017 02:00:00 -0400</pubDate><guid>tag:clintonbradford.com,2017-06-04:posts/2017/06/loncapa-initial/</guid><category>purdue</category><category>loncapa</category></item><item><title>Printing over SSH</title><link>http://clintonbradford.com/posts/2016/08/mpr-math-printing/</link><description>&lt;p&gt;A common frustration here in the Purdue math department is having to use a computer wired into the network to send print jobs. We would like to&lt;/p&gt;
+&lt;p&gt;Here is my solution: Sending the print via the server Banach.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat &lt;span class="o"&gt;[&lt;/span&gt;path to file&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; ssh &lt;span class="o"&gt;[&lt;/span&gt;username&lt;span class="o"&gt;]&lt;/span&gt;@banach.math.purdue.edu &lt;span class="s2"&gt;&amp;quot;lpr -P [printer]&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For example, if I wanted to print a file paper.pdf in the Documents directory, I would open a command prompt and type&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat Documents/paper.pdf &lt;span class="p"&gt;|&lt;/span&gt; ssh bradford@banach.math.purdue.edu &lt;span class="s2"&gt;&amp;quot;lpr -P math737bw&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To simplify the process, I save the following as the file mpr.sh in my path&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$#&lt;/span&gt; -ne &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$0&lt;/span&gt;: usage: &lt;span class="nv"&gt;$0&lt;/span&gt; name
+    &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+&lt;span class="k"&gt;fi&lt;/span&gt;
+cat &lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; ssh bradford@banach.math.purdue.edu &lt;span class="s2"&gt;&amp;quot;lpr -P math737bw&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Allowing me to simply invoke&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mpr file.pdf
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you wish to use that file, change the username to your math department username. Change the printer to a printer of your choice.&lt;/p&gt;
+&lt;p&gt;To list available printers, run on Banach:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+:::bash
+lpstat -p -d
+&lt;/pre&gt;
+&lt;p&gt;Some python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Clinton Bradford</dc:creator><pubDate>Mon, 22 Aug 2016 02:00:00 -0400</pubDate><guid>tag:clintonbradford.com,2016-08-22:posts/2016/08/mpr-math-printing/</guid><category>sh</category><category>purduemathdept</category></item></channel></rss>
