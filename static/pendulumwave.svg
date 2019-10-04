@@ -1,0 +1,202 @@
+
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  version="1.1" 
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+<circle cx="0" cy="0" r="5" fill="rgb(127,0,255)">
+	<animateMotion id="rightswing0" path="M 10.00 94.76 A 99.40 99.40 0 0 0 70.00 94.76" dur="2.0s" begin="0s; leftswing0.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing0" path="M 70.00 94.76 A 99.40 99.40 0 0 1 10.00 94.76" dur="2.0s" begin="rightswing0.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(91,56,253)">
+	<animateMotion id="rightswing1" path="M 10.00 88.12 A 93.09 93.09 0 0 0 70.00 88.12" dur="1.935483870967742s" begin="0s; leftswing1.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing1" path="M 70.00 88.12 A 93.09 93.09 0 0 1 10.00 88.12" dur="1.935483870967742s" begin="rightswing1.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(55,109,248)">
+	<animateMotion id="rightswing2" path="M 10.00 82.05 A 87.36 87.36 0 0 0 70.00 82.05" dur="1.875s" begin="0s; leftswing2.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing2" path="M 70.00 82.05 A 87.36 87.36 0 0 1 10.00 82.05" dur="1.875s" begin="rightswing2.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(19,157,241)">
+	<animateMotion id="rightswing3" path="M 10.00 76.47 A 82.15 82.15 0 0 0 70.00 76.47" dur="1.8181818181818181s" begin="0s; leftswing3.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing3" path="M 70.00 76.47 A 82.15 82.15 0 0 1 10.00 76.47" dur="1.8181818181818181s" begin="rightswing3.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(18,199,229)">
+	<animateMotion id="rightswing4" path="M 10.00 71.33 A 77.38 77.38 0 0 0 70.00 71.33" dur="1.7647058823529411s" begin="0s; leftswing4.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing4" path="M 70.00 71.33 A 77.38 77.38 0 0 1 10.00 71.33" dur="1.7647058823529411s" begin="rightswing4.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(54,229,215)">
+	<animateMotion id="rightswing5" path="M 10.00 66.58 A 73.03 73.03 0 0 0 70.00 66.58" dur="1.7142857142857142s" begin="0s; leftswing5.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing5" path="M 70.00 66.58 A 73.03 73.03 0 0 1 10.00 66.58" dur="1.7142857142857142s" begin="rightswing5.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(90,248,199)">
+	<animateMotion id="rightswing6" path="M 10.00 62.16 A 69.03 69.03 0 0 0 70.00 62.16" dur="1.6666666666666667s" begin="0s; leftswing6.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing6" path="M 70.00 62.16 A 69.03 69.03 0 0 1 10.00 62.16" dur="1.6666666666666667s" begin="rightswing6.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(128,254,179)">
+	<animateMotion id="rightswing7" path="M 10.00 58.05 A 65.34 65.34 0 0 0 70.00 58.05" dur="1.6216216216216217s" begin="0s; leftswing7.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing7" path="M 70.00 58.05 A 65.34 65.34 0 0 1 10.00 58.05" dur="1.6216216216216217s" begin="rightswing7.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(164,248,158)">
+	<animateMotion id="rightswing8" path="M 10.00 54.20 A 61.95 61.95 0 0 0 70.00 54.20" dur="1.5789473684210527s" begin="0s; leftswing8.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing8" path="M 70.00 54.20 A 61.95 61.95 0 0 1 10.00 54.20" dur="1.5789473684210527s" begin="rightswing8.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(200,229,135)">
+	<animateMotion id="rightswing9" path="M 10.00 50.59 A 58.81 58.81 0 0 0 70.00 50.59" dur="1.5384615384615385s" begin="0s; leftswing9.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing9" path="M 70.00 50.59 A 58.81 58.81 0 0 1 10.00 50.59" dur="1.5384615384615385s" begin="rightswing9.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(236,199,110)">
+	<animateMotion id="rightswing10" path="M 10.00 47.18 A 55.91 55.91 0 0 0 70.00 47.18" dur="1.5s" begin="0s; leftswing10.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing10" path="M 70.00 47.18 A 55.91 55.91 0 0 1 10.00 47.18" dur="1.5s" begin="rightswing10.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(255,157,83)">
+	<animateMotion id="rightswing11" path="M 10.00 43.95 A 53.22 53.22 0 0 0 70.00 43.95" dur="1.4634146341463414s" begin="0s; leftswing11.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing11" path="M 70.00 43.95 A 53.22 53.22 0 0 1 10.00 43.95" dur="1.4634146341463414s" begin="rightswing11.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(255,109,56)">
+	<animateMotion id="rightswing12" path="M 10.00 40.89 A 50.71 50.71 0 0 0 70.00 40.89" dur="1.4285714285714286s" begin="0s; leftswing12.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing12" path="M 70.00 40.89 A 50.71 50.71 0 0 1 10.00 40.89" dur="1.4285714285714286s" begin="rightswing12.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(255,56,28)">
+	<animateMotion id="rightswing13" path="M 10.00 37.96 A 48.38 48.38 0 0 0 70.00 37.96" dur="1.3953488372093024s" begin="0s; leftswing13.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing13" path="M 70.00 37.96 A 48.38 48.38 0 0 1 10.00 37.96" dur="1.3953488372093024s" begin="rightswing13.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+<circle cx="0" cy="0" r="5" fill="rgb(255,0,0)">
+	<animateMotion id="rightswing14" path="M 10.00 35.14 A 46.21 46.21 0 0 0 70.00 35.14" dur="1.3636363636363635s" begin="0s; leftswing14.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+	<animateMotion id="leftswing14" path="M 70.00 35.14 A 46.21 46.21 0 0 1 10.00 35.14" dur="1.3636363636363635s" begin="rightswing14.end"
+					calcMode = "spline"
+					keySplines = " .3642 0 .6358 1 "
+					keyTimes = "0 ; 1 ">
+	</animateMotion>
+  </circle>
+
+</svg>
