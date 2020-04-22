@@ -47,7 +47,11 @@
     <link rel="apple-touch-icon" sizes="114x114" href="./theme/images/apple-touch-icon-114x114.png">
 
     <link href="./" type="application/atom+xml" rel="alternate" title="Clinton's blog ATOM Feed" />
-
+	<script>
+	var host = "www.clintonbradford.com";
+	if ((host == window.location.host) && (window.location.protocol != "https:"))
+	    window.location.protocol = "https";
+	</script>
   </head>
 
   <body>
