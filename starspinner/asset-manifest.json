@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/starspinner/static/css/main.aea7a401.chunk.css",
-    "main.js": "/starspinner/static/js/main.40f8969d.chunk.js",
-    "main.js.map": "/starspinner/static/js/main.40f8969d.chunk.js.map",
+    "main.js": "/starspinner/static/js/main.b7abe487.chunk.js",
+    "main.js.map": "/starspinner/static/js/main.b7abe487.chunk.js.map",
     "runtime-main.js": "/starspinner/static/js/runtime-main.a3c38e50.js",
     "runtime-main.js.map": "/starspinner/static/js/runtime-main.a3c38e50.js.map",
     "static/js/2.e7c23ca7.chunk.js": "/starspinner/static/js/2.e7c23ca7.chunk.js",
     "static/js/2.e7c23ca7.chunk.js.map": "/starspinner/static/js/2.e7c23ca7.chunk.js.map",
     "index.html": "/starspinner/index.html",
-    "precache-manifest.110c6a569c15738370dac04d4dd859d5.js": "/starspinner/precache-manifest.110c6a569c15738370dac04d4dd859d5.js",
+    "precache-manifest.7dfdf96d56844365ebbf54a7faea791e.js": "/starspinner/precache-manifest.7dfdf96d56844365ebbf54a7faea791e.js",
     "service-worker.js": "/starspinner/service-worker.js",
     "static/css/main.aea7a401.chunk.css.map": "/starspinner/static/css/main.aea7a401.chunk.css.map",
     "static/js/2.e7c23ca7.chunk.js.LICENSE.txt": "/starspinner/static/js/2.e7c23ca7.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.a3c38e50.js",
     "static/js/2.e7c23ca7.chunk.js",
     "static/css/main.aea7a401.chunk.css",
-    "static/js/main.40f8969d.chunk.js"
+    "static/js/main.b7abe487.chunk.js"
   ]
 }
