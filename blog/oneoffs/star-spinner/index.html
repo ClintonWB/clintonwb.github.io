@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Star Spinner - Perspectives on The Galaxy</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="../../.." rel="canonical" />
+
+  <!-- Feed -->
+
+  <link href="../../../theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="../../../theme/css/code_blocks/tomorrow.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+    <link href="../../../blog/oneoffs/star-spinner/" rel="canonical" />
+
+        <meta name="description" content="What do constellations look like from other angles? Let's find out!">
+
+        <meta name="author" content="Clinton Bradford">
+
+        <meta name="tags" content="projects">
+        <meta name="tags" content="astronomy">
+        <meta name="tags" content="interactives">
+        <meta name="tags" content="react">
+        <meta name="tags" content="museums">
+        <meta name="tags" content="science">
+        <meta name="tags" content="web">
+
+        <meta property="og:locale" content="" />
+    <meta property="og:site_name" content="Clinton Bradford" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Clinton Bradford" />
+    <meta property="og:description" content="View the blog." />
+    <meta property="og:url" content="../../.." />
+      <meta name="og:image" content="../../../theme/images/post-bg.jpg">
+
+  <meta property="og:type" content="article">
+            <meta property="article:author" content="../../../author/clinton-bradford.html">
+  <meta property="og:url" content="../../../blog/oneoffs/star-spinner/">
+  <meta property="og:title" content="Star Spinner - Perspectives on The Galaxy">
+  <meta property="article:published_time" content="2020-08-07 00:00:00-04:00">
+            <meta property="og:description" content="What do constellations look like from other angles? Let's find out!">
+
+            <meta property="og:image" content="../../../theme/images/post-bg.jpg">
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+          <li><a href="/" role="presentation">Home</a></li>
+          <li><a href="/pages/about-clinton-and-this-site/" role="presentation">About</a></li>
+          <li><a href="/blog/" role="presentation">Blog</a></li>
+
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="../../.." title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Star Spinner - Perspectives on The Galaxy</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="../../../author/clinton-bradford.html">Clinton bradford</a>
+            | <time datetime="Fri 07 August 2020">Fri 07 August 2020</time>
+        </span>
+        <!-- TODO : Modified check -->
+        
+            <div class="post-cover cover" style="background-image: url('../../../theme/images/post-bg.jpg')">
+        
+      </div>
+    </header>    
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p><strong>What do constellations look like from other angles?</strong></p>
+<p><a href="https://www.clintonbradford.com/starspinner/">I made a little interactive astronomy demonstration</a> to find out!</p>
+<p>I made this using public data, <a href="https://github.com/ClintonWB/starperspective">and code for which is available on Github</a>. Check it out if you want! This article is about the why-and-how of that project.</p>
+<h1>Background</h1>
+<blockquote>
+<p>Biron said absently, "You know why they call it the Horsehead Nebula, Gil?"</p>
+<p>"The first man to enter it was Horace Hedd. Are you going to tell me that's wrong?"</p>
+<p>"It may be. They have a different explanation on Earth."</p>
+<p>"Oh?"</p>
+<p>"They claim it's called that because it looks like a horse's head."</p>
+<p>"What's a horse?"</p>
+<p>"It's an animal on Earth."</p>
+<p>"It's an amusing thought, but the Nebula doesn't look like any animal to me, Biron."</p>
+<p>"It depends on the angle you look at it. Now from Nephelos it looks like a man's arm with three fingers, but I looked at it once from the observatory at the University of Earth. It does look a little like a horse's head. Maybe that is how the name started. Maybe there never was any Horace Hedd. Who knows?"</p>
+</blockquote>
+<p>-- <cite>"The Stars, Like Dust", Isaac Asimov</cite></p>
+<h3>Motivation</h3>
+<p>One day, while preparing for a walk at the beautiful Turkey Run State Park, we stopped by their small planetarium. In the room were number of excellent small space-themed exhibits, on loan from the <a href="https://emuseum.org/">Evansville Museum</a>, a beautiful and varied museum which you should visit if you are anywhere near the southwestern corner of Indiana.</p>
+<p>A particularly clever exhibit featured a a hand-pumped, see through vacuum chamber containing two <a href="https://www.sciplus.com/panic-pete-popping-squeeze-doll-2336-p">stress relief dolls</a>, one in a spacesuit, and one bare. In a few pumps, an observer could see the way the internal pressure of the object caused it to expand in a vacuum - in a dramatic way which delighted some local children out for a hike.</p>
+<figure><img src="../../../blog/oneoffs/star-spinner/martian_pressure_suit.jpg" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="The popping doll spacesuit exhibit"></img><figcaption> The popping doll spacesuit exhibit </figcaption></figure>
+
+<p>The entire collection of 11 portable exhibits, part of a national collaboration <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=0610320">funded by the NSF in 2006</a> between 10 museums (8 in the midwest, one in Oregon, and one in Alaska), can be viewed with explanations in the <a href="../../../blog/oneoffs/star-spinner/OTS Manual.pdf">manual</a> shared by <a href="https://scienceworksexhibits.com/outreach-to-space/">ScienceWorks</a> supporting their copy of the exhibit.</p>
+<p>The exhibit that most affected me in this collection, however, was a collection of suspended white balls in a 3d box, against a black backdrop. They represented the <a href="https://en.wikipedia.org/wiki/Big_Dipper">big dipper asterism</a>, and if you placed your eye at just the right spot, it was obvious - but from nearly any other angle, it was just a collection of stars. </p>
+<figure><img src="../../../blog/oneoffs/star-spinner/big-dipper-side.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="The big dipper exhibit, viewed from the side"></img><figcaption> The big dipper exhibit, viewed from the side </figcaption></figure>
+
+<p>The Evansville Museum was kind enough to share some background and technical drawings of the exhibits, which are amusing and show detail on the precise operation of the device:</p>
+<figure><img src="../../../blog/oneoffs/star-spinner/perspective-technical.png" style="max-height:800px; width:auto; margin-left: auto; margin-right: auto;" alt="Technical drawing of the big dipper viewing"></img><figcaption> Technical drawing of the big dipper viewing </figcaption></figure>
+
+<p>Like many great exhibits, this immediately connected to some memories. The quote at the introduction to this piece, which has stuck with me since I was a child, was first to mind. Second, the concept of orienting oneself in space by just the stars - practiced on some small scale by astronauts in the Apollo program through their onboard sextant eyepiece, and speculated as a way of locating oneself in the galaxy or universe more broadly.</p>
+<figure><img src="../../../blog/oneoffs/star-spinner/Apollo_8_Lovell_at_Guidance_and_Navigation_Station.jpg" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Astronaut looking into tubes"></img><figcaption> Apollo Astronaut James A. Lovell Jr. orienteering with the onboard sextant during Apollo 8 </figcaption></figure>
+
+<p>If one could recognize the stars and three dimensional shape of the big dipper, then, one could use it as a sort of astronavigational compass in our corner of the Milky Way - knowing one's direction and distance from just these few stars would be enough to find one's position, relative to home. This is something I am sure to come back to, in some form, in interactive experiences in the future.</p>
+<p>The next thought, and one that consumed an afternoon, was whether this kind of asterism-recognizing could be gamified. Orientation puzzles can be remarkably intuitive or mobile-friendly - for example, the game <a href="http://zenbound.com/">Zenbound</a> has a calm energy and intuitive controls, no doubt the work of refinement on the part of its experienced developers, but tapping into something fundamental about the way humans interact with objects. Could recognizing or orienting the asterisms be interesting to me, and maybe others?</p>
+<figure><img src="../../../blog/oneoffs/star-spinner/zenbound.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Monkey covered in rope"></img><figcaption> Zenbound figure wrapped in rope </figcaption></figure>
+
+<h1>Project</h1>
+<p>In wanting this to be able to reach people easily, if it did end up being amusing or better, the language choice for the end product would likely be Javascript. This would also give me an opportunity to use a system introduced in <a href="https://en.wikipedia.org/wiki/HTML5">HTML5</a> I had been excited to learn, but hadn't yet found a good use for - the <a href="https://en.wikipedia.org/wiki/Canvas_element">Canvas</a> element.</p>
+<p>Most user interface tasks I have needed in the past could be handled easily in the traditional DOM or in animated SVG elements, both powerful and well-developed technologies, but accurate positioning of the stars would hopefully be easier in a more traditional graphics interface with more reliable absolute positioning, which advocates had promised Canvas could be.</p>
+<h2>Data</h2>
+<p>But that was getting ahead of myself. I needed, first, more precise locations for the stars, and groupings of them into asterisms. It turns out that accurate star data - public results of large collaborations around the world - is available from many sources and quite usable. Downloading samples of the <a href="https://gea.esac.esa.int/archive/">Gaia catalog</a>, and <a href="http://tdc-www.harvard.edu/catalogs/bsc5.html">Yale catalog</a>, I eventually chose the <a href="https://heasarc.gsfc.nasa.gov/W3Browse/all/hipparcos.html">Hipparcos catalog</a>. The differences in the readings and formats were of no consequence to a simple prototype project like this, and all the fields I needed were a star's position in space, and perhaps its luminosity and color. Gaia's dataset was larger than I needed, containing fainter stars than the human eye can see, and far more fields. Hipparcos had all the stars I would need for this project. The catalog file is read as bytes, and they are clearly labelled in a header file, easy enough to parse.</p>
+<p>The astronomical definitions of the constellations - as blocked out regions of sky - are similarly available. But there are not so many good resources on the purely cultural phenomena of what are commonly called constellations - to astronomers, <em>asterisms</em>. However, there is a community of open source contributors, aided by cultural writers and consultants from around the world, who have done some impressive work on that front - the excellent screen/projector planetarium software Stellarium provides asterisms and lines, from many cultures, drawn between stars cataloged with enough information to match them to Hipparcos. </p>
+<figure><img src="../../../blog/oneoffs/star-spinner/stellarium-001.jpg" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"></img><figcaption> Stellarium screenshot, featuring Asterism lines and artwork </figcaption></figure>
+
+<h2>Parsing</h2>
+<p>Hipparcos provides data as values, largely numerical, delimited by the character<code>|</code>, in numerical order by Hipparcos number. Not containing any escape characters, it is easy to parse manually or with any CSV/TSV reader which allows for custom delimiters.</p>
+<div class="highlight"><pre><span></span><code>H|           1| |00 00 00.22|+01 05 20.4| 9.10| |H|000.00091185|+01.08901332| |   3.54|   -5.20|   -1.88|  1.32|  0.74|  1.39|  1.36|  0.81| 0.32|-0.07|-0.11|-0.24| 0.09|-0.01| 0.10|-0.01| 0.01| 0.34|  0| 0.74|     1| 9.643|0.020| 9.130|0.019| | 0.482|0.025|T|0.55|0.03|L| | 9.2043|0.0020|0.017|87| | 9.17| 9.24|       | | | |          | |  |1| | | |  |   |       |     |     |    |S| | |224700|B+00 5077 |          |          |0.66|F5          |S
+H|           2| |00 00 00.91|-19 29 55.8| 9.27| |G|000.00379737|-19.49883745|+|  21.90|  181.21|   -0.93|  1.28|  0.70|  3.10|  1.74|  0.92| 0.12|-0.14|-0.24|-0.29| 0.01| 0.21|-0.02|-0.19|-0.28| 0.14|  2| 1.45|     2|10.519|0.033| 9.378|0.021| | 0.999|0.002|G|1.04|0.00|I| | 9.4017|0.0017|0.015|120| | 9.37| 9.44|       |C| | |          | |  |1|O| | |  |   |       |     |     |    | | | |224690|B-20 6688 |          |          |1.04|K3V         |4
+H|           3| |00 00 01.20|+38 51 33.4| 6.61| |G|000.00500795|+38.85928608| |   2.81|    5.24|   -2.91|  0.53|  0.40|  0.63|  0.57|  0.47| 0.06| 0.09| 0.04| 0.43|-0.01|-0.06| 0.03| 0.24| 0.07| 0.21|  0|-0.45|     3| 6.576|0.004| 6.621|0.005| |-0.019|0.004|G|0.00|0.00|H| | 6.6081|0.0007|0.008|127| | 6.60| 6.62|       |C| | |00000+3852|I| 1|1| | | |  |   |       |     |     |    |S| | |224699|B+38 5108 |          |          |0.00|B9          |S
+H|           4| |00 00 02.01|-51 53 36.8| 8.06| |H|000.00838170|-51.89354612| |   7.75|   62.85|    0.16|  0.53|  0.59|  0.97|  0.65|  0.65|-0.22|-0.09|-0.03| 0.24| 0.20| 0.08| 0.18| 0.08|-0.31|-0.18|  0|-1.46|     4| 8.471|0.007| 8.092|0.007| | 0.370|0.009|T|0.43|0.01|L| | 8.1498|0.0011|0.015|201| | 8.12| 8.18|       | | | |          | |  |1| | | |  |   |       |     |     |    |S| | |224707|          |          |P-52 12237|0.43|F0V         |2
+H|           5| |00 00 02.39|-40 35 28.4| 8.55| |H|000.00996534|-40.59122440| |   2.87|    2.53|    9.07|  0.64|  0.61|  1.11|  0.67|  0.74| 0.10| 0.24| 0.06| 0.26|-0.10| 0.20|-0.16|-0.30|-0.19| 0.06|  0|-1.24|     5| 9.693|0.014| 8.656|0.010| | 0.902|0.013|T|0.90|0.01|L| | 8.7077|0.0018|0.019|161| | 8.68| 8.74|       | | | |          | |  |1| | | |  |   |       |     |     |    | | | |224705|          |C-41 15372|P-41  9991|0.95|G8III       |2
+...
+</code></pre></div>
+
+<p>The headers are stored separately, and identify the fields numerically. From the header file, the fields of use in this project are:</p>
+<div class="highlight"><pre><span></span><code>H1          HIP        HIP_Number         /Identifier (HIP number)
+H5          Vmag       Vmag               /Magnitude in Johnson V
+H8          RAdeg      RA_Deg             /RA in degrees (ICRS, Epoch-J1991.25)
+H9          DEdeg      Dec_Deg            /Dec in degrees (ICRS, Epoch-J1991.25)
+H11         Plx        Parallax           /Trigonometric parallax
+H37         B-V        BV_Color           /Johnson BV colour
+</code></pre></div>
+
+<p>This information is relative positioning to earth as it orbits the sun. What I need for this project is their relative positions in some cartesian estimate of their position, but this is possible - discounting the real but largely irrelevant issues of our universe not being cartesian - with some simple trigonometric calculations based on these numbers:</p>
+<div class="math">$$
+ \begin{align*}
+\text{Distance} &amp;= \frac{1000}{\text{Parallax}} \\
+x &amp;= -\cos(\text{RA})*\cos(\text{Dec})*\text{Distance} \\
+ y &amp;= \sin(\text{RA})*\cos(\text{Dec})*\text{Distance} \\
+ z &amp;= \sin(\text{Dec})*\text{Distance} \\
+\end{align*}
+$$</div>
+<p>This places the stars, when we need to, into a floating-point reference frame centered on the earth in AU. We can convert from this later when assembling asterisms, with plenty of precision for this project.</p>
+<p>All I need, then, is to link the asterism data from Stellarium to the Hipparcos number, and I can pick out the lines for parsing.</p>
+<p>Stellarium is open source, largely GPLv2 licensed (though several graphical and data contributions are under other licenses), and the star data is available in the <a href="https://github.com/Stellarium/stellarium/tree/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures">cultures</a> section. For a small exploratory project, I have not spent much time chasing licenses and validating the data, but that is worth remembering for the future. For this prototype, we will use:</p>
+<ul>
+<li><a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/asterism_lines.fab"><code>asterism_lines.fab</code></a></li>
+<li><a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/asterism_names.eng.fab"><code>asterism_names.eng.fab</code></a></li>
+<li><a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/constellationship.fab"><code>constelationship.fab</code></a></li>
+<li><a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/constellation_names.eng.fab"><code>constellation_names.eng.fab</code></a></li>
+</ul>
+<p>Localized asterism names in English are given in <a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/asterism_names.eng.fab"><code>asterism_names.eng.fab</code></a>:</p>
+<div class="highlight"><pre><span></span><code>...
+# Associative and sectional asterisms
+BDr _(&quot;Big Dipper (Plough)&quot;,&quot;asterism&quot;)
+LDr _(&quot;Little Dipper&quot;,&quot;asterism&quot;)
+SSR _(&quot;Seven Stars Row&quot;,&quot;asterism&quot;)
+...
+</code></pre></div>
+
+<p>And the constellation lines are given in <a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/asterism_lines.fab"><code>asterism_lines.fab</code></a>:</p>
+<div class="highlight"><pre><span></span><code>...
+# Associative and sectional asterisms
+BDr 1 7  67301 65378 65378 62956 62956 59774 59774 54061 54061 53910 53910 58001 58001 59774
+LDr 1 7  11767 85822 85822 82080 82080 77055 77055 79822 79822 75097 75097 72607 72607 77055
+SSR 1 6  15863 9640 9640 5447 5447 3092 3092 677 677 113881 113881 112158
+...
+</code></pre></div>
+
+<p>Looking over this data, these numbers were immediately familiar - they are already Hipparcos numbers. Noting the repeated numbers, and working off of the dippers (two very familiar asterisms), this data is given as <em>pairs of Hipparcos numbers, each representing one line of an asterism</em>. For example, the line from Polaris (<code>HIP11767</code>) to Yildun (<code>HIP85822</code>) is first in the Little Dipper, followed by the line from Yildun to the next light (actually a binary star system, collectively called ε Ursae Minoris, <code>HIP85822</code>).</p>
+<h3>Code</h3>
+<p>We can use some Python to read in the HIP headers and data:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">radians</span><span class="p">,</span> <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mean</span>
+<span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">dumps</span> <span class="k">as</span> <span class="n">jsondumps</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations</span>
+<span class="kn">from</span> <span class="nn">csv</span> <span class="kn">import</span> <span class="n">DictReader</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;hip_headers.dat&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Catalog&quot;</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="n">l</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">f</span><span class="p">]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;hip_main.dat&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">hip_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">)]</span>
+<span class="n">hip_data</span> <span class="o">=</span> <span class="p">[{</span><span class="n">a</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span> <span class="n">b</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">datum</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+            <span class="k">for</span> <span class="n">datum</span> <span class="ow">in</span> <span class="n">hip_data</span><span class="p">]</span>
+<span class="n">hip_data</span> <span class="o">=</span> <span class="p">[{</span><span class="n">a</span><span class="p">:</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="n">b</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">else</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">datum</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+            <span class="k">for</span> <span class="n">datum</span> <span class="ow">in</span> <span class="n">hip_data</span><span class="p">]</span>
+</code></pre></div>
+
+<p>And, armed with that data and the above transformations, take the star lists from Stellarium to <code>x,y,z</code> coordinates, with a center point, which we can project, rotate about their center, and render without much difficulty:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">jsonify_asterism</span><span class="p">(</span><span class="n">line_list</span><span class="p">,</span> <span class="n">target_width</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
+    <span class="n">stars</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hip_data</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="s2">&quot;HIP_Number&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">line_list</span><span class="p">]</span>
+    <span class="n">stars</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">line_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;HIP_Number&quot;</span><span class="p">]))</span>
+    <span class="n">hip_matching</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">[</span><span class="s2">&quot;HIP_Number&quot;</span><span class="p">]:</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stars</span><span class="p">)}</span>
+
+    <span class="n">star_xyzs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">star</span> <span class="ow">in</span> <span class="n">stars</span><span class="p">:</span>
+        <span class="n">RA</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">star</span><span class="p">[</span><span class="s2">&quot;RA_Deg&quot;</span><span class="p">]))</span>
+        <span class="n">Dec</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">star</span><span class="p">[</span><span class="s2">&quot;Dec_Deg&quot;</span><span class="p">]))</span>
+        <span class="n">Dist</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">star</span><span class="p">[</span><span class="s1">&#39;Parallax&#39;</span><span class="p">])</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">RA</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">Dec</span><span class="p">)</span><span class="o">*</span><span class="n">Dist</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">RA</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">Dec</span><span class="p">)</span><span class="o">*</span><span class="n">Dist</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">Dec</span><span class="p">)</span><span class="o">*</span><span class="n">Dist</span>
+        <span class="n">star_xyzs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span>
+
+    <span class="n">max_width</span> <span class="o">=</span> <span class="mf">.1</span>
+    <span class="n">center</span> <span class="o">=</span> <span class="n">star_xyzs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">star_xyzs</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">gap</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">gap</span> <span class="o">&gt;</span> <span class="n">max_width</span><span class="p">:</span>
+            <span class="n">max_width</span> <span class="o">=</span> <span class="n">gap</span>
+            <span class="n">center</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)]</span>
+
+    <span class="n">scale_factor</span> <span class="o">=</span> <span class="n">target_width</span><span class="o">/</span><span class="n">max_width</span>
+    <span class="n">scaled_xyz</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">round</span><span class="p">((</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">scale_factor</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+                   <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">j</span><span class="p">)]</span>
+                  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">star_xyzs</span><span class="p">]</span>
+    <span class="n">star_line_nums</span> <span class="o">=</span> <span class="p">[</span><span class="n">hip_matching</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">line_list</span><span class="p">]</span>
+    <span class="n">star_lines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">star_line_nums</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">star_line_nums</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]))</span>
+
+    <span class="n">star_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;stars&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">z</span><span class="p">}</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">scaled_xyz</span><span class="p">],</span>
+        <span class="s2">&quot;lines&quot;</span><span class="p">:</span> <span class="n">star_lines</span><span class="p">,</span>
+        <span class="s2">&quot;diameter&quot;</span><span class="p">:</span> <span class="n">max_width</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">star_data</span>
+</code></pre></div>
+
+<p>giving a more manageable output:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;BDr&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;stars&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">65.49</span><span class="p">,</span>
+      <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">204.67</span><span class="p">,</span>
+      <span class="s2">&quot;z&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">71.76</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">52.77</span><span class="p">,</span>
+      <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">107.85</span><span class="p">,</span>
+      <span class="s2">&quot;z&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">159.95</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">37.71</span><span class="p">,</span>
+      <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">68.7</span><span class="p">,</span>
+      <span class="s2">&quot;z&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">137.9</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">36.54</span><span class="p">,</span>
+      <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">14.6</span><span class="p">,</span>
+      <span class="s2">&quot;z&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">128.93</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">52.77</span><span class="p">,</span>
+      <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="mf">107.85</span><span class="p">,</span>
+      <span class="s2">&quot;z&quot;</span><span class="o">:</span> <span class="mf">159.95</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">48.32</span><span class="p">,</span>
+      <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="mf">85.18</span><span class="p">,</span>
+      <span class="s2">&quot;z&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">144.53</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="mf">1.15</span><span class="p">,</span>
+      <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="mf">16.1</span><span class="p">,</span>
+      <span class="s2">&quot;z&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">135.42</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;lines&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="mf">0</span><span class="p">,</span>
+      <span class="mf">1</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="mf">1</span><span class="p">,</span>
+      <span class="mf">2</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="mf">2</span><span class="p">,</span>
+      <span class="mf">3</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="mf">3</span><span class="p">,</span>
+      <span class="mf">4</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="mf">4</span><span class="p">,</span>
+      <span class="mf">5</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="mf">5</span><span class="p">,</span>
+      <span class="mf">6</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+      <span class="mf">6</span><span class="p">,</span>
+      <span class="mf">3</span>
+    <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;diameter&quot;</span><span class="o">:</span> <span class="mf">17.231129246420153</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Big Dipper (Plough)&quot;</span>
+<span class="p">},</span>
+</code></pre></div>
+
+<p>Now, we can take this data and render it!</p>
+<h2>Implementation</h2>
+<p>I threw this together in a quick <code>React</code> component, using the <code>Class</code> model, which will allow us to easily keep a component state.</p>
+<p>The component, at <a href="https://github.com/ClintonWB/starperspective/blob/master/src/StarCanvas.js">the Github repo</a>, starts very simple:</p>
+<div class="highlight"><pre><span></span><code>class StarCanvas extends Component {
+    render(){
+    return (
+      <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      );
+  }
+}
+}
+</code></pre></div>
+
+<h3>Drawing Stars on the Canvas</h3>
+<p>Technically, this project is relatively simple. We can start with a canvas:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;star-canvas&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;500&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;500&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>A little star SVG:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;svg</span> <span class="na">height=</span><span class="s">&quot;100&quot;</span> <span class="na">width=</span><span class="s">&quot;100&quot;</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="na">version=</span><span class="s">&quot;1.1&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;polygon</span> <span class="na">points=</span><span class="s">&quot;50,10 73,82 11,37 88,37 26,82&quot;</span> <span class="na">style=</span><span class="s">&quot;fill:none;stroke:black;stroke-width:5&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
+</code></pre></div>
+
+<figure><img src="../../../blog/oneoffs/star-spinner/svgstar.svg" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Star"></img></figure>
+
+<p>The Canvas API provides a simple method  <code>context.drawImage</code> for drawing images at locations:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">drawStar</span><span class="p">(</span><span class="nx">star</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="p">(</span><span class="nx">star</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">z</span><span class="p">)</span><span class="o">/</span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="mf">20</span><span class="o">+</span><span class="mf">20</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">starSVG</span><span class="p">,</span><span class="nx">star</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">x</span><span class="o">-</span><span class="nx">size</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="nx">star</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">y</span><span class="o">-</span><span class="nx">size</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="nx">size</span><span class="p">,</span><span class="nx">size</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>and we can draw lines almost as easily:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">drawLine</span><span class="p">(</span><span class="nx">line</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">p1</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">star_data</span><span class="p">.</span><span class="nx">stars</span><span class="p">[</span><span class="nx">line</span><span class="p">[</span><span class="mf">0</span><span class="p">]];</span>
+  <span class="kd">var</span> <span class="nx">p2</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">star_data</span><span class="p">.</span><span class="nx">stars</span><span class="p">[</span><span class="nx">line</span><span class="p">[</span><span class="mf">1</span><span class="p">]];</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">&quot;#BBBBBB&quot;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">p1</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="nx">p1</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">p2</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="nx">p2</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>and group all the drawing into one function:</p>
+<div class="highlight"><pre><span></span><code>  <span class="nx">drawCanvas</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">star_data</span><span class="p">.</span><span class="nx">stars</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">updateStarData</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">show_lines</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">star_data</span><span class="p">.</span><span class="nx">lines</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">drawLine</span><span class="p">,</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">show_stars</span><span class="p">){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">star_data</span><span class="p">.</span><span class="nx">stars</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">drawStar</span><span class="p">,</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">rotations</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mf">0</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mf">0</span><span class="p">};</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">drawCanvas</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+  <span class="p">}</span>
+</code></pre></div>
+
+<h3>Rotating the Stars</h3>
+<p>Rotations are very familiar, and we can do them fairly quickly:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">updateStarData</span><span class="p">(</span><span class="nx">star</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">z</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">star</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">star</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">star</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">z</span><span class="p">];</span>
+  <span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="nx">z</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rotations</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span><span class="o">*</span><span class="nx">x</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rotations</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span><span class="o">*</span><span class="nx">z</span><span class="p">,</span>
+            <span class="o">-</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rotations</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span><span class="o">*</span><span class="nx">x</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rotations</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span><span class="o">*</span><span class="nx">z</span><span class="p">];</span>
+  <span class="p">[</span><span class="nx">y</span><span class="p">,</span><span class="nx">z</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rotations</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="o">*</span><span class="nx">y</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rotations</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="o">*</span><span class="nx">z</span><span class="p">,</span>
+            <span class="o">-</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rotations</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="o">*</span><span class="nx">y</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rotations</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="o">*</span><span class="nx">z</span><span class="p">];</span>
+  <span class="nx">star</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+  <span class="nx">star</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+  <span class="nx">star</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="nx">z</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>All we need to do is capture the mouse input:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">startMouseData</span><span class="o">(</span><span class="nt">evt</span><span class="o">)</span><span class="p">{</span>
+  <span class="err">if(evt.touches){</span>
+    <span class="err">evt</span> <span class="err">=</span> <span class="err">evt.touches</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">this</span><span class="p">.</span><span class="nc">startX</span> <span class="o">=</span> <span class="nt">evt</span><span class="p">.</span><span class="nc">clientX</span><span class="o">;</span>
+  <span class="nt">this</span><span class="p">.</span><span class="nc">startY</span> <span class="o">=</span> <span class="nt">evt</span><span class="p">.</span><span class="nc">clientY</span><span class="o">;</span>
+  <span class="nt">this</span><span class="p">.</span><span class="nc">mouseX</span> <span class="o">=</span> <span class="nt">evt</span><span class="p">.</span><span class="nc">clientX</span><span class="o">;</span>
+  <span class="nt">this</span><span class="p">.</span><span class="nc">mouseY</span> <span class="o">=</span> <span class="nt">evt</span><span class="p">.</span><span class="nc">clientY</span><span class="o">;</span>
+  <span class="nt">this</span><span class="p">.</span><span class="nc">moving</span> <span class="o">=</span> <span class="nt">true</span><span class="o">;</span>
+<span class="err">}</span>
+<span class="nt">moveMouse</span><span class="o">(</span><span class="nt">evt</span><span class="o">)</span><span class="p">{</span>
+  <span class="err">if(evt.touches){</span>
+    <span class="err">evt</span> <span class="err">=</span> <span class="err">evt.touches</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">if</span><span class="o">(</span><span class="nt">this</span><span class="p">.</span><span class="nc">moving</span><span class="o">)</span><span class="p">{</span>
+    <span class="err">this.rotations</span> <span class="err">=</span> <span class="err">{</span><span class="n">x</span><span class="p">:(</span><span class="n">evt</span><span class="o">.</span><span class="n">clientX</span> <span class="o">-</span> <span class="n">this</span><span class="o">.</span><span class="n">mouseX</span><span class="p">)</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span>
+                      <span class="n">y</span><span class="o">:</span><span class="p">(</span><span class="n">evt</span><span class="o">.</span><span class="n">clientY</span> <span class="o">-</span> <span class="n">this</span><span class="o">.</span><span class="n">mouseY</span><span class="p">)</span><span class="o">/</span><span class="mi">40</span><span class="p">}</span>
+    <span class="nt">this</span><span class="p">.</span><span class="nc">mouseX</span> <span class="o">=</span> <span class="nt">evt</span><span class="p">.</span><span class="nc">clientX</span><span class="o">;</span>
+    <span class="nt">this</span><span class="p">.</span><span class="nc">mouseY</span> <span class="o">=</span> <span class="nt">evt</span><span class="p">.</span><span class="nc">clientY</span><span class="o">;</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+<span class="nt">endMouseData</span><span class="o">(</span><span class="nt">evt</span><span class="o">)</span><span class="p">{</span>
+    <span class="err">this.moving</span> <span class="err">=</span> <span class="err">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>and bind all these listeners and objects via <code>React</code>'s <code>componentDidMount</code> hook:</p>
+<div class="highlight"><pre><span></span><code>  <span class="nx">componentDidMount</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;star-canvas&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">starSVG</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;starsvg&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">rotations</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="mf">0</span><span class="p">,</span><span class="nx">y</span><span class="o">:</span><span class="mf">0</span><span class="p">,</span><span class="nx">z</span><span class="o">:</span><span class="mf">0</span><span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;touchstart&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">startMouseData</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;mousedown&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">startMouseData</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;touchmove&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">moveMouse</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;mousemove&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">moveMouse</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;touchend&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">endMouseData</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;mouseup&quot;</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="nx">endMouseData</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">drawCanvas</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+  <span class="p">}</span>
+</code></pre></div>
+
+<p>As an avid touchscreen user, and especially in the time of the mobile/tablet-dominated web, it is important to bind for touch events as well. Fortunately the events can be handled largely the same.</p>
+<p>We render the transformations as smoothly as the browser wishes with the <code>requestAnimationFrame</code> hook, the last key to our use of a <code>Canvas</code>.</p>
+<h1>Results</h1>
+<p>In the end, I got a <a href="https://www.clintonbradford.com/starspinner/">workable example</a> going, able to pivot and translate all of the asterisms in the data set. With it, you can replicate some of the experience from the exhibit:</p>
+<figure><img src="../../../blog/oneoffs/star-spinner/star-spinner-1.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"></img><figcaption> Star Spinner, showing a random orientation of the Big Dipper </figcaption></figure>
+
+<p>And spin the asterism around to see the big dipper:</p>
+<figure><img src="../../../blog/oneoffs/star-spinner/star-spinner-2.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"></img><figcaption> Star Spinner, showing a correct Big Dipper </figcaption></figure>
+
+<p>What I discovered, quickly, was that most asterisms represent stars very far away from each other in any other projection:</p>
+<figure><img src="../../../blog/oneoffs/star-spinner/star-spinner-taurus.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"></img><figcaption> Star Spinner, showing Taurus from the side </figcaption></figure>
+
+<p>And very few are particularly interesting with this interface. But, it answered the question: what to asterisms look like from other angles? Mostly, like sticks:</p>
+<figure><img src="../../../blog/oneoffs/star-spinner/star-spinner-auriga.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"></img><figcaption> Star Spinner, showing Auriga from the side </figcaption></figure>
+
+<h2>Future Work</h2>
+<p>As the project ends up suggesting, while the results are interesting, they are not particularly <em>fun</em> except perhaps for the most invested person and for a handful of constellations. There are a few things that would be interesting to change, if I thought that I could make it worthwhile, but for now I feel I have all I am going to get out of it.</p>
+<p>One could:</p>
+<ul>
+<li>Show confirmation of correct orientation, perhaps with the <a href="https://johanmeuris.eu/work/stellarium-constellation-art/">beautiful Asterism drawings</a> by <a href="http://www.johanmeuris.eu/">Johan Meuris</a> created for Stellarium and released under the very permissive <a href="https://artlibre.org/licence/lal/en/">Free Art License</a>.</li>
+<li>Adjust the size and color of the stars to better represent their real life equivalents, allowing for distinctive stars like Sirius to be more identifiable, or stars of relatively high brightness in their constellations like Polaris to pop more.</li>
+<li>Stellarium's asterisms use more stars than most folk asterisms I have found, at least for the ancient greek-derived asterisms. By selectively removing stars that are faint or unnecessary, I may be able to render more asterisms playable.</li>
+<li>Most asterisms fit into much narrower containers. With a more dynamic approach to keeping the stars on the canvas, we could zoom in on the stars more in close-to-correct views - allowing a much wider variety of asterisms to be played meaningfully. </li>
+<li>Show bright stars in the background which would be visible from the other angles - to get a better impression of what they would <em>really</em> look like from somewhere else.</li>
+<li>Expanding the canvas and interface.</li>
+<li>Add UI and explanations, for people who are stumbling onto it without my presence.</li>
+<li>Add some metrics to help find pain points and interface issues.</li>
+<li>Enhance the touch controls and 3d placement.</li>
+<li>Verifying licenses and sources for asterisms, and incorporating more asterisms from more world cultures.</li>
+<li>Expanding to other languages.</li>
+</ul>
+<p>In the end, though, I am more excited by other related projects - such as finding a way to gamify the kind of multilateration one would need to place oneself in the galaxy or universe with nothing but a star catalog and a very good telescope.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Star Spinner - Perspectives on The Galaxy&amp;url=../../../blog/oneoffs/star-spinner/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=../../../blog/oneoffs/star-spinner/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=../../../blog/oneoffs/star-spinner/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="../../../tag/projects.html">projects</a><a href="../../../tag/astronomy.html">astronomy</a><a href="../../../tag/interactives.html">interactives</a><a href="../../../tag/react.html">react</a><a href="../../../tag/museums.html">museums</a><a href="../../../tag/science.html">science</a><a href="../../../tag/web.html">web</a>                </aside>
+
+                <div class="clear"></div>
+
+ 
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+  
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="../../../theme/js/script.js"></script>
+  
+</body>
+</html>

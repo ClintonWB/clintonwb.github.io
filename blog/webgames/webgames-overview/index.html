@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+      <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>A Platform For Web Gaming</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="../../.." rel="canonical" />
+
+  <!-- Feed -->
+
+  <link href="../../../theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="../../../theme/css/code_blocks/tomorrow.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+    <link href="../../../blog/webgames/webgames-overview/" rel="canonical" />
+
+        <meta name="description" content="An overview of my many attempts at web board game implementation over the last decade.">
+
+        <meta name="author" content="Clinton Bradford">
+
+        <meta name="tags" content="projects">
+        <meta name="tags" content="webgames">
+        <meta name="tags" content="python">
+        <meta name="tags" content="flask">
+        <meta name="tags" content="javascript">
+        <meta name="tags" content="react">
+        <meta name="tags" content="heroku">
+        <meta name="tags" content="games">
+        <meta name="tags" content="boardgames">
+
+        <meta property="og:locale" content="" />
+    <meta property="og:site_name" content="Clinton Bradford" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Clinton Bradford" />
+    <meta property="og:description" content="View the blog." />
+    <meta property="og:url" content="../../.." />
+      <meta name="og:image" content="../../../theme/images/post-bg.jpg">
+
+  <meta property="og:type" content="article">
+            <meta property="article:author" content="../../../author/clinton-bradford.html">
+  <meta property="og:url" content="../../../blog/webgames/webgames-overview/">
+  <meta property="og:title" content="A Platform For Web Gaming">
+  <meta property="article:published_time" content="2021-10-28 00:00:00-04:00">
+            <meta property="og:description" content="An overview of my many attempts at web board game implementation over the last decade.">
+
+            <meta property="og:image" content="../../../theme/images/post-bg.jpg">
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+          <li><a href="/" role="presentation">Home</a></li>
+          <li><a href="/pages/about-clinton-and-this-site/" role="presentation">About</a></li>
+          <li><a href="/blog/" role="presentation">Blog</a></li>
+
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="../../.." title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">A Platform For Web Gaming</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="../../../author/clinton-bradford.html">Clinton bradford</a>
+            | <time datetime="Thu 28 October 2021">Thu 28 October 2021</time>
+        </span>
+        <!-- TODO : Modified check -->
+        
+            <div class="post-cover cover" style="background-image: url('../../../theme/images/post-bg.jpg')">
+        
+      </div>
+    </header>    
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <script type="text/javascript" src="https://livejs.com/live.js"></script>
+
+<h1>Background</h1>
+<p>I am a lifelong fan of board gaming. There's something special about the physical nature of it, the adaptability of the medium, and most importantly doing it <em>together</em> with other people that really resonates with me.</p>
+<p>For 2020-2021 reasons, however, I haven't been able to do it in person. While various platforms exist for board gaming, such as <a href="https://www.boardgamearena.com/">Board Game Arena</a> and <a href="https://www.tabletopsimulator.com/">Tabletop Simulator</a>, I have my concerns and issues with each platform. As an exercise for myself, I have been implementing various board games, and exploring different philosophies and technologies.</p>
+<p>This blog series is documenting the culmination of those efforts - an attempt to make an easy to use, reasonably accessible, functional platform of my very own to quickly put together and deploy the board games I want to play, online.</p>
+<h2>Exploratory Projects</h2>
+<h3>Sleuth Asynchronous Website</h3>
+<figure><img src="../../../blog/webgames/webgames-overview/sleuthreminderemail.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A Screnshot of Email Sleuth Reminder"></img><figcaption> An email reminder from the Sleuth website </figcaption></figure>
+
+<ul>
+<li>Game: <a href="https://boardgamegeek.com/boardgame/594/sleuth">Sleuth</a></li>
+<li>Platform: Web (static)</li>
+<li>Technology: Python, Flask, Email, Linux Server, SQLite3 Database</li>
+<li>Philosophies: in-game actions, server relay, asynchronous play, email reminders</li>
+<li>Advantages: Rapid development, asynchronous play</li>
+<li>Disadvantages: Limited Graphics, requires server, scales poorly</li>
+<li>When: 2012</li>
+<li>Where: sleuth.clintonbradford.com (defunct)</li>
+</ul>
+<p>Back in 2012, we were playing a lot of Sleuth - and a variant brainstormed with my friend Sharif Ibrahim on a finite projective plane - and wanted somewhere quick to host it. Already familiar with basic web interfaces, SQL, and Flask, it was a quick project to put together, similar to the many browser-based frontends I have used in my work and research. </p>
+<p>However, I never want to tackle a project without learning something new, so I decided that it would be helpful for our play style to have reminder emails when people took their turns. We were often playing asynchronously, and this helped keep things moving. This isn't part of the 2020 project, but deserves an honorable mention.</p>
+<h3><a href="https://boardgamegeek.com/boardgame/275467/letter-jam">Letter Jam</a> Discord Bot</h3>
+<figure><img src="../../../blog/webgames/webgames-overview/letterjambot.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A Screnshot of Discord Letter Jam Bot"></img><figcaption> Letter Jam Bot processing a clue </figcaption></figure>
+
+<ul>
+<li>Game: <a href="https://boardgamegeek.com/boardgame/275467/letter-jam">Letter Jam</a></li>
+<li>Platform: <a href="https://discordapp.com/">Discord</a></li>
+<li>Technology: Discord API Client (locally hosted), SQLite3 Database</li>
+<li>Philosophies: in-game actions, server relay, text interface, integrating with platforms in use</li>
+<li>Advantages: Rapid Development, Easy, Accessible, Integrated with existing platforms</li>
+<li>Disadvantages: Relies on 3rd party technology, somewhat obtuse interface, confusing</li>
+<li>When: February 2020</li>
+<li>Where: Private discord servers and direct messages</li>
+</ul>
+<p>Letter Jam is a beautiful cooperative word game which balances multiple types of word puzzles into a simple and fun experience. It released in 2019, and I played it a couple times a month before the pandemic. It is easily one of my favorite games, and I deeply wanted to play it with friends and family across the world and within town.</p>
+<p>At the time, Purdue was hurriedly transitioning to online education, and a consensus had been formed that I would start a Discord group for the department's grad students to support each other as we switched. Hoping to see how the experience could be improved for us, I wanted to learn the API, and - given that so many people use the platform - this seemed an easy way to reach friends and family.</p>
+<p>Text based UIs are fairly robust, but not as well suited for a game which requires reviewing and contemplating as many things as Letter Jam. This served our needs, but I knew I could - and wanted - to do better justice to this game. But first, another game I love.</p>
+<h3><a href="https://www.wavelength.zone/">Wavelength</a> Website</h3>
+<figure><img src="../../../blog/webgames/webgames-overview/wavelength.png" alt="A Screnshot of Wavelength Online"></img><figcaption> Wavelength SVG Interface </figcaption></figure>
+
+<ul>
+<li>Game: <a href="https://www.wavelength.zone/">Wavelength</a></li>
+<li>Platform: <a href="https://www.heroku.com/">Heroku</a></li>
+<li>Technology: Python, Flask, Websockets, Javascript (ES6), JQuery, Heroku Dinos, Interactive and Animated SVGs</li>
+<li>Philosophies: Federated authority, server relay, visual interface, tabletop experience recreation, live communication</li>
+<li>Advantages: Scalable, Medium Development, Simple graphical UI, "Serverless"</li>
+<li>Disadvantages: Relies on 3rd party technology, Heroku reliability issues on free tier</li>
+<li>When: February 2020</li>
+<li>Where: wavelength.clintonbradford.com (active)</li>
+</ul>
+<p>Wavelength came out in very late 2019, with many Kickstarter copies not arriving until February 2020. This was a small disaster, because it is easily one of the best party games I have ever had the chance to play, thriving with large crowds. Despite this, the game was a real success, and after playing it in person in late December 2019, I knew I had to play it again when I got a chance. I didn't want to just replicate the bare minimum - in half an hour I had a small prototype which could draw a card and roll a d100, all you need to play - but the experience. That meant, for the first time, doing a full UI for the game. I modelled it after the promotional art, a representation of the excellent in-box components.</p>
+<p>I had experimented with animated and interactive SVGs in my teaching work, and have loved the technology. SVGs in particular are remarkably versatile - I use them often for UI, plotting, aesthetics, and even for planning toolpaths for machining - and can be hooked into Javascript to make deeply interactive experiences. This project allowed me to push that further than I had before, but the big two technologies that were new to me were containerization - working in my personal and research life with Flask APIs and in my professional on a monolith - and websockets. Such a dynamic and interactive game required a more constant stream of communication, and they were an interesting technology to get to know. Of particular trouble was getting touch events and websocket reconnections to work well with mobile browers, who often drop Javascript connections from pages and who translate touch events into mouse events in various surprising ways.</p>
+<p>In the end, I had a playable and intuitive platform that was able to help give us the incredible experiences the board game is capable of facilitating, despite various platform issues. </p>
+<p>When I reached out to the creators to ask for permission to share it, they had started work on their own app on IOS and Android - it's an excellent reimagining of the game for the mobile world, free for the simple wordpack, and you should <a href="https://app.wavelength.zone/">sign up for it</a> if you want to play the game and support the creators.</p>
+<h3><a href="https://firebase.google.com/">Firebase</a> <a href="https://www.wavelength.zone/">Games</a> Platform</h3>
+<ul>
+<li>Games: <a href="https://boardgamegeek.com/boardgame/275467/letter-jam">Letter Jam</a>, various classic party games such as Charades </li>
+<li>Platform: <a href="https://firebase.google.com/">Firebase</a></li>
+<li>Technology: Javascript (ES6), Firebase NoSQL real-time database, React, hosting, JS interface</li>
+<li>Philosophies: Federated authority, full shared knowledge, visual interface, tabletop experience recreation, live communications</li>
+<li>Advantages: Highly scalable, Graphical content, Graphical UI, serverless hosting and data</li>
+<li>Disadvantages: Relies on 3rd party technology, Heroku reliability issues on free tier</li>
+<li>When: February 2021</li>
+<li>Where: wavelength.clintonbradford.com (active)</li>
+</ul>
+<figure><img src="../../../blog/webgames/webgames-overview/letterjamonline.png" alt="A Screnshot of Letter Jam Online"></img><figcaption> React and Firebase Web Game Platform</figcaption></figure>
+
+<p>I am not entirely sure what introduced me to React, but I did a small project in it - to facilitate some interactive department social events that we once held in person, in the before times - and quickly fell for it. I knew I wanted to use it to make my interactive web experiences moving forward. JQuery powers LonCapa's UI, and I had become quite familiar, but it has been largely eclipsed by built in figures. I fell for React's abstraction and encapsulation of content, its distributed knowledge model, and how easily it could produce clean and performant websites with dynamic content. I had also tried learning Firebase for the website, after looking for alternatives due to my platform issues with Heroku, and was curious to do more in that space. SQL had been fundamental to how I have thought about data and relationships for so long that I wanted to expand my horizons, and Firebase is certainly different.</p>
+<p>With this project, I was able to really dig into that NoSQL and React environment, and develop something much more interactive and colorful that finally did do some justice to this great word game. While there are some UI design issues that I will attempt to address, the game plays quite well, and I am glad to have tried these new technologies. React will stick with me, but Firebase has not replaced SQL in my heart or in any other part of my programming life. In addition, a DOM-based model from React ended up being less evocative than the animated SVGs.</p>
+<p>The information model here is a shared Firebase element for the game, that players send updates to. This can create some race conditions on certain actions in asynchronous games like Letter Jam - the game updates to a valid state, but sometimes someone's actions will be overridden and they will have to resubmit them. There are some ways to address that, such as creating transactions and a log which will keep track of whether a user's action is still valid, but I do not see myself working around this platform for now.</p>
+<p>This platform is also used for a variety of online party games my extended family likes - of the variety like Charades - which it serves fairly well. I am able to share some functionality - shuffling and the sort - between the games, making it a platform and not just one game. But I do mostly go here for Letter Jam.</p>
+<h1>What's Next</h1>
+<p>This blog post marks the start of a series in which I will develop, from scratch, a platform for all my games that combines the best of these worlds while still learning something new.</p>
+<h2>Design Principles</h2>
+<h3>Single Authority</h3>
+<p>My experiments with distributing authority have led to various conflicts, and having one system in charge of performing tasks in order will prevent those issues. This host can run in browser behind the host's client, or as a server for asynchronous play, but will control the communication. Ideally, I will learn Docker and have a Node server which can host the asynchronous play server, but I am going to focus on an in-browser solution to start.</p>
+<p>Ideally, this hosting will be transferrable, but the minimum viable platform will not need that.</p>
+<h3>Transaction IDs and Receipts</h3>
+<p>Going back to the very beginning, a player's client should know that what they want to happen </p>
+<ul>
+<li>Will happen even if the first attempt is dropped</li>
+<li>Will happen only once</li>
+<li>Will return confirmation which the client can act upon</li>
+</ul>
+<p>This means that, when an action is sent to the server, it is sent with an ID, and logged - so multiple copies of the ID are not seen, and the client can poll to see whether their communication was successful.</p>
+<h3>Game Actions as Transactions</h3>
+<p>Having experimented with a variety of transations, I have settled on the opinion that <em>one</em> transaction should represent <em>one</em> thing the player can do in a board game, and not any state it affects beyond that. For example, the transaction could represent "Playing A Card" in Hearts - and the server will handle translating that into the end result and distributing the new board state.</p>
+<h3>A Textual Representation of the State, Log, and Actions</h3>
+<p>Command line interfaces have stood the test of time for many reasons, and I have found them to be an easy and natural way of interacting with the world. Of particular benefit, however, they expand the accessibility of the platform for games which do not need a verbal component - allowing for those who cannot see the screen to use screen reader software, with integrations, to participate fully in the experience.</p>
+<h3>SVG Interfaces controlled with Javascript</h3>
+<p>Of the many options for a graphical interface, I am still partial to interactive SVGs for their tradeoff between powerful positioning and click interactivity, together with their ability to scale for a variety of sized viewers. Graphical interfaces are potent, and I will focus on an interface which can work seamlessly with the textual representation.</p>
+<p>For this sort of animated and interactive SVG UI, I have been learning and using <code>d3.js</code> - and am excited to get to know it deeper.</p>
+<h3>Abstracted Game Components</h3>
+<p>Board Games rely on a lot of past work and tropes, and so I will build out a library to support these games on a single platform. A deck of cards and discard pile is used in Letter Jam, Wavelength, Sleuth, and countless other games - simple components that will not need to be remade.</p>
+<h2>New Technologies</h2>
+<h3>WebRTC</h3>
+<p>I have found Websockets work fairly well for server-client communication, but for scalability and bandwith, I am hoping to learn WebRTC. This would enable the browsers, after a handshake, to host the games themselves and means we will only need a lightweight matchmaking and content server.</p>
+<h3>AWS Lambda</h3>
+<p>Those handshakes and assets I will serve by learning to use Amazon Web Services, most likely AWS Lambda. These platforms are dominant, and I have yet to use them.</p>
+<h3>Docker</h3>
+<p>I am also hoping to build the hosting server and game server into a docker image that people can run themselves to support asynchronous play experiences. This is a low-priority feature, at the moment, but its presence in the grand design will help inform design changes.</p>
+<h3>D3.js</h3>
+<p>SVGs are a remarkable way to meet the needs of devices near and far, and together with CSS breakpoints, should be able to handle most of my responsive UI desires. I'm excited to see the ways D3.js can smooth some of the rough edges of working with SVGs, and ease transitions between different user interface states.</p>
+<h1>Roadmap</h1>
+<p>The next planned post in this series will cover the process of getting two browsers communicating in WebRTC on a local machine, and sending text back and forth.</p>
+<p>After that, we will start implementing the first game, and abstracting it into a framework in which games can be created.</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=A Platform For Web Gaming&amp;url=../../../blog/webgames/webgames-overview/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=../../../blog/webgames/webgames-overview/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=../../../blog/webgames/webgames-overview/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="../../../tag/projects.html">projects</a><a href="../../../tag/webgames.html">webgames</a><a href="../../../tag/python.html">python</a><a href="../../../tag/flask.html">flask</a><a href="../../../tag/javascript.html">javascript</a><a href="../../../tag/react.html">react</a><a href="../../../tag/heroku.html">heroku</a><a href="../../../tag/games.html">games</a><a href="../../../tag/boardgames.html">boardgames</a>                </aside>
+
+                <div class="clear"></div>
+
+ 
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+  
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="../../../theme/js/script.js"></script>
+  
+</body>
+</html>
