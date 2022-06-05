@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Clinton Bradford</title><link href="https://www.clintonbradford.com/" rel="alternate"></link><link href="https://www.clintonbradford.com/feeds/all.atom.xml" rel="self"></link><id>https://www.clintonbradford.com/</id><updated>2022-06-05T00:00:00-04:00</updated><entry><title>Star Spinner - Perspectives on The Galaxy</title><link href="https://www.clintonbradford.com/blog/oneoffs/star-spinner/" rel="alternate"></link><published>2020-08-07T00:00:00-04:00</published><updated>2020-08-07T00:00:00-04:00</updated><author><name>Clinton Bradford</name></author><id>tag:www.clintonbradford.com,2020-08-07:/blog/oneoffs/star-spinner/</id><summary type="html">&lt;p&gt;What do constellations look like from other angles? Let's find out!&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;What do constellations look like from other angles?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.clintonbradford.com/starspinner/"&gt;I made a little interactive astronomy demonstration&lt;/a&gt; to find out!&lt;/p&gt;
+&lt;p&gt;I made this using public data, &lt;a href="https://github.com/ClintonWB/starperspective"&gt;and code for which is available on Github&lt;/a&gt;. Check it out if you want! This article is about the why-and-how of that project.&lt;/p&gt;
+&lt;h1&gt;Background&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Biron said absently, "You know why they call it the Horsehead Nebula, Gil?"&lt;/p&gt;
+&lt;p&gt;"The first man to enter it was Horace Hedd. Are you going to tell me that's wrong?"&lt;/p&gt;
+&lt;p&gt;"It may be. They have a different explanation on Earth."&lt;/p&gt;
+&lt;p&gt;"Oh?"&lt;/p&gt;
+&lt;p&gt;"They claim it's called that because it looks like a horse's head."&lt;/p&gt;
+&lt;p&gt;"What's a horse?"&lt;/p&gt;
+&lt;p&gt;"It's an animal on Earth."&lt;/p&gt;
+&lt;p&gt;"It's an amusing thought, but the Nebula doesn't look like any animal to me, Biron."&lt;/p&gt;
+&lt;p&gt;"It depends on the angle you look at it. Now from Nephelos it looks like a man's arm with three fingers, but I looked at it once from the observatory at the University of Earth. It does look a little like a horse's head. Maybe that is how the name started. Maybe there never was any Horace Hedd. Who knows?"&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;-- &lt;cite&gt;"The Stars, Like Dust", Isaac Asimov&lt;/cite&gt;&lt;/p&gt;
+&lt;h3&gt;Motivation&lt;/h3&gt;
+&lt;p&gt;One day, while preparing for a walk at the beautiful Turkey Run State Park, we stopped by their small planetarium. In the room were number of excellent small space-themed exhibits, on loan from the &lt;a href="https://emuseum.org/"&gt;Evansville Museum&lt;/a&gt;, a beautiful and varied museum which you should visit if you are anywhere near the southwestern corner of Indiana.&lt;/p&gt;
+&lt;p&gt;A particularly clever exhibit featured a a hand-pumped, see through vacuum chamber containing two &lt;a href="https://www.sciplus.com/panic-pete-popping-squeeze-doll-2336-p"&gt;stress relief dolls&lt;/a&gt;, one in a spacesuit, and one bare. In a few pumps, an observer could see the way the internal pressure of the object caused it to expand in a vacuum - in a dramatic way which delighted some local children out for a hike.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/martian_pressure_suit.jpg" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="The popping doll spacesuit exhibit"&gt;&lt;/img&gt;&lt;figcaption&gt; The popping doll spacesuit exhibit &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;The entire collection of 11 portable exhibits, part of a national collaboration &lt;a href="https://nsf.gov/awardsearch/showAward?AWD_ID=0610320"&gt;funded by the NSF in 2006&lt;/a&gt; between 10 museums (8 in the midwest, one in Oregon, and one in Alaska), can be viewed with explanations in the &lt;a href="https://www.clintonbradford.com/blog/oneoffs/star-spinner/OTS Manual.pdf"&gt;manual&lt;/a&gt; shared by &lt;a href="https://scienceworksexhibits.com/outreach-to-space/"&gt;ScienceWorks&lt;/a&gt; supporting their copy of the exhibit.&lt;/p&gt;
+&lt;p&gt;The exhibit that most affected me in this collection, however, was a collection of suspended white balls in a 3d box, against a black backdrop. They represented the &lt;a href="https://en.wikipedia.org/wiki/Big_Dipper"&gt;big dipper asterism&lt;/a&gt;, and if you placed your eye at just the right spot, it was obvious - but from nearly any other angle, it was just a collection of stars. &lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/big-dipper-side.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="The big dipper exhibit, viewed from the side"&gt;&lt;/img&gt;&lt;figcaption&gt; The big dipper exhibit, viewed from the side &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;The Evansville Museum was kind enough to share some background and technical drawings of the exhibits, which are amusing and show detail on the precise operation of the device:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/perspective-technical.png" style="max-height:800px; width:auto; margin-left: auto; margin-right: auto;" alt="Technical drawing of the big dipper viewing"&gt;&lt;/img&gt;&lt;figcaption&gt; Technical drawing of the big dipper viewing &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Like many great exhibits, this immediately connected to some memories. The quote at the introduction to this piece, which has stuck with me since I was a child, was first to mind. Second, the concept of orienting oneself in space by just the stars - practiced on some small scale by astronauts in the Apollo program through their onboard sextant eyepiece, and speculated as a way of locating oneself in the galaxy or universe more broadly.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/Apollo_8_Lovell_at_Guidance_and_Navigation_Station.jpg" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Astronaut looking into tubes"&gt;&lt;/img&gt;&lt;figcaption&gt; Apollo Astronaut James A. Lovell Jr. orienteering with the onboard sextant during Apollo 8 &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;If one could recognize the stars and three dimensional shape of the big dipper, then, one could use it as a sort of astronavigational compass in our corner of the Milky Way - knowing one's direction and distance from just these few stars would be enough to find one's position, relative to home. This is something I am sure to come back to, in some form, in interactive experiences in the future.&lt;/p&gt;
+&lt;p&gt;The next thought, and one that consumed an afternoon, was whether this kind of asterism-recognizing could be gamified. Orientation puzzles can be remarkably intuitive or mobile-friendly - for example, the game &lt;a href="http://zenbound.com/"&gt;Zenbound&lt;/a&gt; has a calm energy and intuitive controls, no doubt the work of refinement on the part of its experienced developers, but tapping into something fundamental about the way humans interact with objects. Could recognizing or orienting the asterisms be interesting to me, and maybe others?&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/zenbound.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Monkey covered in rope"&gt;&lt;/img&gt;&lt;figcaption&gt; Zenbound figure wrapped in rope &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;h1&gt;Project&lt;/h1&gt;
+&lt;p&gt;In wanting this to be able to reach people easily, if it did end up being amusing or better, the language choice for the end product would likely be Javascript. This would also give me an opportunity to use a system introduced in &lt;a href="https://en.wikipedia.org/wiki/HTML5"&gt;HTML5&lt;/a&gt; I had been excited to learn, but hadn't yet found a good use for - the &lt;a href="https://en.wikipedia.org/wiki/Canvas_element"&gt;Canvas&lt;/a&gt; element.&lt;/p&gt;
+&lt;p&gt;Most user interface tasks I have needed in the past could be handled easily in the traditional DOM or in animated SVG elements, both powerful and well-developed technologies, but accurate positioning of the stars would hopefully be easier in a more traditional graphics interface with more reliable absolute positioning, which advocates had promised Canvas could be.&lt;/p&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;But that was getting ahead of myself. I needed, first, more precise locations for the stars, and groupings of them into asterisms. It turns out that accurate star data - public results of large collaborations around the world - is available from many sources and quite usable. Downloading samples of the &lt;a href="https://gea.esac.esa.int/archive/"&gt;Gaia catalog&lt;/a&gt;, and &lt;a href="http://tdc-www.harvard.edu/catalogs/bsc5.html"&gt;Yale catalog&lt;/a&gt;, I eventually chose the &lt;a href="https://heasarc.gsfc.nasa.gov/W3Browse/all/hipparcos.html"&gt;Hipparcos catalog&lt;/a&gt;. The differences in the readings and formats were of no consequence to a simple prototype project like this, and all the fields I needed were a star's position in space, and perhaps its luminosity and color. Gaia's dataset was larger than I needed, containing fainter stars than the human eye can see, and far more fields. Hipparcos had all the stars I would need for this project. The catalog file is read as bytes, and they are clearly labelled in a header file, easy enough to parse.&lt;/p&gt;
+&lt;p&gt;The astronomical definitions of the constellations - as blocked out regions of sky - are similarly available. But there are not so many good resources on the purely cultural phenomena of what are commonly called constellations - to astronomers, &lt;em&gt;asterisms&lt;/em&gt;. However, there is a community of open source contributors, aided by cultural writers and consultants from around the world, who have done some impressive work on that front - the excellent screen/projector planetarium software Stellarium provides asterisms and lines, from many cultures, drawn between stars cataloged with enough information to match them to Hipparcos. &lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/stellarium-001.jpg" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"&gt;&lt;/img&gt;&lt;figcaption&gt; Stellarium screenshot, featuring Asterism lines and artwork &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;h2&gt;Parsing&lt;/h2&gt;
+&lt;p&gt;Hipparcos provides data as values, largely numerical, delimited by the character&lt;code&gt;|&lt;/code&gt;, in numerical order by Hipparcos number. Not containing any escape characters, it is easy to parse manually or with any CSV/TSV reader which allows for custom delimiters.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;H|           1| |00 00 00.22|+01 05 20.4| 9.10| |H|000.00091185|+01.08901332| |   3.54|   -5.20|   -1.88|  1.32|  0.74|  1.39|  1.36|  0.81| 0.32|-0.07|-0.11|-0.24| 0.09|-0.01| 0.10|-0.01| 0.01| 0.34|  0| 0.74|     1| 9.643|0.020| 9.130|0.019| | 0.482|0.025|T|0.55|0.03|L| | 9.2043|0.0020|0.017|87| | 9.17| 9.24|       | | | |          | |  |1| | | |  |   |       |     |     |    |S| | |224700|B+00 5077 |          |          |0.66|F5          |S
+H|           2| |00 00 00.91|-19 29 55.8| 9.27| |G|000.00379737|-19.49883745|+|  21.90|  181.21|   -0.93|  1.28|  0.70|  3.10|  1.74|  0.92| 0.12|-0.14|-0.24|-0.29| 0.01| 0.21|-0.02|-0.19|-0.28| 0.14|  2| 1.45|     2|10.519|0.033| 9.378|0.021| | 0.999|0.002|G|1.04|0.00|I| | 9.4017|0.0017|0.015|120| | 9.37| 9.44|       |C| | |          | |  |1|O| | |  |   |       |     |     |    | | | |224690|B-20 6688 |          |          |1.04|K3V         |4
+H|           3| |00 00 01.20|+38 51 33.4| 6.61| |G|000.00500795|+38.85928608| |   2.81|    5.24|   -2.91|  0.53|  0.40|  0.63|  0.57|  0.47| 0.06| 0.09| 0.04| 0.43|-0.01|-0.06| 0.03| 0.24| 0.07| 0.21|  0|-0.45|     3| 6.576|0.004| 6.621|0.005| |-0.019|0.004|G|0.00|0.00|H| | 6.6081|0.0007|0.008|127| | 6.60| 6.62|       |C| | |00000+3852|I| 1|1| | | |  |   |       |     |     |    |S| | |224699|B+38 5108 |          |          |0.00|B9          |S
+H|           4| |00 00 02.01|-51 53 36.8| 8.06| |H|000.00838170|-51.89354612| |   7.75|   62.85|    0.16|  0.53|  0.59|  0.97|  0.65|  0.65|-0.22|-0.09|-0.03| 0.24| 0.20| 0.08| 0.18| 0.08|-0.31|-0.18|  0|-1.46|     4| 8.471|0.007| 8.092|0.007| | 0.370|0.009|T|0.43|0.01|L| | 8.1498|0.0011|0.015|201| | 8.12| 8.18|       | | | |          | |  |1| | | |  |   |       |     |     |    |S| | |224707|          |          |P-52 12237|0.43|F0V         |2
+H|           5| |00 00 02.39|-40 35 28.4| 8.55| |H|000.00996534|-40.59122440| |   2.87|    2.53|    9.07|  0.64|  0.61|  1.11|  0.67|  0.74| 0.10| 0.24| 0.06| 0.26|-0.10| 0.20|-0.16|-0.30|-0.19| 0.06|  0|-1.24|     5| 9.693|0.014| 8.656|0.010| | 0.902|0.013|T|0.90|0.01|L| | 8.7077|0.0018|0.019|161| | 8.68| 8.74|       | | | |          | |  |1| | | |  |   |       |     |     |    | | | |224705|          |C-41 15372|P-41  9991|0.95|G8III       |2
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The headers are stored separately, and identify the fields numerically. From the header file, the fields of use in this project are:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;H1          HIP        HIP_Number         /Identifier (HIP number)
+H5          Vmag       Vmag               /Magnitude in Johnson V
+H8          RAdeg      RA_Deg             /RA in degrees (ICRS, Epoch-J1991.25)
+H9          DEdeg      Dec_Deg            /Dec in degrees (ICRS, Epoch-J1991.25)
+H11         Plx        Parallax           /Trigonometric parallax
+H37         B-V        BV_Color           /Johnson BV colour
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This information is relative positioning to earth as it orbits the sun. What I need for this project is their relative positions in some cartesian estimate of their position, but this is possible - discounting the real but largely irrelevant issues of our universe not being cartesian - with some simple trigonometric calculations based on these numbers:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+ \begin{align*}
+\text{Distance} &amp;amp;= \frac{1000}{\text{Parallax}} \\
+x &amp;amp;= -\cos(\text{RA})*\cos(\text{Dec})*\text{Distance} \\
+ y &amp;amp;= \sin(\text{RA})*\cos(\text{Dec})*\text{Distance} \\
+ z &amp;amp;= \sin(\text{Dec})*\text{Distance} \\
+\end{align*}
+$$&lt;/div&gt;
+&lt;p&gt;This places the stars, when we need to, into a floating-point reference frame centered on the earth in AU. We can convert from this later when assembling asterisms, with plenty of precision for this project.&lt;/p&gt;
+&lt;p&gt;All I need, then, is to link the asterism data from Stellarium to the Hipparcos number, and I can pick out the lines for parsing.&lt;/p&gt;
+&lt;p&gt;Stellarium is open source, largely GPLv2 licensed (though several graphical and data contributions are under other licenses), and the star data is available in the &lt;a href="https://github.com/Stellarium/stellarium/tree/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures"&gt;cultures&lt;/a&gt; section. For a small exploratory project, I have not spent much time chasing licenses and validating the data, but that is worth remembering for the future. For this prototype, we will use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/asterism_lines.fab"&gt;&lt;code&gt;asterism_lines.fab&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/asterism_names.eng.fab"&gt;&lt;code&gt;asterism_names.eng.fab&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/constellationship.fab"&gt;&lt;code&gt;constelationship.fab&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/constellation_names.eng.fab"&gt;&lt;code&gt;constellation_names.eng.fab&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Localized asterism names in English are given in &lt;a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/asterism_names.eng.fab"&gt;&lt;code&gt;asterism_names.eng.fab&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;...
+# Associative and sectional asterisms
+BDr _(&amp;quot;Big Dipper (Plough)&amp;quot;,&amp;quot;asterism&amp;quot;)
+LDr _(&amp;quot;Little Dipper&amp;quot;,&amp;quot;asterism&amp;quot;)
+SSR _(&amp;quot;Seven Stars Row&amp;quot;,&amp;quot;asterism&amp;quot;)
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And the constellation lines are given in &lt;a href="https://github.com/Stellarium/stellarium/blob/1e617e49918ab2e5e5fad318dd1ab4024eb1e41c/skycultures/western/asterism_lines.fab"&gt;&lt;code&gt;asterism_lines.fab&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;...
+# Associative and sectional asterisms
+BDr 1 7  67301 65378 65378 62956 62956 59774 59774 54061 54061 53910 53910 58001 58001 59774
+LDr 1 7  11767 85822 85822 82080 82080 77055 77055 79822 79822 75097 75097 72607 72607 77055
+SSR 1 6  15863 9640 9640 5447 5447 3092 3092 677 677 113881 113881 112158
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Looking over this data, these numbers were immediately familiar - they are already Hipparcos numbers. Noting the repeated numbers, and working off of the dippers (two very familiar asterisms), this data is given as &lt;em&gt;pairs of Hipparcos numbers, each representing one line of an asterism&lt;/em&gt;. For example, the line from Polaris (&lt;code&gt;HIP11767&lt;/code&gt;) to Yildun (&lt;code&gt;HIP85822&lt;/code&gt;) is first in the Little Dipper, followed by the line from Yildun to the next light (actually a binary star system, collectively called ε Ursae Minoris, &lt;code&gt;HIP85822&lt;/code&gt;).&lt;/p&gt;
+&lt;h3&gt;Code&lt;/h3&gt;
+&lt;p&gt;We can use some Python to read in the HIP headers and data:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;radians&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sqrt&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;statistics&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;mean&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;dumps&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;jsondumps&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;itertools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;combinations&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;csv&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;DictReader&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
+
+
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;hip_headers.dat&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readline&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;headers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Catalog&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;hip_main.dat&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;hip_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;DictReader&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;headers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;delimiter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;|&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="n"&gt;hip_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;datum&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;
+            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;datum&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;hip_data&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;hip_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isdigit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;datum&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;()}&lt;/span&gt;
+            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;datum&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;hip_data&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And, armed with that data and the above transformations, take the star lists from Stellarium to &lt;code&gt;x,y,z&lt;/code&gt; coordinates, with a center point, which we can project, rotate about their center, and render without much difficulty:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;jsonify_asterism&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line_list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;target_width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;400&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;stars&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;hip_data&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;HIP_Number&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;line_list&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;stars&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;line_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;HIP_Number&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+    &lt;span class="n"&gt;hip_matching&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;HIP_Number&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stars&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
+
+    &lt;span class="n"&gt;star_xyzs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;star&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;stars&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;RA&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;radians&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;star&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;RA_Deg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+        &lt;span class="n"&gt;Dec&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;radians&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;star&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Dec_Deg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+        &lt;span class="n"&gt;Dist&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;star&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Parallax&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;RA&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Dec&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Dist&lt;/span&gt;
+        &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;RA&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Dec&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Dist&lt;/span&gt;
+        &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Dec&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;Dist&lt;/span&gt;
+        &lt;span class="n"&gt;star_xyzs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="n"&gt;max_width&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;.1&lt;/span&gt;
+    &lt;span class="n"&gt;center&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;star_xyzs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;combinations&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;star_xyzs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;gap&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;gap&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;max_width&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;max_width&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gap&lt;/span&gt;
+            &lt;span class="n"&gt;center&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+
+    &lt;span class="n"&gt;scale_factor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;target_width&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;max_width&lt;/span&gt;
+    &lt;span class="n"&gt;scaled_xyz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[[&lt;/span&gt;&lt;span class="nb"&gt;round&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;scale_factor&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                   &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+                  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;star_xyzs&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;star_line_nums&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;hip_matching&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;line_list&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;star_lines&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;star_line_nums&lt;/span&gt;&lt;span class="p"&gt;[::&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;star_line_nums&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;::&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+
+    &lt;span class="n"&gt;star_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;stars&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;z&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;scaled_xyz&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;lines&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;star_lines&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;diameter&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;max_width&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;star_data&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;giving a more manageable output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="s2"&gt;&amp;quot;BDr&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;stars&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;65.49&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;204.67&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;z&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;71.76&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;52.77&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;107.85&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;z&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;159.95&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;37.71&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;68.7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;z&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;137.9&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;36.54&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;14.6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;z&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;128.93&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;52.77&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;107.85&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;z&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;159.95&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;48.32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;85.18&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;z&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;144.53&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;1.15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;y&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;16.1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;z&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;135.42&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;],&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;lines&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;
+      &lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="mf"&gt;1&lt;/span&gt;
+    &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;
+      &lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="mf"&gt;2&lt;/span&gt;
+    &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;
+      &lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="mf"&gt;3&lt;/span&gt;
+    &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;
+      &lt;span class="mf"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="mf"&gt;4&lt;/span&gt;
+    &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;
+      &lt;span class="mf"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="mf"&gt;5&lt;/span&gt;
+    &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;
+      &lt;span class="mf"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="mf"&gt;6&lt;/span&gt;
+    &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="p"&gt;[&lt;/span&gt;
+      &lt;span class="mf"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="mf"&gt;3&lt;/span&gt;
+    &lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="p"&gt;],&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;diameter&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;17.231129246420153&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Big Dipper (Plough)&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, we can take this data and render it!&lt;/p&gt;
+&lt;h2&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;I threw this together in a quick &lt;code&gt;React&lt;/code&gt; component, using the &lt;code&gt;Class&lt;/code&gt; model, which will allow us to easily keep a component state.&lt;/p&gt;
+&lt;p&gt;The component, at &lt;a href="https://github.com/ClintonWB/starperspective/blob/master/src/StarCanvas.js"&gt;the Github repo&lt;/a&gt;, starts very simple:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;class StarCanvas extends Component {
+    render(){
+    return (
+      &lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      );
+  }
+}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Drawing Stars on the Canvas&lt;/h3&gt;
+&lt;p&gt;Technically, this project is relatively simple. We can start with a canvas:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;canvas&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;star-canvas&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;500&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;height&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;500&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;A little star SVG:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;svg&lt;/span&gt; &lt;span class="na"&gt;height=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;100&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;width=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;100&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;xmlns=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;version=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1.1&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;polygon&lt;/span&gt; &lt;span class="na"&gt;points=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;50,10 73,82 11,37 88,37 26,82&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;fill:none;stroke:black;stroke-width:5&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/svgstar.svg" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Star"&gt;&lt;/img&gt;&lt;/figure&gt;
+
+&lt;p&gt;The Canvas API provides a simple method  &lt;code&gt;context.drawImage&lt;/code&gt; for drawing images at locations:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;drawStar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+  &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mf"&gt;20&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;20&lt;/span&gt;
+  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;drawImage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;starSVG&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;size&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;size&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;size&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;and we can draw lines almost as easily:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;drawLine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;line&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+  &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;p1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;star_data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stars&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;line&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]];&lt;/span&gt;
+  &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;p2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;star_data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stars&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;line&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]];&lt;/span&gt;
+  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;beginPath&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;strokeStyle&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;#BBBBBB&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;moveTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;p1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;p1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;lineTo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;p2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;p2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;closePath&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+  &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stroke&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;and group all the drawing into one function:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nx"&gt;drawCanvas&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;clearRect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;star_data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stars&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;updateStarData&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;show_lines&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;star_data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;drawLine&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;show_stars&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+      &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;star_data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stars&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;drawStar&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;requestAnimationFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;drawCanvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Rotating the Stars&lt;/h3&gt;
+&lt;p&gt;Rotations are very familiar, and we can do them fairly quickly:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nx"&gt;updateStarData&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+  &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+  &lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="nx"&gt;star&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;All we need to do is capture the mouse input:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;startMouseData&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;evt&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;if(evt.touches){&lt;/span&gt;
+    &lt;span class="err"&gt;evt&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;evt.touches&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;startX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;evt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;clientX&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;startY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;evt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;clientY&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;mouseX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;evt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;clientX&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;mouseY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;evt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;clientY&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;moving&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;true&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="nt"&gt;moveMouse&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;evt&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="err"&gt;if(evt.touches){&lt;/span&gt;
+    &lt;span class="err"&gt;evt&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;evt.touches&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="nt"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;moving&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;this.rotations&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:(&lt;/span&gt;&lt;span class="n"&gt;evt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;clientX&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mouseX&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                      &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;evt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;clientY&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mouseY&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;mouseX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;evt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;clientX&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nt"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;mouseY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;evt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nc"&gt;clientY&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+  &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="nt"&gt;endMouseData&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;evt&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;this.moving&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;and bind all these listeners and objects via &lt;code&gt;React&lt;/code&gt;'s &lt;code&gt;componentDidMount&lt;/code&gt; hook:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;  &lt;span class="nx"&gt;componentDidMount&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;star-canvas&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;starSVG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getElementById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;starsvg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getContext&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;2d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rotations&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;z&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;translate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;canvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;touchstart&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;startMouseData&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mousedown&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;startMouseData&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;touchmove&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;moveMouse&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mousemove&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;moveMouse&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;touchend&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;endMouseData&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;addEventListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mouseup&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;endMouseData&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;requestAnimationFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;drawCanvas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;As an avid touchscreen user, and especially in the time of the mobile/tablet-dominated web, it is important to bind for touch events as well. Fortunately the events can be handled largely the same.&lt;/p&gt;
+&lt;p&gt;We render the transformations as smoothly as the browser wishes with the &lt;code&gt;requestAnimationFrame&lt;/code&gt; hook, the last key to our use of a &lt;code&gt;Canvas&lt;/code&gt;.&lt;/p&gt;
+&lt;h1&gt;Results&lt;/h1&gt;
+&lt;p&gt;In the end, I got a &lt;a href="https://www.clintonbradford.com/starspinner/"&gt;workable example&lt;/a&gt; going, able to pivot and translate all of the asterisms in the data set. With it, you can replicate some of the experience from the exhibit:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/star-spinner-1.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"&gt;&lt;/img&gt;&lt;figcaption&gt; Star Spinner, showing a random orientation of the Big Dipper &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;And spin the asterism around to see the big dipper:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/star-spinner-2.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"&gt;&lt;/img&gt;&lt;figcaption&gt; Star Spinner, showing a correct Big Dipper &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;What I discovered, quickly, was that most asterisms represent stars very far away from each other in any other projection:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/star-spinner-taurus.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"&gt;&lt;/img&gt;&lt;figcaption&gt; Star Spinner, showing Taurus from the side &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;And very few are particularly interesting with this interface. But, it answered the question: what to asterisms look like from other angles? Mostly, like sticks:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/oneoffs/star-spinner/star-spinner-auriga.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="Constellations"&gt;&lt;/img&gt;&lt;figcaption&gt; Star Spinner, showing Auriga from the side &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;h2&gt;Future Work&lt;/h2&gt;
+&lt;p&gt;As the project ends up suggesting, while the results are interesting, they are not particularly &lt;em&gt;fun&lt;/em&gt; except perhaps for the most invested person and for a handful of constellations. There are a few things that would be interesting to change, if I thought that I could make it worthwhile, but for now I feel I have all I am going to get out of it.&lt;/p&gt;
+&lt;p&gt;One could:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Show confirmation of correct orientation, perhaps with the &lt;a href="https://johanmeuris.eu/work/stellarium-constellation-art/"&gt;beautiful Asterism drawings&lt;/a&gt; by &lt;a href="http://www.johanmeuris.eu/"&gt;Johan Meuris&lt;/a&gt; created for Stellarium and released under the very permissive &lt;a href="https://artlibre.org/licence/lal/en/"&gt;Free Art License&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Adjust the size and color of the stars to better represent their real life equivalents, allowing for distinctive stars like Sirius to be more identifiable, or stars of relatively high brightness in their constellations like Polaris to pop more.&lt;/li&gt;
+&lt;li&gt;Stellarium's asterisms use more stars than most folk asterisms I have found, at least for the ancient greek-derived asterisms. By selectively removing stars that are faint or unnecessary, I may be able to render more asterisms playable.&lt;/li&gt;
+&lt;li&gt;Most asterisms fit into much narrower containers. With a more dynamic approach to keeping the stars on the canvas, we could zoom in on the stars more in close-to-correct views - allowing a much wider variety of asterisms to be played meaningfully. &lt;/li&gt;
+&lt;li&gt;Show bright stars in the background which would be visible from the other angles - to get a better impression of what they would &lt;em&gt;really&lt;/em&gt; look like from somewhere else.&lt;/li&gt;
+&lt;li&gt;Expanding the canvas and interface.&lt;/li&gt;
+&lt;li&gt;Add UI and explanations, for people who are stumbling onto it without my presence.&lt;/li&gt;
+&lt;li&gt;Add some metrics to help find pain points and interface issues.&lt;/li&gt;
+&lt;li&gt;Enhance the touch controls and 3d placement.&lt;/li&gt;
+&lt;li&gt;Verifying licenses and sources for asterisms, and incorporating more asterisms from more world cultures.&lt;/li&gt;
+&lt;li&gt;Expanding to other languages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the end, though, I am more excited by other related projects - such as finding a way to gamify the kind of multilateration one would need to place oneself in the galaxy or universe with nothing but a star catalog and a very good telescope.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="oneoffs"></category><category term="projects"></category><category term="astronomy"></category><category term="interactives"></category><category term="react"></category><category term="museums"></category><category term="science"></category><category term="web"></category></entry><entry><title>A Platform For Web Gaming</title><link href="https://www.clintonbradford.com/blog/webgames/webgames-overview/" rel="alternate"></link><published>2021-10-28T00:00:00-04:00</published><updated>2021-10-28T00:00:00-04:00</updated><author><name>Clinton Bradford</name></author><id>tag:www.clintonbradford.com,2021-10-28:/blog/webgames/webgames-overview/</id><summary type="html">&lt;p&gt;An overview of my many attempts at web board game implementation over the last decade.&lt;/p&gt;</summary><content type="html">&lt;script type="text/javascript" src="https://livejs.com/live.js"&gt;&lt;/script&gt;
+
+&lt;h1&gt;Background&lt;/h1&gt;
+&lt;p&gt;I am a lifelong fan of board gaming. There's something special about the physical nature of it, the adaptability of the medium, and most importantly doing it &lt;em&gt;together&lt;/em&gt; with other people that really resonates with me.&lt;/p&gt;
+&lt;p&gt;For 2020-2021 reasons, however, I haven't been able to do it in person. While various platforms exist for board gaming, such as &lt;a href="https://www.boardgamearena.com/"&gt;Board Game Arena&lt;/a&gt; and &lt;a href="https://www.tabletopsimulator.com/"&gt;Tabletop Simulator&lt;/a&gt;, I have my concerns and issues with each platform. As an exercise for myself, I have been implementing various board games, and exploring different philosophies and technologies.&lt;/p&gt;
+&lt;p&gt;This blog series is documenting the culmination of those efforts - an attempt to make an easy to use, reasonably accessible, functional platform of my very own to quickly put together and deploy the board games I want to play, online.&lt;/p&gt;
+&lt;h2&gt;Exploratory Projects&lt;/h2&gt;
+&lt;h3&gt;Sleuth Asynchronous Website&lt;/h3&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/webgames/webgames-overview/sleuthreminderemail.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A Screnshot of Email Sleuth Reminder"&gt;&lt;/img&gt;&lt;figcaption&gt; An email reminder from the Sleuth website &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Game: &lt;a href="https://boardgamegeek.com/boardgame/594/sleuth"&gt;Sleuth&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Platform: Web (static)&lt;/li&gt;
+&lt;li&gt;Technology: Python, Flask, Email, Linux Server, SQLite3 Database&lt;/li&gt;
+&lt;li&gt;Philosophies: in-game actions, server relay, asynchronous play, email reminders&lt;/li&gt;
+&lt;li&gt;Advantages: Rapid development, asynchronous play&lt;/li&gt;
+&lt;li&gt;Disadvantages: Limited Graphics, requires server, scales poorly&lt;/li&gt;
+&lt;li&gt;When: 2012&lt;/li&gt;
+&lt;li&gt;Where: sleuth.clintonbradford.com (defunct)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Back in 2012, we were playing a lot of Sleuth - and a variant brainstormed with my friend Sharif Ibrahim on a finite projective plane - and wanted somewhere quick to host it. Already familiar with basic web interfaces, SQL, and Flask, it was a quick project to put together, similar to the many browser-based frontends I have used in my work and research. &lt;/p&gt;
+&lt;p&gt;However, I never want to tackle a project without learning something new, so I decided that it would be helpful for our play style to have reminder emails when people took their turns. We were often playing asynchronously, and this helped keep things moving. This isn't part of the 2020 project, but deserves an honorable mention.&lt;/p&gt;
+&lt;h3&gt;&lt;a href="https://boardgamegeek.com/boardgame/275467/letter-jam"&gt;Letter Jam&lt;/a&gt; Discord Bot&lt;/h3&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/webgames/webgames-overview/letterjambot.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A Screnshot of Discord Letter Jam Bot"&gt;&lt;/img&gt;&lt;figcaption&gt; Letter Jam Bot processing a clue &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Game: &lt;a href="https://boardgamegeek.com/boardgame/275467/letter-jam"&gt;Letter Jam&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Platform: &lt;a href="https://discordapp.com/"&gt;Discord&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Technology: Discord API Client (locally hosted), SQLite3 Database&lt;/li&gt;
+&lt;li&gt;Philosophies: in-game actions, server relay, text interface, integrating with platforms in use&lt;/li&gt;
+&lt;li&gt;Advantages: Rapid Development, Easy, Accessible, Integrated with existing platforms&lt;/li&gt;
+&lt;li&gt;Disadvantages: Relies on 3rd party technology, somewhat obtuse interface, confusing&lt;/li&gt;
+&lt;li&gt;When: February 2020&lt;/li&gt;
+&lt;li&gt;Where: Private discord servers and direct messages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Letter Jam is a beautiful cooperative word game which balances multiple types of word puzzles into a simple and fun experience. It released in 2019, and I played it a couple times a month before the pandemic. It is easily one of my favorite games, and I deeply wanted to play it with friends and family across the world and within town.&lt;/p&gt;
+&lt;p&gt;At the time, Purdue was hurriedly transitioning to online education, and a consensus had been formed that I would start a Discord group for the department's grad students to support each other as we switched. Hoping to see how the experience could be improved for us, I wanted to learn the API, and - given that so many people use the platform - this seemed an easy way to reach friends and family.&lt;/p&gt;
+&lt;p&gt;Text based UIs are fairly robust, but not as well suited for a game which requires reviewing and contemplating as many things as Letter Jam. This served our needs, but I knew I could - and wanted - to do better justice to this game. But first, another game I love.&lt;/p&gt;
+&lt;h3&gt;&lt;a href="https://www.wavelength.zone/"&gt;Wavelength&lt;/a&gt; Website&lt;/h3&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/webgames/webgames-overview/wavelength.png" alt="A Screnshot of Wavelength Online"&gt;&lt;/img&gt;&lt;figcaption&gt; Wavelength SVG Interface &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Game: &lt;a href="https://www.wavelength.zone/"&gt;Wavelength&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Platform: &lt;a href="https://www.heroku.com/"&gt;Heroku&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Technology: Python, Flask, Websockets, Javascript (ES6), JQuery, Heroku Dinos, Interactive and Animated SVGs&lt;/li&gt;
+&lt;li&gt;Philosophies: Federated authority, server relay, visual interface, tabletop experience recreation, live communication&lt;/li&gt;
+&lt;li&gt;Advantages: Scalable, Medium Development, Simple graphical UI, "Serverless"&lt;/li&gt;
+&lt;li&gt;Disadvantages: Relies on 3rd party technology, Heroku reliability issues on free tier&lt;/li&gt;
+&lt;li&gt;When: February 2020&lt;/li&gt;
+&lt;li&gt;Where: wavelength.clintonbradford.com (active)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Wavelength came out in very late 2019, with many Kickstarter copies not arriving until February 2020. This was a small disaster, because it is easily one of the best party games I have ever had the chance to play, thriving with large crowds. Despite this, the game was a real success, and after playing it in person in late December 2019, I knew I had to play it again when I got a chance. I didn't want to just replicate the bare minimum - in half an hour I had a small prototype which could draw a card and roll a d100, all you need to play - but the experience. That meant, for the first time, doing a full UI for the game. I modelled it after the promotional art, a representation of the excellent in-box components.&lt;/p&gt;
+&lt;p&gt;I had experimented with animated and interactive SVGs in my teaching work, and have loved the technology. SVGs in particular are remarkably versatile - I use them often for UI, plotting, aesthetics, and even for planning toolpaths for machining - and can be hooked into Javascript to make deeply interactive experiences. This project allowed me to push that further than I had before, but the big two technologies that were new to me were containerization - working in my personal and research life with Flask APIs and in my professional on a monolith - and websockets. Such a dynamic and interactive game required a more constant stream of communication, and they were an interesting technology to get to know. Of particular trouble was getting touch events and websocket reconnections to work well with mobile browers, who often drop Javascript connections from pages and who translate touch events into mouse events in various surprising ways.&lt;/p&gt;
+&lt;p&gt;In the end, I had a playable and intuitive platform that was able to help give us the incredible experiences the board game is capable of facilitating, despite various platform issues. &lt;/p&gt;
+&lt;p&gt;When I reached out to the creators to ask for permission to share it, they had started work on their own app on IOS and Android - it's an excellent reimagining of the game for the mobile world, free for the simple wordpack, and you should &lt;a href="https://app.wavelength.zone/"&gt;sign up for it&lt;/a&gt; if you want to play the game and support the creators.&lt;/p&gt;
+&lt;h3&gt;&lt;a href="https://firebase.google.com/"&gt;Firebase&lt;/a&gt; &lt;a href="https://www.wavelength.zone/"&gt;Games&lt;/a&gt; Platform&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Games: &lt;a href="https://boardgamegeek.com/boardgame/275467/letter-jam"&gt;Letter Jam&lt;/a&gt;, various classic party games such as Charades &lt;/li&gt;
+&lt;li&gt;Platform: &lt;a href="https://firebase.google.com/"&gt;Firebase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Technology: Javascript (ES6), Firebase NoSQL real-time database, React, hosting, JS interface&lt;/li&gt;
+&lt;li&gt;Philosophies: Federated authority, full shared knowledge, visual interface, tabletop experience recreation, live communications&lt;/li&gt;
+&lt;li&gt;Advantages: Highly scalable, Graphical content, Graphical UI, serverless hosting and data&lt;/li&gt;
+&lt;li&gt;Disadvantages: Relies on 3rd party technology, Heroku reliability issues on free tier&lt;/li&gt;
+&lt;li&gt;When: February 2021&lt;/li&gt;
+&lt;li&gt;Where: wavelength.clintonbradford.com (active)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/webgames/webgames-overview/letterjamonline.png" alt="A Screnshot of Letter Jam Online"&gt;&lt;/img&gt;&lt;figcaption&gt; React and Firebase Web Game Platform&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;I am not entirely sure what introduced me to React, but I did a small project in it - to facilitate some interactive department social events that we once held in person, in the before times - and quickly fell for it. I knew I wanted to use it to make my interactive web experiences moving forward. JQuery powers LonCapa's UI, and I had become quite familiar, but it has been largely eclipsed by built in figures. I fell for React's abstraction and encapsulation of content, its distributed knowledge model, and how easily it could produce clean and performant websites with dynamic content. I had also tried learning Firebase for the website, after looking for alternatives due to my platform issues with Heroku, and was curious to do more in that space. SQL had been fundamental to how I have thought about data and relationships for so long that I wanted to expand my horizons, and Firebase is certainly different.&lt;/p&gt;
+&lt;p&gt;With this project, I was able to really dig into that NoSQL and React environment, and develop something much more interactive and colorful that finally did do some justice to this great word game. While there are some UI design issues that I will attempt to address, the game plays quite well, and I am glad to have tried these new technologies. React will stick with me, but Firebase has not replaced SQL in my heart or in any other part of my programming life. In addition, a DOM-based model from React ended up being less evocative than the animated SVGs.&lt;/p&gt;
+&lt;p&gt;The information model here is a shared Firebase element for the game, that players send updates to. This can create some race conditions on certain actions in asynchronous games like Letter Jam - the game updates to a valid state, but sometimes someone's actions will be overridden and they will have to resubmit them. There are some ways to address that, such as creating transactions and a log which will keep track of whether a user's action is still valid, but I do not see myself working around this platform for now.&lt;/p&gt;
+&lt;p&gt;This platform is also used for a variety of online party games my extended family likes - of the variety like Charades - which it serves fairly well. I am able to share some functionality - shuffling and the sort - between the games, making it a platform and not just one game. But I do mostly go here for Letter Jam.&lt;/p&gt;
+&lt;h1&gt;What's Next&lt;/h1&gt;
+&lt;p&gt;This blog post marks the start of a series in which I will develop, from scratch, a platform for all my games that combines the best of these worlds while still learning something new.&lt;/p&gt;
+&lt;h2&gt;Design Principles&lt;/h2&gt;
+&lt;h3&gt;Single Authority&lt;/h3&gt;
+&lt;p&gt;My experiments with distributing authority have led to various conflicts, and having one system in charge of performing tasks in order will prevent those issues. This host can run in browser behind the host's client, or as a server for asynchronous play, but will control the communication. Ideally, I will learn Docker and have a Node server which can host the asynchronous play server, but I am going to focus on an in-browser solution to start.&lt;/p&gt;
+&lt;p&gt;Ideally, this hosting will be transferrable, but the minimum viable platform will not need that.&lt;/p&gt;
+&lt;h3&gt;Transaction IDs and Receipts&lt;/h3&gt;
+&lt;p&gt;Going back to the very beginning, a player's client should know that what they want to happen &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Will happen even if the first attempt is dropped&lt;/li&gt;
+&lt;li&gt;Will happen only once&lt;/li&gt;
+&lt;li&gt;Will return confirmation which the client can act upon&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This means that, when an action is sent to the server, it is sent with an ID, and logged - so multiple copies of the ID are not seen, and the client can poll to see whether their communication was successful.&lt;/p&gt;
+&lt;h3&gt;Game Actions as Transactions&lt;/h3&gt;
+&lt;p&gt;Having experimented with a variety of transations, I have settled on the opinion that &lt;em&gt;one&lt;/em&gt; transaction should represent &lt;em&gt;one&lt;/em&gt; thing the player can do in a board game, and not any state it affects beyond that. For example, the transaction could represent "Playing A Card" in Hearts - and the server will handle translating that into the end result and distributing the new board state.&lt;/p&gt;
+&lt;h3&gt;A Textual Representation of the State, Log, and Actions&lt;/h3&gt;
+&lt;p&gt;Command line interfaces have stood the test of time for many reasons, and I have found them to be an easy and natural way of interacting with the world. Of particular benefit, however, they expand the accessibility of the platform for games which do not need a verbal component - allowing for those who cannot see the screen to use screen reader software, with integrations, to participate fully in the experience.&lt;/p&gt;
+&lt;h3&gt;SVG Interfaces controlled with Javascript&lt;/h3&gt;
+&lt;p&gt;Of the many options for a graphical interface, I am still partial to interactive SVGs for their tradeoff between powerful positioning and click interactivity, together with their ability to scale for a variety of sized viewers. Graphical interfaces are potent, and I will focus on an interface which can work seamlessly with the textual representation.&lt;/p&gt;
+&lt;p&gt;For this sort of animated and interactive SVG UI, I have been learning and using &lt;code&gt;d3.js&lt;/code&gt; - and am excited to get to know it deeper.&lt;/p&gt;
+&lt;h3&gt;Abstracted Game Components&lt;/h3&gt;
+&lt;p&gt;Board Games rely on a lot of past work and tropes, and so I will build out a library to support these games on a single platform. A deck of cards and discard pile is used in Letter Jam, Wavelength, Sleuth, and countless other games - simple components that will not need to be remade.&lt;/p&gt;
+&lt;h2&gt;New Technologies&lt;/h2&gt;
+&lt;h3&gt;WebRTC&lt;/h3&gt;
+&lt;p&gt;I have found Websockets work fairly well for server-client communication, but for scalability and bandwith, I am hoping to learn WebRTC. This would enable the browsers, after a handshake, to host the games themselves and means we will only need a lightweight matchmaking and content server.&lt;/p&gt;
+&lt;h3&gt;AWS Lambda&lt;/h3&gt;
+&lt;p&gt;Those handshakes and assets I will serve by learning to use Amazon Web Services, most likely AWS Lambda. These platforms are dominant, and I have yet to use them.&lt;/p&gt;
+&lt;h3&gt;Docker&lt;/h3&gt;
+&lt;p&gt;I am also hoping to build the hosting server and game server into a docker image that people can run themselves to support asynchronous play experiences. This is a low-priority feature, at the moment, but its presence in the grand design will help inform design changes.&lt;/p&gt;
+&lt;h3&gt;D3.js&lt;/h3&gt;
+&lt;p&gt;SVGs are a remarkable way to meet the needs of devices near and far, and together with CSS breakpoints, should be able to handle most of my responsive UI desires. I'm excited to see the ways D3.js can smooth some of the rough edges of working with SVGs, and ease transitions between different user interface states.&lt;/p&gt;
+&lt;h1&gt;Roadmap&lt;/h1&gt;
+&lt;p&gt;The next planned post in this series will cover the process of getting two browsers communicating in WebRTC on a local machine, and sending text back and forth.&lt;/p&gt;
+&lt;p&gt;After that, we will start implementing the first game, and abstracting it into a framework in which games can be created.&lt;/p&gt;</content><category term="webgames"></category><category term="projects"></category><category term="webgames"></category><category term="python"></category><category term="flask"></category><category term="javascript"></category><category term="react"></category><category term="heroku"></category><category term="games"></category><category term="boardgames"></category></entry><entry><title>My One Big Rule for Consuming Online Content</title><link href="https://www.clintonbradford.com/blog/media/youtube-rule/" rel="alternate"></link><published>2022-06-05T00:00:00-04:00</published><updated>2022-06-05T00:00:00-04:00</updated><author><name>Clinton Bradford</name></author><id>tag:www.clintonbradford.com,2022-06-05:/blog/media/youtube-rule/</id><summary type="html">&lt;p&gt;How I decdided enough was enough, and why I don't watch certain youtubers anymore&lt;/p&gt;</summary><content type="html">&lt;h1&gt;The Why&lt;/h1&gt;
+&lt;p&gt;In mid-2019, I was searching youtube for videos on burning &lt;a href="https://en.wikipedia.org/wiki/Lichtenberg_figure"&gt;Lichtenberg Figures&lt;/a&gt; into wood and acrylic. I came across one with a nice setup, and good production values - from a woodworking channel that also ran workshops. They had a guest on with his own channel, and a homemade machine with handheld probes that he used to shock lovely patterns into the board.&lt;/p&gt;
+&lt;p&gt;Wearing gloves, but casually handling the probes while live, he assured the audience that it was actually quite easy to make the machine and burn the wood - and they closed out the video with the channel's catchphrase, saying "You Can Do It!"&lt;/p&gt;
+&lt;p&gt;After the video was a short "In Memoriam" segment for their so-called expert, who accidentally electrocuted himself with his homemade machine between the filming and release of the video.&lt;/p&gt;
+&lt;p&gt;Needless to say, this shook me.&lt;/p&gt;
+&lt;p&gt;I had already stopped watching a few youtubers for irresponsible behavior with high voltage electronics - but nobody so far had been &lt;em&gt;directly encouraging&lt;/em&gt; the behavior in the same video memorializing their own death from it.&lt;/p&gt;
+&lt;p&gt;When another youtuber I followed filmed his own death doing a dangerous stunt, after doing an "experiment" cutting thousands of fireworks open and piling all the insides in a pile and throwing matches at it, I knew something had to change. Youtube wasn't going to be better, but I could be.&lt;/p&gt;
+&lt;h1&gt;My One Rule&lt;/h1&gt;
+&lt;p&gt;Let's just get it over with:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; I will not support, even with views, content I believe to pose a serious danger to the life or health of people near the videos, or to a portion of the audience. And will unsubscribe from content creators who do these things.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This does not mean that I think &lt;em&gt;you&lt;/em&gt; cannot or should not consume content from these creators - this is merely what I have decided I am comfortable with. You can also disagree about whether the content is dangrous or not - again, this is just about &lt;strong&gt;me&lt;/strong&gt; and &lt;strong&gt;my&lt;/strong&gt; relationship to the media I have consumed and will consume. &lt;/p&gt;
+&lt;p&gt;In this article I will put screenshots of video titles, thumbnails, or moments. These are &lt;em&gt;not&lt;/em&gt; recommendations, and I am avoiding making links, but the content is out there. This is also not the &lt;em&gt;first&lt;/em&gt; or &lt;em&gt;most dangerous&lt;/em&gt; content these creators have done - just the one that made me take a second take. In addition, I block content from these creators - if they have turned over a new leaf on safety, I likely won't have noticed. That said, for many of them, there's a special mention at the end which suggests... no.&lt;/p&gt;
+&lt;p&gt;What I didn't realize was that this rule would see me unfollowing and blocking most of the youtubers I had watched and enjoyed - and several big-name channels which received direct support from youtube &lt;em&gt;on the very videos I was so scared of&lt;/em&gt;.&lt;/p&gt;
+&lt;h1&gt;The Content&lt;/h1&gt;
+&lt;h2&gt;Youtube Channels&lt;/h2&gt;
+&lt;p&gt;Let's start with an obvious one.&lt;/p&gt;
+&lt;h3&gt;Colin Furze&lt;/h3&gt;
+&lt;p&gt;Basically everything this man does qualifies. While he definitely plays up the danger, he also bolted a bunch of kitchen knives to a lazy susan, motorized it, and strapped it to his waist:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/furze-belt.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A man with too many spinning knives"&gt;&lt;/img&gt;&lt;figcaption&gt; Colin Furze in a homemade blender &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;which, let's be honest, is unsafe no matter what you do behind the scenes.&lt;/p&gt;
+&lt;p&gt;This is a man Youtube themselves have been actively promoting, and using to promote their platform on billboards:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/furze-billboard.jpg" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A man with too many spinning knives"&gt;&lt;/img&gt;&lt;figcaption&gt; Colin Furze at a billboard put up by Youtube &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;I am &lt;em&gt;certain&lt;/em&gt; this is not the most dangerous thing Colin Furze has done, and I have no interest in researching what &lt;em&gt;is&lt;/em&gt;. It's the first video of his I saw, and more than qualifies.&lt;/p&gt;
+&lt;p&gt;What I do know is that he has strapped himself to a steel rod, put it around a pivot, and motorized it with a fan to spin around and around and around:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/furze-swing.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Colin Furze in a motorized swing &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;and I want no part in that.&lt;/p&gt;
+&lt;h3&gt;Stuff Made Here&lt;/h3&gt;
+&lt;p&gt;This was the first one to violate the rule that really made me sad. There were other channels I had watched longer, and that I learned much more from, which I was sad to see go.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Stuff Made Here&lt;/strong&gt; was a young channel when I first picked up on it, and was usually fairly tame in his projects, doing fun math+computer vision+robotics projects.&lt;/p&gt;
+&lt;p&gt;From neat CNC mods:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/stuff-made-here-mods.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Early &lt;b&gt;Stuff Made Here&lt;/b&gt; videos &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;To projects involving striking amounts of geometry, mechanics, and sheer determination:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/stuff-made-here-hoop.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Early &lt;b&gt;Stuff Made Here&lt;/b&gt; project &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;I was really excited to see where the channel would go - with its in depth coverage of the math and hurdles in real projects, it was quickly becoming one of my favorites.&lt;/p&gt;
+&lt;p&gt;But then he strapped a chainsaw to a robot arm on experimental firmware, and turned it on in his crowded workspace.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/stuff-made-here-chainsaw.png" style="max-height:400px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Chainsaw robot &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Nnnnnope.&lt;/p&gt;
+&lt;p&gt;(he also filled a wooden baseball bat with explosive shells and hit things with it.)&lt;/p&gt;
+&lt;h3&gt;V-Sauce's Mind Field&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;"... But unlike a research school, Mind Field doesn't answer to a university's ethics committee."
+- Mind Field Season 2 Episode 1, &lt;strong&gt;The Trolley Problem in Real Life&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;NNNNNNNNNNNope. nope nope nope&lt;/p&gt;
+&lt;p&gt;I didn't really consume much VSauce content - even after watching &lt;a href="https://www.youtube.com/watch?v=fKmkI0xzvHc"&gt;a 10 minute video that claims to be an answer to the question "What Is V-Sauce"&lt;/a&gt; I really don't know - but on a free trial of Youtube Red, I gave one of Youtube's bigger budget, produced, and promoted shows a try.&lt;/p&gt;
+&lt;p&gt;What follows is one man's quest to do as many experiments deemed unethical as possible. &lt;/p&gt;
+&lt;p&gt;From extreme isolation and sensory deprivation:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/mind-field.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Mind Field Season 1 Episode 1, Isolation &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;To a recreation of the Stanford Prison Experiment:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/vsauce-stanford-prison.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Mind Field Season 3 Episode 4, The Stanford Prison Experiment &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;the one that is the most galling is his attempt to do the classic trolley problem, for real, with unwitting human subjects and human victims:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/vsauce-trolley.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Mind Field Season 2 Episode 1, The Trolley Problem In Real Life &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;I wish this was the last time I saw a Youtuber celebrate the lack of ethics boards for Youtube. It isn't.&lt;/p&gt;
+&lt;h3&gt;Thought Emporium&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Thought Emporium&lt;/strong&gt; was a chemistry and biology channel, with a focus on approchability for a home workspace. With cool projects like growing glowing bacteria, I hoped to really learn some new projects and tricks.&lt;/p&gt;
+&lt;p&gt;And then he gene therapied himself.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/thought-emporium.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; The Thought Emporium - &lt;b&gt;Developing a Permanent Treatment for Lactose Intolerance&lt;/b&gt; &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;And suggested doing the gene therapy to other people, in what many legal commentators have described as &lt;em&gt;a crime&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The actual history of the treatment is quite interesting - &lt;a href="https://www.clintonbradford.com/blog/media/youtube-rule/during1998.pdf"&gt;developed in the late 90s by a team of actual gene therapy experts&lt;/a&gt;, their study was approved - and worked - in lab animals. It was denied human trials by an ethics board, due to the potential dangers outweighing the risks, and the researchers accepted that verdict and went on to apply their skills to many other treatments for diseases and disorders.&lt;/p&gt;
+&lt;p&gt;However, as we have learned, &lt;em&gt;youtubers are not bound by ethics, or ethics boards.&lt;/em&gt; So this kid copied the methodology given in the paper for the animal study, took the pills, and claims to be cured!&lt;/p&gt;
+&lt;p&gt;While there is a lot of room for bias in his results - with the majority of the relief being subjective and based on old memories of reactions - I believe it could have been successful, as it was based on credible animal trials by genuine domain experts. But the risks identified by the ethics board - such as a higher danger of cancers in the intestines and other unintended side affects - mean that his suggestion to do it not just to himself, but to others, qualifies as dangerous to me.&lt;/p&gt;
+&lt;h3&gt;Nile Red&lt;/h3&gt;
+&lt;p&gt;Speaking of chemistry youtubers, &lt;strong&gt;Nile Red&lt;/strong&gt; was a chemistry channel with a focus on home-scale, replicable chemistry. While there were probably some red flags I should have seen, what really got me to apply the rule was when he started &lt;em&gt;eating his mystery products&lt;/em&gt;.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/nile-red-hot-sauce.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Nile Red's most recent video as of the writing &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;He has made - and shown people &lt;em&gt;how&lt;/em&gt; to make - a variety of very dangerous and toxic chemicals - Chromyl Chloride, and fuming Nitric Acid - But chemistry has rules about licking things for good reasons, and I won't watch them be discarded like this.&lt;/p&gt;
+&lt;h3&gt;Alan Pan&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;"I'm going to investigate what's in here, this turkey, that almost killed all of us."
+- Alan Pan, &lt;strong&gt;Stuffing a Turkey with MOLTEN IRON&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I remember the moment I added this channel to the list.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/alan-pan-turkey.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Turkey containment failing &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;There are certainly more worthy videos and moments, but this was enough.&lt;/p&gt;
+&lt;h3&gt;William Osman&lt;/h3&gt;
+&lt;p&gt;He spends the entire video mocking people concerned about the safety of him or others:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/william-osman-xray.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; XRay Thumbnail &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;there's arcing, radiation leaking everywhere, high voltages and all manner of dangers seen and unseen. He involves an unwilling participant. It is almost the complete what-not-to-do package in one video.&lt;/p&gt;
+&lt;h2&gt;Channels banned for safety categories&lt;/h2&gt;
+&lt;h3&gt;High Voltage without Protection&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;JeremyFieldingSr&lt;/li&gt;
+&lt;li&gt;styropyro&lt;/li&gt;
+&lt;li&gt;plasma channel&lt;/li&gt;
+&lt;li&gt;The Action Lab&lt;/li&gt;
+&lt;li&gt;anyone doing Lichtenberg figures in wood, outside a real physics lab, on Youtube&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I would put Electroboom on this list, but it's genuinely unclear what is real and what is fake on that channel. And it's hard to see his content as &lt;em&gt;encouraging&lt;/em&gt; playing with electricity, with the number of electrocutions and explosions he simulates.&lt;/p&gt;
+&lt;h3&gt;Explosives&lt;/h3&gt;
+&lt;h2&gt;Channels I Avoided after Just One Thumbnail&lt;/h2&gt;
+&lt;h3&gt;The Backyard Scientist&lt;/h3&gt;
+&lt;p&gt;Neither backyard, nor scientist, this is a man with more money than sense:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/backyard-scientist-microwave.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; A representative video &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Definitely not messing with this. This is a man who has &lt;em&gt;admitted&lt;/em&gt; he has almost died several times chasing youtube views. &lt;em&gt;he accidentally melted his underwear trying to make it explode&lt;/em&gt;. Even without my rule I wouldn't touch this channel - and breaking what I said in the foreward, I don't think &lt;em&gt;anyone&lt;/em&gt; should either.&lt;/p&gt;
+&lt;p&gt;Here's some more random videos of his to not watch:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/backyard-scientist.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; More Shenanigans &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;h3&gt;Cody's Lab&lt;/h3&gt;
+&lt;p&gt;I first found out about Cody's Lab when a friend told me he got his centrifuge and computer confiscated by the United States Department of Energy for making videos documenting &lt;em&gt;enriching uranium in the home&lt;/em&gt;.&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/cody-lab-uranium.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; A remaining video on the Uranium series &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;A quick search for the channel and:&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://www.clintonbradford.com/blog/media/youtube-rule/cody-lab-mercury.png" style="max-height:300px; width:auto; margin-left: auto; margin-right: auto;" alt="A man upside down"&gt;&lt;/img&gt;&lt;figcaption&gt; Mercury in a toilet &lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Nope, not for me.&lt;/p&gt;
+&lt;h2&gt;Honorable Mentions&lt;/h2&gt;
+&lt;h3&gt;Safety Third Podcast&lt;/h3&gt;
+&lt;p&gt;Recently I found out that a significant portion of this list get together, hang out, dare each other to do more and more dangerous stuff and &lt;em&gt;record a podcast mocking people's safety concerns&lt;/em&gt;. Where they detail many of the times they've almost died or seriously hurt themselves.&lt;/p&gt;
+&lt;p&gt;So... as one friend put it, my rouges galary has formed a Legion of Doom. That's... nice.&lt;/p&gt;</content><category term="media"></category><category term="media"></category><category term="media critcism"></category><category term="youtube"></category></entry></feed>
