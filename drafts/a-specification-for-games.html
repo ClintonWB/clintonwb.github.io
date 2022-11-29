@@ -142,18 +142,18 @@
 
 <p>So what goes in these files? Well, fundamentally, a board game is about <em>components</em>, <em>the places those components can be</em>, and <em>actions</em> you can take. In the case of Letter Jam, the components are - primarily - the cards. They can be in player's rows, in NPC holders, in the deck, or in the discard. And with them, you can spell words, or discard cards.</p>
 <p>Each action has with it some conditions, which we would also have to represent. In previous versions, this would be in code. Here, I am tempted to set conditions in the JSON specification; for example, we could assign to each action an <em>actor</em>, that is, the player using it. We could check that <em>actor</em>'s properties to see if they have a player clue remaining, unique to them, and check with the <em>board</em>'s clues to see if there are any free.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Propose Clue&quot;</span><span class="p">,</span>
-    <span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;propose-clue&quot;</span><span class="p">,</span>
-    <span class="nx">conditions</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">&quot;game.phase === &#39;clues&#39;&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;game.free_clues&gt;0 || actor.player_clues&gt;0&quot;</span>
-    <span class="p">],</span>
-    <span class="nx">effects</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">&quot;game.rounds += 1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;game.&quot;</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Propose Clue&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;propose-clue&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">conditions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;game.phase === &#39;clues&#39;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;game.free_clues&gt;0 || actor.player_clues&gt;0&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">effects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;game.rounds += 1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;game.&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
             </section>
 
