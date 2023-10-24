@@ -3,9 +3,9 @@
 
 <html>
   <head>
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
     <link rel="icon" type="image/x-icon" href="seal.ico" />
     <title>Drag Aquarium</title>
-    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
     <script>
       window.addEventListener("load", () => {
         imgs = [
@@ -28,6 +28,11 @@
           "starfish.svg",
           "turtle.svg",
         ];
+
+        minScale = 1;
+        maxScale = 10;
+        edgeBuffer = 50;
+
         dragContainer = document.getElementById("drag-container");
         for (let img of imgs) {
           img_element = document.createElement("img");
@@ -53,6 +58,15 @@
           // keep the dragged position in the data-x/data-y attributes
           var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
           var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+          // Clamp X and Y
+          x = Math.min(
+            window.innerWidth - edgeBuffer - 100,
+            Math.max(edgeBuffer, x)
+          );
+          y = Math.min(
+            window.innerHeight - edgeBuffer - 100,
+            Math.max(edgeBuffer, y)
+          );
           // update the position attributes
           target.setAttribute("data-x", x);
           target.setAttribute("data-y", y);
@@ -93,31 +107,18 @@
                     1
                 );
                 var currentAngle = event.angle + oldAngle;
-                var currentScale = event.scale * oldScale;
+                var currentScale = Math.min(
+                  maxScale,
+                  Math.max(minScale, event.scale * oldScale)
+                );
                 target.setAttribute("data-angle", currentAngle);
                 target.setAttribute("data-scale", currentScale);
                 updateTranslate(event);
                 event.target.style.transform = transform(target);
               },
               end(event) {
-                oldAngle = parseFloat(
-                  event.target.getAttribute("data-angle-old") ??
-                    event.target.getAttribute("data-angle") ??
-                    0
-                );
-                oldScale = parseFloat(
-                  event.target.getAttribute("data-scale-old") ??
-                    event.target.getAttribute("data-scale") ??
-                    1
-                );
-                event.target.setAttribute(
-                  "data-angle-old",
-                  oldAngle + event.angle
-                );
-                event.target.setAttribute(
-                  "data-scale-old",
-                  oldScale * event.scale
-                );
+                event.target.removeAttribute("data-angle-old");
+                event.target.removeAttribute("data-scale-old");
               },
             },
           })
@@ -148,7 +149,7 @@
             Math.floor(Math.random() * window.innerHeight)
           );
           element.setAttribute("data-angle", Math.floor(Math.random() * 360));
-          element.setAttribute("data-scale", Math.random() * 2 + 0.5);
+          element.setAttribute("data-scale", Math.random() * 1.5 + 1);
           transform(element);
         }
       });
