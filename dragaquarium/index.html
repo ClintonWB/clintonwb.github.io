@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, user-scalable=no" />
+
 <html>
   <head>
+    <link rel="icon" type="image/x-icon" href="seal.ico" />
+    <title>Drag Aquarium</title>
     <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
     <script>
       window.addEventListener("load", () => {
@@ -34,10 +37,6 @@
           dragContainer.appendChild(img_element);
         }
 
-        var angleScale = {
-          angle: 0,
-          scale: 1,
-        };
         var gestureArea = document.getElementById("gesture-area");
         var scaleElement = document.getElementById("scale-element");
 
@@ -62,20 +61,63 @@
           .gesturable({
             listeners: {
               start(event) {
-                angleScale.angle -= event.angle;
+                oldAngle = parseFloat(
+                  event.target.getAttribute("data-angle-old") ??
+                    event.target.getAttribute("data-angle") ??
+                    0
+                );
+                oldScale = parseFloat(
+                  event.target.getAttribute("data-scale-old") ??
+                    event.target.getAttribute("data-scale") ??
+                    1
+                );
+                event.target.setAttribute(
+                  "data-angle-old",
+                  oldAngle - event.angle
+                );
+                event.target.setAttribute(
+                  "data-scale-old",
+                  oldScale * event.scale
+                );
               },
               move(event) {
                 target = event.target;
-                var currentAngle = event.angle + angleScale.angle;
-                var currentScale = event.scale * angleScale.scale;
+                oldAngle = parseFloat(
+                  event.target.getAttribute("data-angle-old") ??
+                    event.target.getAttribute("data-angle") ??
+                    0
+                );
+                oldScale = parseFloat(
+                  event.target.getAttribute("data-scale-old") ??
+                    event.target.getAttribute("data-scale") ??
+                    1
+                );
+                var currentAngle = event.angle + oldAngle;
+                var currentScale = event.scale * oldScale;
                 target.setAttribute("data-angle", currentAngle);
                 target.setAttribute("data-scale", currentScale);
                 updateTranslate(event);
                 event.target.style.transform = transform(target);
               },
               end(event) {
-                angleScale.angle = angleScale.angle + event.angle;
-                angleScale.scale = angleScale.scale * event.scale;
+                oldAngle = parseFloat(
+                  event.target.getAttribute("data-angle-old") ??
+                    event.target.getAttribute("data-angle") ??
+                    0
+                );
+                oldScale = parseFloat(
+                  event.target.getAttribute("data-scale-old") ??
+                    event.target.getAttribute("data-scale") ??
+                    1
+                );
+                event.target.setAttribute(
+                  "data-angle-old",
+                  oldAngle + event.angle
+                );
+                event.target.setAttribute(
+                  "data-scale-old",
+                  oldScale * event.scale
+                );
               },
             },
           })
@@ -87,13 +129,6 @@
               },
             },
           });
-
-        function reset() {
-          scaleElement.style.transform = "scale(1)";
-
-          angleScale.angle = 0;
-          angleScale.scale = 1;
-        }
 
         resizeContainer = () => {
           area = document.getElementById("drag-container");
