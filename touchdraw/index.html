@@ -9,6 +9,7 @@
         var canvas = document.getElementById("myCanvas");
         canvas.width = window.outerWidth;
         canvas.height = window.outerHeight;
+        var lineWidth = 3;
         var ctx = canvas.getContext("2d");
         var currentTouches = new Array();
         var randomColor = function () {
@@ -50,7 +51,13 @@
             });
 
             ctx.beginPath();
-            ctx.arc(touch.pageX, touch.pageY, 2.5, Math.PI * 2, false);
+            ctx.arc(
+              touch.pageX,
+              touch.pageY,
+              lineWidth / 2,
+              Math.PI * 2,
+              false
+            );
             ctx.fillStyle = touchColor;
             ctx.fill();
           }
@@ -68,7 +75,7 @@
               ctx.beginPath();
               ctx.moveTo(currentTouch.pageX, currentTouch.pageY);
               ctx.lineTo(touch.pageX, touch.pageY);
-              ctx.lineWidth = 3;
+              ctx.lineWidth = lineWidth;
               ctx.strokeStyle = currentTouch.color;
               ctx.stroke();
               currentTouch.pageX = touch.pageX;
@@ -92,7 +99,7 @@
               ctx.beginPath();
               ctx.moveTo(currentTouch.pageX, currentTouch.pageY);
               ctx.lineTo(touch.pageX, touch.pageY);
-              ctx.lineWidth = 4;
+              ctx.lineWidth = lineWIdth;
               ctx.strokeStyle = currentTouch.color;
               ctx.stroke();
               currentTouches.splice(currentTouchIndex, 1);

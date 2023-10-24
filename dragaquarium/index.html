@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+<html>
+  <head>
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+    <script>
+      window.addEventListener("load", () => {
+        imgs = [
+          "coral (1).svg",
+          "coral (2).svg",
+          "fish (1).svg",
+          "fish (2).svg",
+          "fish (3).svg",
+          "fish (4).svg",
+          "fish (5).svg",
+          "fish (6).svg",
+          "fish (7).svg",
+          "jellyfish.svg",
+          "octopus.svg",
+          "penguin.svg",
+          "puffer.svg",
+          "pumpkin.svg",
+          "seal.svg",
+          "squid.svg",
+          "starfish.svg",
+          "turtle.svg",
+        ];
+        dragContainer = document.getElementById("drag-container");
+        for (let img of imgs) {
+          img_element = document.createElement("img");
+          img_element.setAttribute("src", `dragshapes/${img}`);
+          img_element.classList.add("manipulable");
+          img_element.classList.add("manip-svg");
+          dragContainer.appendChild(img_element);
+        }
+
+        var angleScale = {
+          angle: 0,
+          scale: 1,
+        };
+        var gestureArea = document.getElementById("gesture-area");
+        var scaleElement = document.getElementById("scale-element");
+
+        function transform(target) {
+          transform_string = `translate(${
+            target.getAttribute("data-x") || 0
+          }px,${target.getAttribute("data-y") || 0}px) rotate(${
+            target.getAttribute("data-angle") || 0
+          }deg) scale(${target.getAttribute("data-scale") || 1})`;
+          target.style.transform = transform_string;
+        }
+        function updateTranslate(event) {
+          target = event.target;
+          // keep the dragged position in the data-x/data-y attributes
+          var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
+          var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+          // update the position attributes
+          target.setAttribute("data-x", x);
+          target.setAttribute("data-y", y);
+        }
+        interact(".manipulable")
+          .gesturable({
+            listeners: {
+              start(event) {
+                angleScale.angle -= event.angle;
+              },
+              move(event) {
+                target = event.target;
+                var currentAngle = event.angle + angleScale.angle;
+                var currentScale = event.scale * angleScale.scale;
+                target.setAttribute("data-angle", currentAngle);
+                target.setAttribute("data-scale", currentScale);
+                updateTranslate(event);
+                event.target.style.transform = transform(target);
+              },
+              end(event) {
+                angleScale.angle = angleScale.angle + event.angle;
+                angleScale.scale = angleScale.scale * event.scale;
+              },
+            },
+          })
+          .draggable({
+            listeners: {
+              move: (event) => {
+                updateTranslate(event);
+                event.target.style.transform = transform(event.target);
+              },
+            },
+          });
+
+        function reset() {
+          scaleElement.style.transform = "scale(1)";
+
+          angleScale.angle = 0;
+          angleScale.scale = 1;
+        }
+
+        resizeContainer = () => {
+          area = document.getElementById("drag-container");
+          area.style.width = `${window.innerWidth}px`;
+          area.style.height = `${window.innerHeight}px`;
+        };
+        window.addEventListener("resize", resizeContainer);
+        resizeContainer();
+
+        for (let element of dragContainer.children) {
+          element.setAttribute(
+            "data-x",
+            Math.floor(Math.random() * window.innerWidth)
+          );
+          element.setAttribute(
+            "data-y",
+            Math.floor(Math.random() * window.innerHeight)
+          );
+          element.setAttribute("data-angle", Math.floor(Math.random() * 360));
+          element.setAttribute("data-scale", Math.random() * 2 + 0.5);
+          transform(element);
+        }
+      });
+    </script>
+    <style>
+      body {
+        overflow: hidden;
+        padding: 0px;
+        margin: 0px;
+      }
+      #drag-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+        touch-action: none;
+        background: lightskyblue;
+      }
+      #scale-element {
+        max-width: 100%;
+        touch-action: none;
+      }
+      .manipulable {
+        position: absolute;
+      }
+      .manip-svg {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="drag-container"></div>
+  </body>
+</html>
