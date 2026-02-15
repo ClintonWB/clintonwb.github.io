@@ -1,289 +1,291 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Drawing Pad</title>
+<head>
+    <title>Touchdraw Pad</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #app-container {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #myCanvas {
+            display: block;
+            background-color: black;
+            cursor: crosshair;
+            flex-grow: 1;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #333;
+            color: white;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            background-color: #444;
+            transform: translateY(-1px);
+        }
+
+        #clearButton { background-color: #EE4E34; }
+        #clearButton:hover { background-color: #d63d25; }
+        
+        #saveButton { background-color: #2BAE66; }
+        #saveButton:hover { background-color: #218c52; }
+
+        #fsbutton { background-color: #4831D4; }
+
+        /* HIDE Clear and Save buttons when in Full Screen mode */
+        #app-container:fullscreen #saveButton {
+            display: none;
+        }
+
+        .hint {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: #555;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        #app-container:fullscreen .hint {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-container">
+        <div class="controls">
+            <button id="saveButton">Save Drawing</button>
+            <button id="clearButton">Clear Drawing</button>
+            <button id="fsbutton">Full Screen</button>
+        </div>
+
+        <div class="hint">Draw with mouse/touch or press ANY key for a random shape!</div>
+
+        <canvas id="myCanvas"></canvas>
+    </div>
+    
+    <a id="link" style="display:none"></a>
+
     <script type="text/javascript">
-      const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      window.addEventListener("load", () => {
-        var canvas = document.getElementById("myCanvas");
-        canvas.width = window.outerWidth;
-        canvas.height = window.outerHeight;
-        var lineWidth = 3;
-        var ctx = canvas.getContext("2d");
-        var currentTouches = new Array();
-        var randomColor = function () {
-          var colors = [
-            "#00A3EE",
-            "#F5D908",
-            "#D80351",
-            "#EE4E34",
-            "#FF69B4",
-            "#990011",
-            "#4831D4",
-            "#FEE715",
-            "#00539C",
-            "#2BAE66",
-            "#BF40BF",
-          ];
-          return colors[Math.floor(Math.random() * colors.length)];
-        };
-        var findCurrentTouchIndex = function (id) {
-          for (var i = 0; i < currentTouches.length; i++) {
-            if (currentTouches[i].id === id) {
-              return i;
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        window.addEventListener("load", () => {
+            const container = document.getElementById("app-container");
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
             }
-          }
-          return -1;
-        };
-        var touchStarted = function (event) {
-          var touches = event.changedTouches;
+            window.addEventListener('resize', resize);
+            resize();
 
-          for (var i = 0; i < touches.length; i++) {
-            var touch = touches[i];
-            var touchColor = randomColor();
+            let lineWidth = 3;
+            let currentTouches = [];
+            let isMouseDown = false;
 
-            currentTouches.push({
-              id: touch.identifier,
-              pageX: touch.pageX,
-              pageY: touch.pageY,
-              color: touchColor,
+            const randomColor = () => {
+                const colors = ["#00A3EE", "#F5D908", "#D80351", "#EE4E34", "#FF69B4", "#990011", "#4831D4", "#FEE715", "#00539C", "#2BAE66", "#BF40BF"];
+                return colors[Math.floor(Math.random() * colors.length)];
+            };
+
+            const clearCanvas = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const saveCanvas = () => {
+                const link = document.getElementById("link");
+                link.setAttribute("download", `Drawing-${Date.now()}.png`);
+                link.setAttribute("href", canvas.toDataURL("image/png"));
+                link.click();
+            };
+
+            const findCurrentTouchIndex = (id) => currentTouches.findIndex(t => t.id === id);
+
+            // --- DRAWING LOGIC ---
+            const startDrawing = (id, x, y) => {
+                const color = randomColor();
+                currentTouches.push({ id, pageX: x, pageY: y, color });
+                ctx.beginPath();
+                ctx.arc(x, y, lineWidth / 2, 0, Math.PI * 2);
+                ctx.fillStyle = color;
+                ctx.fill();
+            };
+
+            const moveDrawing = (id, x, y) => {
+                const idx = findCurrentTouchIndex(id);
+                if (idx >= 0) {
+                    const t = currentTouches[idx];
+                    ctx.beginPath();
+                    ctx.moveTo(t.pageX, t.pageY);
+                    ctx.lineTo(x, y);
+                    ctx.lineWidth = lineWidth;
+                    ctx.strokeStyle = t.color;
+                    ctx.lineCap = "round";
+                    ctx.stroke();
+                    t.pageX = x; t.pageY = y;
+                }
+            };
+
+            const stopDrawing = (id) => {
+                const idx = findCurrentTouchIndex(id);
+                if (idx >= 0) currentTouches.splice(idx, 1);
+            };
+
+            // Event Bindings
+            canvas.addEventListener("mousedown", (e) => {
+                isMouseDown = true;
+                startDrawing("mouse", e.clientX, e.clientY);
+            });
+            window.addEventListener("mousemove", (e) => {
+                if (isMouseDown) moveDrawing("mouse", e.clientX, e.clientY);
+            });
+            window.addEventListener("mouseup", () => {
+                isMouseDown = false;
+                stopDrawing("mouse");
             });
 
-            ctx.beginPath();
-            ctx.arc(
-              touch.pageX,
-              touch.pageY,
-              lineWidth / 2,
-              Math.PI * 2,
-              false
-            );
-            ctx.fillStyle = touchColor;
-            ctx.fill();
-          }
-        };
-        var touchMoved = function (event) {
-          var touches = event.changedTouches;
+            canvas.addEventListener("touchstart", (e) => {
+                e.preventDefault();
+                [...e.changedTouches].forEach(t => startDrawing(t.identifier, t.pageX, t.pageY));
+            });
+            canvas.addEventListener("touchmove", (e) => {
+                e.preventDefault();
+                [...e.changedTouches].forEach(t => moveDrawing(t.identifier, t.pageX, t.pageY));
+            });
+            canvas.addEventListener("touchend", (e) => {
+                [...e.changedTouches].forEach(t => stopDrawing(t.identifier));
+            });
 
-          for (var i = 0; i < touches.length; i++) {
-            var touch = touches[i];
-            var currentTouchIndex = findCurrentTouchIndex(touch.identifier);
+            // Button Listeners
+            document.getElementById("clearButton").addEventListener("click", clearCanvas);
+            document.getElementById("saveButton").addEventListener("click", saveCanvas);
+            document.getElementById("fsbutton").addEventListener("click", () => {
+                if (!document.fullscreenElement) {
+                    container.requestFullscreen();
+                    document.getElementById("fsbutton").innerText = "Exit Full Screen";
+                } else {
+                    document.exitFullscreen();
+                    document.getElementById("fsbutton").innerText = "Full Screen";
+                }
+            });
 
-            if (currentTouchIndex >= 0) {
-              var currentTouch = currentTouches[currentTouchIndex];
+            // Keyboard Shortcuts
+            document.addEventListener("keydown", (event) => {
+                if (event.repeat) return;
 
-              ctx.beginPath();
-              ctx.moveTo(currentTouch.pageX, currentTouch.pageY);
-              ctx.lineTo(touch.pageX, touch.pageY);
-              ctx.lineWidth = lineWidth;
-              ctx.strokeStyle = currentTouch.color;
-              ctx.stroke();
-              currentTouch.pageX = touch.pageX;
-              currentTouch.pageY = touch.pageY;
-              currentTouches.splice(currentTouchIndex, 1, currentTouch);
-            } else {
-              console.log("Touch was not found!");
+                if (event.code === "KeyF") {
+                    if (!document.fullscreenElement) container.requestFullscreen();
+                    else document.exitFullscreen();
+                } else {
+                    // C and S keys now fall into this random shape logic
+                    drawRandomShape(event.code);
+                }
+            });
+
+            function drawRandomShape(code) {
+                const shapeButtons = ["KeyS", "KeyH", "KeyU", "KeyL", "KeyN", "KeyT"];
+                const finalCode = shapeButtons.includes(code) ? code : shapeButtons[Math.floor(Math.random() * shapeButtons.length)];
+
+                const x = Math.floor(Math.random() * (canvas.width - 100)) + 50;
+                const y = Math.floor(Math.random() * (canvas.height - 100)) + 50;
+                const angle = Math.random() * Math.PI * 2;
+                const scale = Math.random() * 2.5 + 0.5;
+
+                const fillColor = randomColor();
+                const strokeColor = randomColor();
+
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(angle);
+                ctx.scale(scale, scale);
+                
+                ctx.fillStyle = fillColor;
+                ctx.strokeStyle = strokeColor;
+                ctx.lineWidth = 4 / scale;
+
+                ctx.beginPath();
+                switch (finalCode) {
+                    case "KeyS":
+                        ctx.arc(75, 75, 50, 0, Math.PI * 2, true);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(110, 75);
+                        ctx.arc(75, 75, 35, 0, Math.PI, false);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.arc(60, 65, 5, 0, Math.PI * 2, true);
+                        ctx.moveTo(95, 65);
+                        ctx.arc(90, 65, 5, 0, Math.PI * 2, true);
+                        ctx.fill();
+                        break;
+                    case "KeyH":
+                        ctx.moveTo(75, 40);
+                        ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+                        ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+                        ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+                        ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+                        ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+                        ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+                        ctx.fill();
+                        break;
+                    case "KeyU":
+                    case "KeyL":
+                        const char = alphabet[Math.floor(Math.random() * alphabet.length)];
+                        ctx.font = "100px Arial";
+                        ctx.fillText(finalCode === "KeyL" ? char.toLowerCase() : char, 0, 0);
+                        break;
+                    case "KeyN":
+                        ctx.font = "100px Arial";
+                        ctx.fillText(Math.floor(Math.random() * 10), 0, 0);
+                        break;
+                    case "KeyT":
+                        const p = 5 + Math.floor(Math.random() * 3);
+                        for (let i = 0; i < p * 2; i++) {
+                            const r = i % 2 ? 30 : 50;
+                            const a = (Math.PI / p) * i;
+                            ctx.lineTo(r * Math.cos(a), r * Math.sin(a));
+                        }
+                        ctx.closePath();
+                        ctx.fill();
+                        break;
+                }
+                ctx.restore();
             }
-          }
-        };
-        var touchEnded = function (event) {
-          var touches = event.changedTouches;
-
-          for (var i = 0; i < touches.length; i++) {
-            var touch = touches[i];
-            var currentTouchIndex = findCurrentTouchIndex(touch.identifier);
-
-            if (currentTouchIndex >= 0) {
-              var currentTouch = currentTouches[currentTouchIndex];
-
-              ctx.beginPath();
-              ctx.moveTo(currentTouch.pageX, currentTouch.pageY);
-              ctx.lineTo(touch.pageX, touch.pageY);
-              ctx.lineWidth = lineWIdth;
-              ctx.strokeStyle = currentTouch.color;
-              ctx.stroke();
-              currentTouches.splice(currentTouchIndex, 1);
-            } else {
-              console.log("Touch was not found!");
-            }
-          }
-        };
-        var touchCancelled = function (event) {
-          var touches = event.changedTouches;
-
-          for (var i = 0; i < touches.length; i++) {
-            var currentTouchIndex = findCurrentTouchIndex(
-              touches[i].identifier
-            );
-
-            if (currentTouchIndex >= 0) {
-              currentTouches.splice(currentTouchIndex, 1);
-            } else {
-              console.log("Touch was not found!");
-            }
-          }
-        };
-        canvas.addEventListener("touchstart", function (e) {
-          e.preventDefault();
-          touchStarted(event);
         });
-        canvas.addEventListener("touchend", function (e) {
-          e.preventDefault();
-          touchEnded(e);
-        });
-        canvas.addEventListener("touchleave", function (e) {
-          e.preventDefault();
-          touchEnded(e);
-        });
-        canvas.addEventListener("touchmove", function (e) {
-          e.preventDefault();
-          touchMoved(e);
-        });
-        canvas.addEventListener("touchcancel", function (e) {
-          touchCancelled(e);
-        });
-
-        window.setFullscreen = function () {
-          canvas.requestFullscreen();
-        };
-
-        document
-          .getElementById("fsbutton")
-          .addEventListener("click", setFullscreen);
-
-        document.addEventListener(
-          "keydown",
-          (event) => {
-            if (event.repeat) {
-              return;
-            }
-            if (document.fullscreenElement === null) {
-              switch (event.code) {
-                case "KeyF":
-                  setFullscreen();
-                  break;
-                case "KeyC":
-                  ctx.clearRect(0, 0, canvas.width, canvas.height);
-                  break;
-                case "KeyS":
-                  const link = document.getElementById("link");
-                  const date = new Date();
-                  link.setAttribute(
-                    "download",
-                    `Drawing-${date.getFullYear()}-${
-                      date.getMonth() + 1
-                    }-${date.getDate()}-${date.getHours()}-${date.getMinutes()}.png`
-                  );
-                  link.setAttribute(
-                    "href",
-                    canvas
-                      .toDataURL("image/png")
-                      .replace("image/png", "image/octet-stream")
-                  );
-                  link.click();
-              }
-            } else {
-              event.preventDefault();
-              const x = Math.floor(Math.random() * (canvas.width - 100)) + 50;
-              const y = Math.floor(Math.random() * (canvas.height - 100)) + 50;
-              const angle = Math.random() * Math.PI * 2;
-              const scale = Math.random() * 2.5 + 0.5;
-              const strokeColor = randomColor();
-              const fillColor = randomColor();
-              const shapeButtons = [
-                "KeyS",
-                "KeyH",
-                "KeyU",
-                "KeyL",
-                "KeyN",
-                "KeyT",
-              ];
-              const code = shapeButtons.includes(event.code)
-                ? event.code
-                : shapeButtons[Math.floor(Math.random() * shapeButtons.length)];
-              ctx.translate(x, y);
-              ctx.rotate(angle);
-              ctx.scale(scale, scale);
-              ctx.beginPath();
-              switch (code) {
-                case "KeyS":
-                  // Face
-                  ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
-                  ctx.moveTo(110, 75);
-                  ctx.arc(75, 75, 35, 0, Math.PI, false); // Mouth (clockwise)
-                  ctx.moveTo(65, 65);
-                  ctx.arc(60, 65, 5, 0, Math.PI * 2, true); // Left eye
-                  ctx.moveTo(95, 65);
-                  ctx.arc(90, 65, 5, 0, Math.PI * 2, true); // Right eye
-                  break;
-                case "KeyH":
-                  // Heart
-                  ctx.moveTo(75, 40);
-                  ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
-                  ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
-                  ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
-                  ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
-                  ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
-                  ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
-                  break;
-                case "KeyU":
-                  var letter =
-                    alphabet.toUpperCase()[
-                      Math.floor(Math.random() * alphabet.length)
-                    ];
-                  ctx.font = `100 100px Arial`;
-                  ctx.fillText(letter, 0, 0);
-                  break;
-                case "KeyL":
-                  var letter =
-                    alphabet.toLowerCase()[
-                      Math.floor(Math.random() * alphabet.length)
-                    ];
-                  ctx.font = "100 100px Arial";
-                  ctx.fillText(letter, 0, 0);
-                  break;
-                case "KeyN":
-                  var number = Math.floor(Math.random() * 10).toString();
-                  ctx.font = "100 100px Arial";
-                  ctx.fillText(number, 0, 0);
-                  break;
-                default:
-                case "KeyT":
-                  // Star
-                  const outerWidth = 50;
-                  const innerWidth = 30;
-                  const pointCount = 4 + Math.floor(Math.random() * 4);
-                  ctx.moveTo(outerWidth, 0);
-                  for (var i = 0; i < pointCount * 2; i++) {
-                    const angle = (Math.PI / pointCount) * i;
-                    ctx.lineTo(
-                      (i % 2 ? innerWidth : outerWidth) * Math.cos(angle),
-                      (i % 2 ? innerWidth : outerWidth) * Math.sin(angle)
-                    );
-                  }
-                  ctx.closePath();
-              }
-              ctx.lineWidth = 4 / scale;
-              ctx.strokeStyle = strokeColor;
-              ctx.fillStyle = fillColor;
-              ctx.stroke();
-              ctx.resetTransform();
-            }
-          },
-          false
-        );
-      });
     </script>
-    <style>
-      #myCanvas {
-        background-color: black;
-        border: 1px solid black;
-      }
-    </style>
-  </head>
-  <body encoding="utf8">
-    <button id="fsbutton">Full Screen</button>
-    <canvas id="myCanvas" width="500" height="500"></canvas>
-    <a id="link"></a>
-  </body>
+</body>
 </html>
