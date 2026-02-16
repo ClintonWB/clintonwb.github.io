@@ -191,9 +191,15 @@
             });
 
             // Button Listeners
-            document.getElementById("clearButton").addEventListener("click", clearCanvas);
-            document.getElementById("saveButton").addEventListener("click", saveCanvas);
-            document.getElementById("fsbutton").addEventListener("click", () => {
+            document.getElementById("clearButton").addEventListener("click", function(e){
+                clearCanvas();
+                this.blur();
+            });
+            document.getElementById("saveButton").addEventListener("click", function(e){s
+                aveCanvas();
+                this.blur();
+            });
+            document.getElementById("fsbutton").addEventListener("click", function(e){
                 if (!document.fullscreenElement) {
                     container.requestFullscreen();
                     document.getElementById("fsbutton").innerText = "Exit Full Screen";
@@ -201,17 +207,19 @@
                     document.exitFullscreen();
                     document.getElementById("fsbutton").innerText = "Full Screen";
                 }
+                this.blur();
             });
 
             // Keyboard Shortcuts
             document.addEventListener("keydown", (event) => {
                 if (event.repeat) return;
+                if (event.code === "Space" || event.code === "Enter") {
+                    event.preventDefault();
+                }
 
-                if (event.code === "KeyF") {
-                    if (!document.fullscreenElement) container.requestFullscreen();
-                    else document.exitFullscreen();
+                if (event.code === "KeyF" && !document.fullscreenElement) {
+                    container.requestFullscreen();
                 } else {
-                    // C and S keys now fall into this random shape logic
                     drawRandomShape(event.code);
                 }
             });
