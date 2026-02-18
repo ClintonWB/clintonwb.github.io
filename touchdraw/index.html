@@ -109,8 +109,14 @@
             const ctx = canvas.getContext("2d");
             
             function resize() {
+                const tempImage = canvas.toDataURL();
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
+                const img = new Image();
+                img.onload = ()=> {
+                    ctx.drawImage(img,0,0);
+                }
+                img.src = tempImage;
             }
             window.addEventListener('resize', resize);
             resize();
@@ -195,8 +201,8 @@
                 clearCanvas();
                 this.blur();
             });
-            document.getElementById("saveButton").addEventListener("click", function(e){s
-                aveCanvas();
+            document.getElementById("saveButton").addEventListener("click", function(e){
+                saveCanvas();
                 this.blur();
             });
             document.getElementById("fsbutton").addEventListener("click", function(e){
