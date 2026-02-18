@@ -109,14 +109,19 @@
             const ctx = canvas.getContext("2d");
             
             function resize() {
-                const tempImage = canvas.toDataURL();
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                const img = new Image();
-                img.onload = ()=> {
-                    ctx.drawImage(img,0,0);
+                if (canvas.width > 0 && canvas.height > 0) {
+                    const tempImage = canvas.toDataURL();
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    const img = new Image();
+                    img.onload = () => {
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    };
+                    img.src = tempImage;
+                } else {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
                 }
-                img.src = tempImage;
             }
             window.addEventListener('resize', resize);
             resize();
