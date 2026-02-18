@@ -111,11 +111,20 @@
             function resize() {
                 if (canvas.width > 0 && canvas.height > 0) {
                     const tempImage = canvas.toDataURL();
+                    const oldWidth = canvas.width;
+                    const oldHeight = canvas.height;
                     canvas.width = window.innerWidth;
                     canvas.height = window.innerHeight;
                     const img = new Image();
                     img.onload = () => {
-                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        const scale = Math.min(canvas.width / oldWidth, canvas.height / oldHeight);
+                        const newWidth = oldWidth * scale;
+                        const newHeight = oldHeight * scale;
+
+                        const offsetX = (canvas.width - newWidth) / 2;
+                        const offsetY = (canvas.height - newHeight) / 2;
+
+                        ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
                     };
                     img.src = tempImage;
                 } else {
