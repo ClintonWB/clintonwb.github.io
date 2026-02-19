@@ -102,38 +102,104 @@
 
     <script type="text/javascript">
         const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        
+        function debounce(callback, delay) {
+            let timer
+            return function() {
+                clearTimeout(timer)
+                timer = setTimeout(() => {
+                callback();
+                }, delay)
+            }
+        }
+
+        function getBoundingBox(ctx, width, height) {
+            const imageData = ctx.getImageData(0, 0, width, height);
+            const data = new Uint32Array(imageData.data.buffer); // Treat 4 bytes as 1 unit
+
+            let minY = 0, maxY = height - 1, minX = 0, maxX = width - 1;
+
+            // 1. Find Top (Scan rows top-to-bottom)
+            while (minY < height && !rowHasPixels(data, minY, width)) minY++;
+            if (minY === height) return null; // Canvas is empty
+
+            // 2. Find Bottom (Scan rows bottom-to-top)
+            while (maxY > minY && !rowHasPixels(data, maxY, width)) maxY--;
+
+            // 3. Find Left (Scan columns left-to-right, only between minY and maxY)
+            while (minX < width && !colHasPixels(data, minX, minY, maxY, width)) minX++;
+
+            // 4. Find Right (Scan columns right-to-left, only between minY and maxY)
+            while (maxX > minX && !colHasPixels(data, maxX, minY, maxY, width)) maxX--;
+
+            return {
+                x: minX,
+                y: minY,
+                w: maxX - minX + 1,
+                h: maxY - minY + 1
+            };
+        }
+
+        // Helper: Check if a specific row contains any non-zero pixels
+        function rowHasPixels(data, y, width) {
+            const start = y * width;
+            for (let x = 0; x < width; x++) {
+                if (data[start + x] !== 0) return true;
+            }
+            return false;
+        }
+
+        // Helper: Check if a specific column contains any non-zero pixels
+        function colHasPixels(data, x, minY, maxY, width) {
+            for (let y = minY; y <= maxY; y++) {
+                if (data[y * width + x] !== 0) return true;
+            }
+            return false;
+        }
+
+        function resize(ctx, canvas) {
+            const padding = 40; 
+            const box = getBoundingBox(ctx, canvas.width, canvas.height);
+
+            const winW = window.innerWidth;
+            const winH = window.innerHeight;
+
+            if (!box) {
+                canvas.width = winW;
+                canvas.height = winH;
+                return;
+            }
+
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = box.w;
+            tempCanvas.height = box.h;
+            tempCanvas.getContext('2d').putImageData(
+                ctx.getImageData(box.x, box.y, box.w, box.h), 0, 0
+            );
+
+            canvas.width = winW;
+            canvas.height = winH;
+
+            const availableW = winW - (padding * 2);
+            const availableH = winH - (padding * 2);
+            const scale = Math.min(1, availableW / box.w, availableH / box.h);
+            
+            const finalW = box.w * scale;
+            const finalH = box.h * scale;
+
+            const offsetX = (winW - finalW) / 2;
+            const offsetY = (winH - finalH) / 2;
+
+            ctx.drawImage(tempCanvas, 0, 0, box.w, box.h, offsetX, offsetY, finalW, finalH);
+        }
 
         window.addEventListener("load", () => {
             const container = document.getElementById("app-container");
             const canvas = document.getElementById("myCanvas");
             const ctx = canvas.getContext("2d");
             
-            function resize() {
-                if (canvas.width > 0 && canvas.height > 0) {
-                    const tempImage = canvas.toDataURL();
-                    const oldWidth = canvas.width;
-                    const oldHeight = canvas.height;
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                    const img = new Image();
-                    img.onload = () => {
-                        const scale = Math.min(canvas.width / oldWidth, canvas.height / oldHeight);
-                        const newWidth = oldWidth * scale;
-                        const newHeight = oldHeight * scale;
-
-                        const offsetX = (canvas.width - newWidth) / 2;
-                        const offsetY = (canvas.height - newHeight) / 2;
-
-                        ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
-                    };
-                    img.src = tempImage;
-                } else {
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                }
-            }
-            window.addEventListener('resize', resize);
-            resize();
+            window.addEventListener('resize', debounce(resize.bind(this,canvas,ctx), 250));
+            resize(canvas, ctx);
 
             let lineWidth = 3;
             let currentTouches = [];
@@ -278,7 +344,7 @@
                         ctx.arc(60, 65, 5, 0, Math.PI * 2, true);
                         ctx.moveTo(95, 65);
                         ctx.arc(90, 65, 5, 0, Math.PI * 2, true);
-                        ctx.fill();
+                        ctx.stroke();
                         break;
                     case "KeyH":
                         ctx.moveTo(75, 40);
@@ -288,7 +354,7 @@
                         ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
                         ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
                         ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
-                        ctx.fill();
+                        ctx.stroke();
                         break;
                     case "KeyU":
                     case "KeyL":
@@ -308,7 +374,7 @@
                             ctx.lineTo(r * Math.cos(a), r * Math.sin(a));
                         }
                         ctx.closePath();
-                        ctx.fill();
+                        ctx.stroke();
                         break;
                 }
                 ctx.restore();
