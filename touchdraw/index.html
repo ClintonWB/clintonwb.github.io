@@ -104,11 +104,16 @@
         const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         
         function debounce(callback, delay) {
-            let timer
+            let timer = null;
             return function() {
-                clearTimeout(timer)
+                if(timer === null){
+                    callback();
+                } else {
+                    clearTimeout(timer);   
+                }
                 timer = setTimeout(() => {
-                callback();
+                    timer = null;
+                    callback();
                 }, delay)
             }
         }
