@@ -198,8 +198,8 @@
             const canvas = document.getElementById("myCanvas");
             const ctx = canvas.getContext("2d");
             
-            window.addEventListener('resize', debounce(resize.bind(this,canvas,ctx), 250));
-            resize(canvas, ctx);
+            window.addEventListener('resize', debounce(resize.bind(this,ctx,canvas), 250));
+            resize(ctx, canvas);
 
             let lineWidth = 3;
             let currentTouches = [];
